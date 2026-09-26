@@ -330,7 +330,7 @@ strong, b { font-weight: var(--medium); }
    ========================================================================= */
 .bento { display: grid; gap: 14px; }
 .bento__photo { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 3; }
-.bento__photo img { width: 100%; height: 100%; object-fit: cover; }
+.bento__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 62%; }
 
 @media (min-width: 768px) {
   .bento { grid-template-columns: repeat(2, 1fr); gap: 18px; }
@@ -339,7 +339,7 @@ strong, b { font-weight: var(--medium); }
 }
 @media (min-width: 1100px) {
   .bento { grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .bento__photo { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; min-height: 100%; }
+  .bento__photo { grid-column: 1 / -1; aspect-ratio: 21 / 9; }   /* фото — полосой между 3-м и 4-м пунктом */
   .bento__wide-md { grid-column: span 2; }
 }
 
