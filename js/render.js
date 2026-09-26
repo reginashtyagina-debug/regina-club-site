@@ -27,7 +27,7 @@
     return ph;
   }
 
-  // Цвет карточек чередуется «шахматкой»: голубой / зелёный
+  // Цвет карточек экспертов чередуется «шахматкой»: голубой / зелёный
   const TONES = ['sky', 'sage', 'sage', 'sky'];
 
   function personPhoto(src, alt, comment) {
@@ -44,20 +44,6 @@
       item.appendChild(el('p', 'expert__name', expert.name));
       item.appendChild(personPhoto(expert.photo, expert.name, 'ФОТО ЭКСПЕРТА ' + (i + 1)));
       item.appendChild(el('p', 'expert__role', expert.role));
-      frag.appendChild(item);
-    });
-    root.appendChild(frag);
-  }
-
-  function renderEvents(list, root) {
-    const frag = document.createDocumentFragment();
-    list.forEach(function (ev, i) {
-      const item = el('li', 'event');
-      item.appendChild(el('p', 'event__date', ev.date));
-      item.appendChild(el('p', 'event__format', ev.format));
-      item.appendChild(el('h4', 'event__title', ev.title));
-      item.appendChild(personPhoto(ev.photo, ev.host, 'ФОТО ВЕДУЩЕГО ЭФИРА ' + (i + 1)));
-      item.appendChild(el('p', 'event__host', ev.host));
       frag.appendChild(item);
     });
     root.appendChild(frag);
@@ -113,12 +99,6 @@
   const reviewsRoot = document.getElementById('reviews-track');
   if (expertsRoot && typeof EXPERTS !== 'undefined') renderExperts(EXPERTS, expertsRoot);
   if (reviewsRoot && typeof REVIEWS !== 'undefined') renderReviews(REVIEWS, reviewsRoot);
-
-  const eventsBox = document.getElementById('events');
-  if (eventsBox && typeof EVENTS !== 'undefined' && EVENTS.length) {
-    renderEvents(EVENTS, document.getElementById('events-list'));
-    eventsBox.hidden = false;
-  }
 
   if (typeof CLUB_STATS !== 'undefined') renderStats(CLUB_STATS);
 })();

@@ -343,7 +343,7 @@ strong, b { font-weight: var(--medium); }
 }
 
 /* =========================================================================
-   БЛОК 3 — ФОРМАТ ВСТРЕЧ + БЛИЖАЙШИЕ ЭФИРЫ
+   БЛОК 3 — ФОРМАТ ВСТРЕЧ
    ========================================================================= */
 .rhythm { display: grid; gap: 14px; }
 .rhythm__item {
@@ -372,70 +372,7 @@ strong, b { font-weight: var(--medium); }
   .rhythm__value--word { font-size: 38px; min-height: 86px; display: flex; align-items: flex-end; }
 }
 
-/* Карточки эфиров — «цветной блок + крупный заголовок + фото внутри» */
-.events { margin-top: 48px; }
-.events__title {
-  font-weight: var(--medium);
-  font-size: clamp(24px, 5.5vw, 34px);
-  letter-spacing: -0.01em;
-  margin-bottom: 20px;
-}
-.events__list {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 82%;
-  gap: 14px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  margin: 0 calc(var(--gutter) * -1);
-  padding: 4px var(--gutter) 16px;
-  scroll-padding: 0 var(--gutter);
-}
-.event {
-  position: relative;
-  display: grid;
-  grid-template-rows: auto auto auto 1fr auto;
-  min-height: 420px;
-  padding: 22px 22px 18px;
-  border-radius: var(--radius);
-  background: var(--sky);
-  overflow: hidden;
-  scroll-snap-align: start;
-  transition: transform .25s ease;
-}
-.event:hover { transform: translateY(-4px); }
-.event__date {
-  justify-self: start;
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: var(--milk);
-  font-weight: var(--medium);
-  font-size: 13px;
-}
-.event__format { margin-top: 18px; font-size: 14px; }
-.event__title {
-  font-weight: var(--medium);
-  font-size: 30px;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  margin-top: 6px;
-  max-width: 12ch;
-}
-.event .person-photo { margin: 8px -22px 0; }
-.event__host {
-  position: relative;
-  padding-top: 12px;
-  border-top: 1px solid rgba(11, 11, 11, 0.2);
-  font-size: 13px;
-  font-weight: var(--medium);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-@media (min-width: 768px) {
-  .events__list { grid-auto-flow: row; grid-template-columns: repeat(3, 1fr); overflow: visible; margin: 0; padding: 0; }
-}
-
-/* Фото человека внутри цветной карточки (эфиры, эксперты) */
+/* Фото человека внутри цветной карточки (эксперты) */
 .person-photo {
   position: relative;
   min-height: 180px;
