@@ -103,4 +103,16 @@
   if (reviewsRoot && typeof REVIEWS !== 'undefined') renderReviews(REVIEWS, reviewsRoot);
 
   if (typeof CLUB_STATS !== 'undefined') renderStats(CLUB_STATS);
+
+  // Видео: YouTube-плеер подгружается только по нажатию
+  document.querySelectorAll('[data-youtube]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const frame = document.createElement('iframe');
+      frame.src = 'https://www.youtube-nocookie.com/embed/' + btn.getAttribute('data-youtube') + '?autoplay=1&rel=0';
+      frame.title = 'Приветственное видео Регины Штягиной';
+      frame.allow = 'autoplay; encrypted-media; fullscreen; picture-in-picture';
+      frame.allowFullscreen = true;
+      btn.replaceWith(frame);
+    });
+  });
 })();

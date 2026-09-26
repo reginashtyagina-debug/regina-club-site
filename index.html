@@ -57,17 +57,14 @@
 
           <div class="hero__media">
             <div class="video">
-              <!-- ССЫЛКА НА ВИДЕО С GETCOURSE -->
-              <!-- Замените блок .ph ниже на iframe с GetCourse, например:
-                   <iframe src="ВСТАВЬТЕ_ССЫЛКУ_НА_ВИДЕО_GETCOURSE"
-                           title="Приветственное видео Регины Штягиной"
-                           allow="autoplay; fullscreen; picture-in-picture"
-                           allowfullscreen loading="lazy"></iframe>
-                   Пропорция — 16:9, задаётся в CSS (.video). -->
-              <div class="ph ph--video">
+              <!-- ПРИВЕТСТВЕННОЕ ВИДЕО — YouTube, ID ролика в data-youtube.
+                   Плеер загружается только по нажатию: страница не обращается к YouTube заранее.
+                   Чтобы сменить видео — поменяйте ID (часть ссылки после youtu.be/ или /live/).
+                   Для видео с GetCourse: замените кнопку на <iframe src="ССЫЛКА_GETCOURSE" allowfullscreen></iframe>. -->
+              <button class="video__play" type="button" data-youtube="CZblaAxW5Io" aria-label="Смотреть приветственное видео Регины Штягиной">
                 <span class="ph__play" aria-hidden="true"></span>
-                <span class="ph__label">Приветственное видео (GetCourse)</span>
-              </div>
+                <span class="video__label">Приветственное видео Регины</span>
+              </button>
             </div>
           </div>
 
