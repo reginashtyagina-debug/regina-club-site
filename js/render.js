@@ -42,9 +42,28 @@
     root.appendChild(frag);
   }
 
+  // Скрин сообщения; пока его нет — плейсхолдер с текстом цитаты
+  function reviewShot(review, i) {
+    const fig = el('figure', 'review__shot');
+    fig.appendChild(document.createComment(' СКРИН ОТЗЫВА ' + (i + 1) + ' (' + review.author + ') '));
+    if (review.screenshot) {
+      const img = el('img');
+      img.src = review.screenshot;
+      img.alt = 'Сообщение от участника клуба ' + review.author + ': «' + review.text + '»';
+      img.loading = 'lazy';
+      fig.appendChild(img);
+    } else {
+      const ph = el('div', 'review__shot-ph');
+      ph.appendChild(el('span', 'ph__label', 'Скрин отзыва'));
+      ph.appendChild(el('p', 'review__draft', '«' + review.text + '»'));
+      fig.appendChild(ph);
+    }
+    return fig;
+  }
+
   function renderReviews(list, root) {
     const frag = document.createDocumentFragment();
-    list.forEach(function (review) {
+    list.forEach(function (review, i) {
       const card = el('li', 'review');
       if (review.photo || review.photoLabel) {
         const fig = el('figure', 'review__photo');
@@ -52,7 +71,7 @@
         fig.appendChild(media(review.photo, review.photoLabel || review.author, 'ph--photo', review.photoLabel));
         card.appendChild(fig);
       }
-      card.appendChild(el('blockquote', 'review__text', '«' + review.text + '»'));
+      card.appendChild(reviewShot(review, i));
       card.appendChild(el('p', 'review__author', review.author));
       frag.appendChild(card);
     });
