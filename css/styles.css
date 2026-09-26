@@ -1,0 +1,679 @@
+/* =========================================================================
+   Деловой клуб Регины Штягиной — стили
+   Mobile-first: базовые стили — для телефона, ниже — медиазапросы
+   для планшета (≥ 768px) и десктопа (≥ 1100px).
+   ========================================================================= */
+
+/* ---------- Дизайн-токены ---------- */
+:root {
+  /* Основная палитра */
+  --ivory: #F7F1E7;
+  --ivory-deep: #EFE5D5;
+  --graphite: #2B2A2E;
+  --graphite-soft: #5B5857;
+  --bordeaux: #6D1F2E;
+  --bordeaux-deep: #561724;
+  --gold: #B8935A;
+  --gold-light: #D9BD8C;
+  --ink: #161629;
+
+  /* Акценты */
+  --teal: #7FD4D9;
+  --red: #E8483C;
+  --green: #8FBC6E;
+
+  /* Линии и плейсхолдеры */
+  --line: rgba(43, 42, 46, 0.14);
+  --line-light: rgba(247, 241, 231, 0.18);
+  --ph-bg: #E4D8C4;
+  --ph-ink: #8A7A63;
+
+  /* Шрифты */
+  --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-body: 'Manrope', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Ритм */
+  --gutter: 20px;
+  --section-y: 64px;
+  --radius: 18px;
+  --radius-sm: 12px;
+  --container: 1180px;
+}
+
+@media (min-width: 768px) {
+  :root { --gutter: 32px; --section-y: 96px; }
+}
+@media (min-width: 1100px) {
+  :root { --section-y: 120px; }
+}
+
+/* ---------- База ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--graphite);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+/* В Cormorant по умолчанию «старинные» цифры (1 похожа на I) — включаем прописные */
+.hero__title, .section__title, .feature__title, .rhythm__value, .host__lead,
+.host__facts dt, .review__text, .pricing__price, .final__title {
+  font-variant-numeric: lining-nums;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+h1, h2, h3, p, ul, ol, dl, dd, figure, blockquote { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+a { color: inherit; }
+
+.container {
+  width: 100%;
+  max-width: calc(var(--container) + var(--gutter) * 2);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ---------- Типографика ---------- */
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--bordeaux);
+  margin-bottom: 14px;
+}
+.eyebrow--light { color: var(--gold-light); }
+
+.section__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(32px, 7vw, 52px);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 32px;
+}
+@media (min-width: 768px) {
+  .section__title { margin-bottom: 48px; }
+}
+
+/* ---------- Кнопки ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding: 16px 28px;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color .2s ease, color .2s ease;
+}
+.btn--primary { background: var(--bordeaux); color: var(--ivory); }
+.btn--primary:hover { background: var(--bordeaux-deep); }
+.btn--gold { background: var(--gold); color: var(--ink); }
+.btn--gold:hover { background: var(--gold-light); }
+.btn:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
+
+/* На телефоне CTA — во всю ширину: удобнее нажимать большим пальцем */
+@media (max-width: 767px) {
+  .btn { width: 100%; }
+}
+
+/* ---------- Плейсхолдеры медиа (удалить после замены на реальные фото) ---------- */
+.ph {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  background:
+    repeating-linear-gradient(135deg, transparent 0 14px, rgba(138, 122, 99, 0.08) 14px 28px),
+    var(--ph-bg);
+  color: var(--ph-ink);
+  text-align: center;
+}
+.ph__label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+.ph--video { background-color: #2A2940; color: var(--gold-light);
+  background-image: repeating-linear-gradient(135deg, transparent 0 14px, rgba(255,255,255,0.03) 14px 28px); }
+.ph__play {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  border: 2px solid var(--gold-light);
+  position: relative;
+}
+.ph__play::after {
+  content: '';
+  position: absolute;
+  left: 26px; top: 20px;
+  border-left: 16px solid var(--gold-light);
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+}
+.ph--form { min-height: 160px; border: 2px dashed var(--ph-ink); border-radius: var(--radius); background: transparent; }
+
+/* ---------- Шапка сайта Академии (заглушка) ---------- */
+.site-header {
+  border-bottom: 1px solid var(--line);
+  background: var(--ivory);
+}
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 64px;
+}
+.site-header__logo {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.05;
+  color: var(--ink);
+  text-decoration: none;
+}
+.site-header__stub {
+  font-size: 12px;
+  color: var(--ph-ink);
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Секции ---------- */
+.section { padding: var(--section-y) 0; }
+.section--alt { background: var(--ivory-deep); }
+.section--dark { background: var(--ink); color: var(--ivory); }
+.section--dark .section__title { color: var(--ivory); }
+.section--bordeaux { background: var(--bordeaux); color: var(--ivory); }
+
+/* =========================================================================
+   БЛОК 1 — HERO
+   ========================================================================= */
+.hero { padding: 40px 0 var(--section-y); }
+.hero__grid { display: grid; align-content: start; }
+.hero__grid > * { min-width: 0; }
+
+.hero__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(42px, 11vw, 80px);
+  line-height: 1;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+.hero__subtitle {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(21px, 5vw, 28px);
+  line-height: 1.25;
+  color: var(--bordeaux);
+  margin-bottom: 28px;
+}
+/* На телефоне видео стоит сразу под подзаголовком (порядок в разметке) */
+.hero__media { margin-bottom: 28px; }
+.hero__offer {
+  font-size: 16px;
+  color: var(--graphite-soft);
+  max-width: 34em;
+  margin-bottom: 16px;
+}
+.hero__accent {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--ink);
+  margin-bottom: 28px;
+}
+.hero__cta { justify-self: start; }
+
+.video {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--ink);
+  box-shadow: 0 24px 60px -30px rgba(22, 22, 41, 0.55);
+}
+.video iframe, .video video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  border: 0;
+}
+
+@media (min-width: 768px) {
+  .hero { padding-top: 64px; }
+}
+/* Десктоп: текст слева, видео — отдельной колонкой справа */
+@media (min-width: 1100px) {
+  .hero__grid {
+    grid-template-columns: 1.05fr 1fr;
+    column-gap: 64px;
+  }
+  .hero__grid > * { grid-column: 1; }
+  .hero__media {
+    grid-column: 2;
+    grid-row: 1 / span 6;
+    align-self: center;
+    margin: 0;
+  }
+}
+
+/* =========================================================================
+   БЛОК 2 — КАК УСТРОЕНА РАБОТА КЛУБА
+   ========================================================================= */
+.features {
+  display: grid;
+  gap: 16px;
+}
+.feature {
+  position: relative;
+  padding: 28px 24px 28px;
+  background: #FFFCF6;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+/* Цветная метка-акцент у каждой карточки */
+.feature::before {
+  content: '';
+  display: block;
+  width: 36px; height: 3px;
+  border-radius: 2px;
+  background: var(--gold);
+  margin-bottom: 20px;
+}
+.feature:nth-of-type(6n+2)::before { background: var(--teal); }
+.feature:nth-of-type(6n+3)::before { background: var(--green); }
+.feature:nth-of-type(6n+4)::before { background: var(--red); }
+.feature:nth-of-type(6n+5)::before { background: var(--bordeaux); }
+.feature:nth-of-type(6n+6)::before { background: var(--teal); }
+
+.feature__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.feature__text { font-size: 15px; color: var(--graphite-soft); }
+
+.features__photo {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin: 8px 0;
+}
+.features__photo img { width: 100%; height: 100%; object-fit: cover; }
+
+@media (min-width: 768px) {
+  .features { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .features__photo { grid-column: 1 / -1; aspect-ratio: 16 / 7; }
+}
+@media (min-width: 1100px) {
+  .features { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .feature { padding: 36px 32px; }
+  .features__photo { aspect-ratio: 16 / 6; margin: 16px 0; }
+}
+
+/* =========================================================================
+   БЛОК 3 — ФОРМАТ ВСТРЕЧ
+   ========================================================================= */
+.rhythm { border-top: 1px solid var(--line-light); }
+.rhythm__item {
+  display: grid;
+  gap: 8px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line-light);
+}
+.rhythm__value {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 0.9;
+  color: var(--gold-light);
+}
+.rhythm__value--word {
+  font-size: 32px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.1;
+}
+.rhythm__text { font-size: 16px; color: rgba(247, 241, 231, 0.78); max-width: 36em; }
+.rhythm__text strong { color: var(--ivory); font-weight: 600; }
+.rhythm__note {
+  margin-top: 28px;
+  font-size: 13px;
+  color: rgba(247, 241, 231, 0.55);
+}
+
+@media (min-width: 768px) {
+  .rhythm__item {
+    grid-template-columns: 260px 1fr;
+    align-items: center;
+    gap: 32px;
+    padding: 32px 0;
+  }
+  .rhythm__value { font-size: 88px; }
+  .rhythm__value--word { font-size: 38px; }
+  .rhythm__text { font-size: 18px; }
+}
+
+/* =========================================================================
+   БЛОК 4 — КТО ВЕДЁТ КЛУБ
+   ========================================================================= */
+.host { display: grid; gap: 36px; }
+.host__photo {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius);
+  overflow: hidden;
+  max-width: 460px;
+}
+.host__photo img { width: 100%; height: 100%; object-fit: cover; }
+.host__text .section__title { margin-bottom: 20px; }
+.host__text p { color: var(--graphite-soft); margin-bottom: 14px; }
+.host__text .host__lead {
+  font-family: var(--font-display);
+  font-size: 24px;
+  line-height: 1.3;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+.host__facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.host__facts dt {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(24px, 6vw, 36px);
+  line-height: 1;
+  color: var(--bordeaux);
+  margin-bottom: 6px;
+}
+.host__facts dd { font-size: 12px; line-height: 1.35; color: var(--graphite-soft); }
+
+@media (min-width: 900px) {
+  .host { grid-template-columns: 5fr 7fr; align-items: center; gap: 72px; }
+  .host__photo { max-width: none; }
+}
+
+/* =========================================================================
+   БЛОК 4.5 — ЭКСПЕРТЫ (сетка: 2 → 3 → 4 → 5 в ряд)
+   ========================================================================= */
+.experts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px 16px;
+}
+.expert { text-align: center; }
+.expert__photo {
+  width: min(100%, 150px);
+  aspect-ratio: 1;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px var(--line), 0 0 0 5px var(--ivory), 0 0 0 6px rgba(184, 147, 90, 0.45);
+}
+.expert__photo img { width: 100%; height: 100%; object-fit: cover; }
+.ph--avatar::after {
+  /* силуэт вместо подписи — в маленьком круге текст не читается */
+  content: '';
+  width: 38%; height: 38%;
+  border-radius: 50%;
+  background: rgba(138, 122, 99, 0.35);
+  box-shadow: 0 60px 0 18px rgba(138, 122, 99, 0.35);
+  transform: translateY(-14%);
+}
+.ph--avatar { overflow: hidden; }
+.expert__name {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.3;
+}
+.expert__role {
+  font-size: 13px;
+  color: var(--graphite-soft);
+  line-height: 1.35;
+  margin-top: 2px;
+}
+
+@media (min-width: 600px)  { .experts { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 900px)  { .experts { grid-template-columns: repeat(4, 1fr); gap: 40px 24px; } }
+@media (min-width: 1100px) { .experts { grid-template-columns: repeat(5, 1fr); } }
+
+/* =========================================================================
+   БЛОК 5 — КОМУ ПОДХОДИТ
+   ========================================================================= */
+.audience { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.audience__item {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--graphite);
+}
+.audience__marker {
+  width: 12px; height: 12px;
+  margin-top: 8px;
+  border-radius: 50%;
+  border: 2px solid var(--bordeaux);
+}
+@media (min-width: 900px) {
+  .audience { grid-template-columns: repeat(2, 1fr); column-gap: 48px; border-top: 0; }
+  .audience__item { border-top: 1px solid var(--line); border-bottom: 0; padding: 28px 0; font-size: 19px; }
+}
+
+/* =========================================================================
+   БЛОК 6 — ОТЗЫВЫ
+   Этап 1: нативная горизонтальная лента с scroll-snap (свайп работает уже сейчас).
+   Этап 2: стрелки, точки, фокус-состояния.
+   ========================================================================= */
+.reviews { position: relative; }
+.reviews__track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 var(--gutter);
+  align-items: flex-start; /* карточки разной высоты не растягиваются под самую длинную */
+  padding: 4px var(--gutter) 24px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+/* Выравнивание первой карточки по левому краю контейнера на широких экранах */
+@media (min-width: 1244px) {
+  .reviews__track {
+    padding-left: calc((100vw - var(--container)) / 2);
+    padding-right: calc((100vw - var(--container)) / 2);
+    scroll-padding: 0 calc((100vw - var(--container)) / 2);
+  }
+}
+.review {
+  flex: 0 0 86%;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 24px;
+  background: #FFFCF6;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.review__photo {
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.review__photo img { width: 100%; height: 100%; object-fit: cover; }
+.review__photo .ph__label { font-size: 11px; }
+.review__text {
+  flex: 1;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.4;
+  color: var(--ink);
+}
+.review__author {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--bordeaux);
+}
+
+@media (min-width: 600px)  { .review { flex-basis: 360px; } }
+@media (min-width: 1100px) { .review { flex-basis: 380px; padding: 32px 28px; } }
+
+/* =========================================================================
+   БЛОК 7 — УСЛОВИЯ УЧАСТИЯ
+   ========================================================================= */
+.pricing {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #FFFCF6;
+  border: 1px solid var(--line);
+  max-width: 980px;
+  margin: 0 auto;
+}
+.pricing__head {
+  padding: 32px 24px;
+  background: var(--ink);
+  color: var(--ivory);
+}
+.pricing__price {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(52px, 14vw, 88px);
+  line-height: 1;
+  color: var(--ivory);
+  white-space: nowrap;
+}
+.pricing__price span {
+  font-size: 0.4em;
+  font-weight: 500;
+  color: var(--gold-light);
+}
+.pricing__body { padding: 32px 24px; }
+.pricing__subtitle {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--bordeaux);
+  margin-bottom: 16px;
+}
+.checklist { margin-bottom: 32px; }
+.checklist li {
+  position: relative;
+  padding: 12px 0 12px 34px;
+  border-bottom: 1px solid var(--line);
+  font-size: 16px;
+}
+.checklist li::before {
+  content: '';
+  position: absolute;
+  left: 2px; top: 17px;
+  width: 16px; height: 9px;
+  border-left: 2px solid var(--green);
+  border-bottom: 2px solid var(--green);
+  transform: rotate(-45deg);
+}
+
+@media (min-width: 900px) {
+  .pricing { display: grid; grid-template-columns: 5fr 7fr; }
+  .pricing__head { padding: 48px 40px; display: flex; flex-direction: column; justify-content: center; }
+  .pricing__body { padding: 48px 48px; }
+}
+
+/* =========================================================================
+   БЛОК 8 — ФИНАЛ
+   ========================================================================= */
+.final__inner { max-width: 880px; text-align: center; }
+.final__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(32px, 7.5vw, 56px);
+  line-height: 1.1;
+  color: var(--ivory);
+  margin-bottom: 36px;
+}
+.final__text {
+  font-size: 17px;
+  color: rgba(247, 241, 231, 0.82);
+  max-width: 40em;
+  margin: 0 auto 36px;
+}
+
+.steps {
+  display: grid;
+  gap: 10px;
+  margin: 0 auto 36px;
+  max-width: 760px;
+  counter-reset: none;
+}
+.steps__item {
+  padding: 14px 18px;
+  border: 1px solid var(--line-light);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 15px;
+  text-align: left;
+  color: rgba(247, 241, 231, 0.82);
+}
+.steps__item span {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 2px;
+}
+.steps__item--current {
+  background: rgba(247, 241, 231, 0.08);
+  border-color: var(--gold);
+  color: var(--ivory);
+}
+@media (min-width: 768px) {
+  .steps { grid-template-columns: repeat(3, 1fr); }
+  .steps__item { text-align: center; }
+}
+
+/* ---------- Заглушка формы и подвал ---------- */
+.apply-stub { padding: 48px 0; }
+.site-footer {
+  padding: 32px 0;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
