@@ -6,9 +6,12 @@
   <title>Деловой клуб Регины Штягиной — Академия PR и Личного бренда</title>
   <meta name="description" content="Сообщество предпринимателей, экспертов и медийных лидеров со всего мира. Участие — 5 490 ₽/мес.">
 
+  <!-- Фирменный шрифт — Futura MediumC / LightC (подключается в css/styles.css
+       из папки fonts/). Jost — запасной геометрический шрифт с кириллицей,
+       работает, пока файлы Futura не загружены. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -16,16 +19,19 @@
 
   <!-- =====================================================================
        ШАПКА САЙТА АКАДЕМИИ
-       Страница — часть reginashtyagina.ru. Сюда встраивается общее меню
-       сайта Академии (логотип, навигация, контакты). Ниже — временная
-       заглушка той же высоты, чтобы проверить вёрстку.
+       Сюда встраивается общее меню reginashtyagina.ru.
+       Логотип «shtyagina» и иконка «S.» — ЗАМЕНИТЬ на фирменные SVG как есть.
        ===================================================================== -->
-  <header class="site-header" id="site-header">
+  <header class="site-header">
     <div class="container site-header__inner">
-      <a class="site-header__logo" href="/">Академия PR<br>и Личного бренда</a>
+      <a class="logo" href="/" aria-label="shtyagina — на главную">
+        <!-- ЛОГОТИП SHTYAGINA (SVG) -->
+        <span class="logo__icon" aria-hidden="true">S.</span>
+        <span class="logo__word">shtyagina</span>
+      </a>
       <nav class="site-header__nav" aria-label="Меню сайта Академии">
         <!-- ОБЩЕЕ МЕНЮ САЙТА АКАДЕМИИ -->
-        <span class="site-header__stub">[меню сайта Академии]</span>
+        <span class="stub">[меню сайта Академии]</span>
       </nav>
     </div>
   </header>
@@ -34,148 +40,197 @@
 
     <!-- ===================================================================
          БЛОК 1 — ПЕРВЫЙ ЭКРАН
+         Голубой блок + крупный заголовок + видео, встроенное в композицию.
          =================================================================== -->
-    <section class="hero" id="hero">
-      <div class="container hero__grid">
-        <p class="eyebrow hero__eyebrow">Академия PR и Личного бренда</p>
-        <h1 class="hero__title">Деловой клуб Регины Штягиной</h1>
-        <p class="hero__subtitle">Сообщество предпринимателей, экспертов и медийных лидеров со всего мира</p>
+    <section class="section section--first" id="hero">
+      <div class="container">
+        <div class="panel panel--sky hero">
+          <div class="hero__text">
+            <p class="chip chip--milk">Академия PR и Личного бренда</p>
+            <h1 class="hero__title">Деловой клуб Регины Штягиной</h1>
+            <p class="hero__subtitle">Сообщество предпринимателей, экспертов и медийных лидеров со всего мира</p>
+          </div>
 
-        <div class="hero__media">
-          <div class="video">
-            <!-- ССЫЛКА НА ВИДЕО С GETCOURSE -->
-            <!-- Замените блок .ph ниже на iframe с GetCourse, например:
-                 <iframe src="ВСТАВЬТЕ_ССЫЛКУ_НА_ВИДЕО_GETCOURSE"
-                         title="Приветственное видео Регины Штягиной"
-                         allow="autoplay; fullscreen; picture-in-picture"
-                         allowfullscreen loading="lazy"></iframe>
-                 Пропорция контейнера — 16:9, задаётся в CSS (.video). -->
-            <div class="ph ph--video">
-              <span class="ph__play" aria-hidden="true"></span>
-              <span class="ph__label">Приветственное видео<br>(GetCourse)</span>
+          <div class="hero__media">
+            <div class="video">
+              <!-- ССЫЛКА НА ВИДЕО С GETCOURSE -->
+              <!-- Замените блок .ph ниже на iframe с GetCourse, например:
+                   <iframe src="ВСТАВЬТЕ_ССЫЛКУ_НА_ВИДЕО_GETCOURSE"
+                           title="Приветственное видео Регины Штягиной"
+                           allow="autoplay; fullscreen; picture-in-picture"
+                           allowfullscreen loading="lazy"></iframe>
+                   Пропорция — 16:9, задаётся в CSS (.video). -->
+              <div class="ph ph--video">
+                <span class="ph__play" aria-hidden="true"></span>
+                <span class="ph__label">Приветственное видео (GetCourse)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero__offer">
+            <p>Каждый участник клуба проходит проверку. Не разговоры о деле — а подтверждённое дело. Реальный бизнес, реальная экспертиза, реальный результат за плечами.</p>
+            <p class="hero__accent">Если у вас есть дело — вам сюда.</p>
+            <div class="hero__actions">
+              <a class="btn" href="#apply-form">Подать заявку на вступление — 5&nbsp;490&nbsp;₽/мес</a>
+              <!-- Счётчик участников: число задаётся в js/data.js → CLUB_STATS.members -->
+              <p class="counter" data-stat="members" hidden>
+                <span class="counter__num" data-stat-value></span>
+                <span class="counter__label">участников в клубе</span>
+              </p>
             </div>
           </div>
         </div>
-
-        <p class="hero__offer">Каждый участник клуба проходит проверку. Не разговоры о деле — а подтверждённое дело. Реальный бизнес, реальная экспертиза, реальный результат за плечами.</p>
-        <p class="hero__accent">Если у вас есть дело — вам сюда.</p>
-        <a class="btn btn--primary hero__cta" href="#apply-form">Подать заявку на вступление — 5&nbsp;490&nbsp;₽/мес</a>
       </div>
     </section>
 
     <!-- ===================================================================
          БЛОК 2 — КАК УСТРОЕНА РАБОТА КЛУБА
+         Асимметричная сетка карточек с иконками.
          =================================================================== -->
     <section class="section" id="how">
       <div class="container">
-        <p class="eyebrow">Что внутри</p>
+        <p class="chip">Что внутри</p>
         <h2 class="section__title">Как устроена работа клуба</h2>
 
-        <div class="features">
-          <article class="feature">
-            <h3 class="feature__title">4 встречи в месяц с экспертами</h3>
-            <p class="feature__text">Право, искусственный интеллект, визуальный маркетинг, психология — практикующие специалисты разбирают конкретные ситуации участников.</p>
+        <div class="bento">
+          <article class="card card--sage bento__wide">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M8 14h2M14 14h2M8 17.5h2"/></svg>
+            </span>
+            <h3 class="card__title">4 встречи в месяц с экспертами</h3>
+            <p class="card__text">Право, искусственный интеллект, визуальный маркетинг, психология — практикующие специалисты разбирают конкретные ситуации участников.</p>
           </article>
-          <article class="feature">
-            <h3 class="feature__title">Ежемесячные эфиры «Состояние» с&nbsp;Региной Штягиной</h3>
-            <p class="feature__text">Личный разбор переговоров и коммуникаций участников — обратная связь на реальные ситуации.</p>
+
+          <article class="card">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.5"/><path d="M8.2 8.2a5.4 5.4 0 0 0 0 7.6M15.8 8.2a5.4 5.4 0 0 1 0 7.6M5.2 5.2a9.6 9.6 0 0 0 0 13.6M18.8 5.2a9.6 9.6 0 0 1 0 13.6"/></svg>
+            </span>
+            <h3 class="card__title">Ежемесячные эфиры «Состояние» с&nbsp;Региной Штягиной</h3>
+            <p class="card__text">Личный разбор переговоров и коммуникаций участников — обратная связь на реальные ситуации.</p>
           </article>
-          <article class="feature">
-            <h3 class="feature__title">Библиотека видеоуроков</h3>
-            <p class="feature__text">Материалы по самопрезентации, упаковке личного бренда и другим темам — открытый доступ, пополняется регулярно.</p>
+
+          <article class="card">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2.5"/><path d="M10 8.2v5.6l4.6-2.8z"/><path d="M7 21h10"/></svg>
+            </span>
+            <h3 class="card__title">Библиотека видеоуроков</h3>
+            <p class="card__text">Материалы по самопрезентации, упаковке личного бренда и другим темам — открытый доступ, пополняется регулярно.</p>
           </article>
 
           <!-- ФОТО С ЖИВОЙ ВСТРЕЧИ КЛУБА -->
           <!-- Замените .ph на <img src="images/club-meeting.jpg" alt="Живая встреча Делового клуба" loading="lazy">
-               Рекомендуемый размер: 1600×700 (горизонтальное), на мобильном обрезается до 4:3. -->
-          <figure class="features__photo">
+               Живой кадр: улыбки, естественный свет, без постановочности.
+               Рекомендуемый размер: от 1600×1000. -->
+          <figure class="bento__photo">
             <div class="ph ph--photo"><span class="ph__label">Фото с живой встречи клуба</span></div>
           </figure>
 
-          <article class="feature">
-            <h3 class="feature__title">Закрытый чат с постоянными рубриками</h3>
-            <p class="feature__text">Актуальные гранты, изменения в законодательстве, разбор соцсетей участников, тренировка когнитивных навыков — рубрики ведут приглашённые эксперты клуба на регулярной основе.</p>
+          <article class="card">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 4.5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-8.5L6 20.5v-4H5a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2z"/><path d="M7.5 9h9M7.5 12h5.5"/></svg>
+            </span>
+            <h3 class="card__title">Закрытый чат с постоянными рубриками</h3>
+            <p class="card__text">Актуальные гранты, изменения в законодательстве, разбор соцсетей участников, тренировка когнитивных навыков — рубрики ведут приглашённые эксперты клуба на регулярной основе.</p>
           </article>
-          <article class="feature">
-            <h3 class="feature__title">Единая сеть Академии</h3>
-            <p class="feature__text">В клубе — участники всех программ Академии: от «От Анонима до Звезды» до годового сопровождения с Региной. Контакты и знакомства не ограничены одним потоком или одной ступенью.</p>
+
+          <article class="card">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="5.5" cy="6" r="2.5"/><circle cx="18.5" cy="6" r="2.5"/><circle cx="12" cy="18.5" r="2.5"/><path d="M8 6h8M6.8 8.2l4 8M17.2 8.2l-4 8"/></svg>
+            </span>
+            <h3 class="card__title">Единая сеть Академии</h3>
+            <p class="card__text">В клубе — участники всех программ Академии: от «От Анонима до Звезды» до годового сопровождения с Региной. Контакты и знакомства не ограничены одним потоком или одной ступенью.</p>
           </article>
-          <article class="feature">
-            <h3 class="feature__title">Путь от подтверждённой экспертизы к статусу эксперта клуба</h3>
-            <p class="feature__text">Участники с подтверждённой экспертизой становятся ведущими рубрик клуба.</p>
+
+          <article class="card bento__wide-md">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 17.5l6-6 4 4 8-8"/><path d="M15 7.5h6v6"/></svg>
+            </span>
+            <h3 class="card__title">Путь от подтверждённой экспертизы к статусу эксперта клуба</h3>
+            <p class="card__text">Участники с подтверждённой экспертизой становятся ведущими рубрик клуба.</p>
           </article>
         </div>
       </div>
     </section>
 
     <!-- ===================================================================
-         БЛОК 3 — ФОРМАТ ВСТРЕЧ
+         БЛОК 3 — ФОРМАТ ВСТРЕЧ + БЛИЖАЙШИЕ ЭФИРЫ
          =================================================================== -->
-    <section class="section section--dark" id="format">
+    <section class="section" id="format">
       <div class="container">
-        <p class="eyebrow eyebrow--light">Ритм месяца</p>
+        <p class="chip">Ритм месяца</p>
         <h2 class="section__title">Формат встреч</h2>
 
         <ul class="rhythm">
           <li class="rhythm__item">
             <span class="rhythm__value">4</span>
-            <p class="rhythm__text"><strong>встречи в месяц</strong> — практикующие эксперты по праву, ИИ, визуальному маркетингу, психологии и смежным темам</p>
+            <p><strong>встречи в месяц</strong> — практикующие эксперты по праву, ИИ, визуальному маркетингу, психологии и смежным темам</p>
           </li>
           <li class="rhythm__item">
             <span class="rhythm__value">1</span>
-            <p class="rhythm__text"><strong>эфир «Состояние»</strong> — личный разбор коммуникаций с Региной</p>
+            <p><strong>эфир «Состояние»</strong> — личный разбор коммуникаций с Региной</p>
           </li>
           <li class="rhythm__item">
             <span class="rhythm__value rhythm__value--word">каждый день</span>
-            <p class="rhythm__text"><strong>Рубрики в закрытом чате</strong> — гранты, изменения в законодательстве, разбор соцсетей</p>
+            <p><strong>Рубрики в закрытом чате</strong> — гранты, изменения в законодательстве, разбор соцсетей</p>
           </li>
           <li class="rhythm__item">
             <span class="rhythm__value rhythm__value--word">в любой момент</span>
-            <p class="rhythm__text"><strong>Библиотека видеоуроков</strong> — пополняется без привязки к расписанию, доступна в любой момент</p>
+            <p><strong>Библиотека видеоуроков</strong> — пополняется без привязки к расписанию, доступна в любой момент</p>
           </li>
         </ul>
 
-        <p class="rhythm__note">Действующим участникам — актуальное расписание месяца в закрытом чате клуба.</p>
+        <!-- Ближайшие эфиры: карточки строятся из js/data.js → EVENTS.
+             Если массив пустой — подблок скрывается целиком. -->
+        <div class="events" id="events" hidden>
+          <h3 class="events__title">Ближайшие эфиры</h3>
+          <ul class="events__list" id="events-list"></ul>
+        </div>
+
+        <p class="note">Действующим участникам — актуальное расписание месяца в закрытом чате клуба.</p>
       </div>
     </section>
 
     <!-- ===================================================================
          БЛОК 4 — КТО ВЕДЁТ КЛУБ
+         Зелёный блок, фото Регины врезано в композицию справа / снизу.
          =================================================================== -->
-    <section class="section section--alt" id="host">
-      <div class="container host">
-        <figure class="host__photo">
-          <!-- ФОТО РЕГИНЫ -->
-          <!-- Замените .ph на <img src="images/regina.jpg" alt="Регина Штягина" loading="lazy">
-               Рекомендуемый формат: вертикальный портрет 4:5, от 1000×1250. -->
-          <div class="ph ph--portrait"><span class="ph__label">Фото Регины</span></div>
-        </figure>
+    <section class="section" id="host">
+      <div class="container">
+        <div class="panel panel--sage host">
+          <div class="host__text">
+            <p class="chip chip--milk">Кто ведёт клуб</p>
+            <h2 class="host__title">Регина Штягина</h2>
+            <p class="host__lead">15 лет в PR и личном брендинге. Владелица PR-агентства R&amp;R с 2013 года.</p>
+            <p>Среди клиентов — Сбербанк, Башнефть, Мегафон, Heineken, Ростелеком, Porsche, Swarovski.</p>
+            <p>Автор запатентованной методики «От Анонима до Звезды» — по ней прошли уже более 25&nbsp;000 учеников.</p>
+            <p>Владелица единственной сертифицированной Академии PR и Личного бренда, дипломы гособразца.</p>
 
-        <div class="host__text">
-          <p class="eyebrow">Кто ведёт клуб</p>
-          <h2 class="section__title">Регина Штягина</h2>
-          <p class="host__lead">15 лет в PR и личном брендинге. Владелица PR-агентства R&amp;R с 2013 года.</p>
-          <p>Среди клиентов — Сбербанк, Башнефть, Мегафон, Heineken, Ростелеком, Porsche, Swarovski.</p>
-          <p>Автор запатентованной методики «От Анонима до Звезды» — по ней прошли уже более 25&nbsp;000 учеников.</p>
-          <p>Владелица единственной сертифицированной Академии PR и Личного бренда, дипломы гособразца.</p>
+            <dl class="facts">
+              <div><dt>15 лет</dt><dd>в PR и личном брендинге</dd></div>
+              <div><dt>25 000+</dt><dd>учеников методики</dd></div>
+              <div><dt>с 2013</dt><dd>агентство R&amp;R</dd></div>
+            </dl>
+          </div>
 
-          <dl class="host__facts">
-            <div><dt>15 лет</dt><dd>в PR и личном брендинге</dd></div>
-            <div><dt>25 000+</dt><dd>учеников методики</dd></div>
-            <div><dt>с 2013</dt><dd>агентство R&amp;R</dd></div>
-          </dl>
+          <figure class="host__photo">
+            <!-- ФОТО РЕГИНЫ -->
+            <!-- Замените .ph на <img src="images/regina.png" alt="Регина Штягина" loading="lazy">
+                 Лучше всего — фото по пояс, вырезанное на прозрачном фоне (PNG/WebP, от 1000×1300):
+                 оно встанет на зелёный фон и «врежется» в нижний край блока.
+                 Тёплый живой кадр, естественный свет. -->
+            <div class="ph ph--person"><span class="ph__label">Фото Регины</span></div>
+          </figure>
         </div>
       </div>
     </section>
 
     <!-- ===================================================================
          БЛОК 4.5 — ЭКСПЕРТЫ И ПАРТНЁРЫ КЛУБА
-         Карточки выводятся автоматически из массива EXPERTS в js/data.js.
-         Чтобы добавить эксперта — допишите объект в массив, разметку не трогайте.
+         Карточки строятся из js/data.js → EXPERTS.
          =================================================================== -->
     <section class="section" id="experts">
       <div class="container">
-        <p class="eyebrow">Окружение</p>
+        <p class="chip">Окружение</p>
         <h2 class="section__title">Эксперты и партнёры клуба</h2>
         <ul class="experts" id="experts-grid" aria-label="Эксперты и партнёры клуба">
           <!-- заполняется из js/data.js → EXPERTS -->
@@ -186,60 +241,60 @@
     <!-- ===================================================================
          БЛОК 5 — КОМУ ПОДХОДИТ КЛУБ
          =================================================================== -->
-    <section class="section section--alt" id="audience">
+    <section class="section" id="audience">
       <div class="container">
-        <h2 class="section__title">Клуб подходит:</h2>
-        <ul class="audience">
-          <li class="audience__item">
-            <span class="audience__marker" aria-hidden="true"></span>
-            <p>Предпринимателям и владельцам бизнеса, которые формируют профессиональное окружение вне своей ниши</p>
-          </li>
-          <li class="audience__item">
-            <span class="audience__marker" aria-hidden="true"></span>
-            <p>Экспертам и специалистам, которые хотят расти в статусе и находить партнёров своего уровня</p>
-          </li>
-          <li class="audience__item">
-            <span class="audience__marker" aria-hidden="true"></span>
-            <p>Медийным лидерам и блогерам, которым важна связь с деловой и культурной средой, а не только с аудиторией</p>
-          </li>
-          <li class="audience__item">
-            <span class="audience__marker" aria-hidden="true"></span>
-            <p>Тем, кто уже нашёл своё дело и хочет продвигать его среди сильного окружения</p>
-          </li>
-        </ul>
+        <div class="panel panel--sky audience">
+          <h2 class="section__title">Клуб подходит:</h2>
+          <ul class="audience__list">
+            <li class="audience__item">
+              <span class="audience__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M9 7V5a1.5 1.5 0 0 1 1.5-1.5h3A1.5 1.5 0 0 1 15 5v2M3 12.5h18"/></svg></span>
+              <p>Предпринимателям и владельцам бизнеса, которые формируют профессиональное окружение вне своей ниши</p>
+            </li>
+            <li class="audience__item">
+              <span class="audience__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M8.8 13l-1.6 8L12 18.5l4.8 2.5-1.6-8"/></svg></span>
+              <p>Экспертам и специалистам, которые хотят расти в статусе и находить партнёров своего уровня</p>
+            </li>
+            <li class="audience__item">
+              <span class="audience__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"/></svg></span>
+              <p>Медийным лидерам и блогерам, которым важна связь с деловой и культурной средой, а не только с аудиторией</p>
+            </li>
+            <li class="audience__item">
+              <span class="audience__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 21V4M5 4.5h11l-2 4 2 4H5"/></svg></span>
+              <p>Тем, кто уже нашёл своё дело и хочет продвигать его среди сильного окружения</p>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <!-- ===================================================================
-         БЛОК 6 — ОТЗЫВЫ
-         Карточки выводятся автоматически из массива REVIEWS в js/data.js.
-         Сейчас (этап 1) — горизонтальная лента со свайпом на CSS.
-         Стрелки и точки навигации добавим на этапе 2.
+         БЛОК 6 — ОТЗЫВЫ (скрины реальных сообщений)
+         Карточки строятся из js/data.js → REVIEWS.
+         Стрелки и точки слайдера — на этапе интерактива.
          =================================================================== -->
     <section class="section" id="reviews">
       <div class="container">
-        <p class="eyebrow">Отзывы</p>
+        <p class="chip">Отзывы</p>
         <h2 class="section__title">Что говорят участники клуба</h2>
       </div>
       <div class="reviews">
         <ul class="reviews__track" id="reviews-track" aria-label="Отзывы участников">
           <!-- заполняется из js/data.js → REVIEWS -->
         </ul>
-        <!-- ЭТАП 2: сюда добавятся стрелки и точки слайдера -->
       </div>
     </section>
 
     <!-- ===================================================================
          БЛОК 7 — УСЛОВИЯ УЧАСТИЯ
          =================================================================== -->
-    <section class="section section--alt" id="pricing">
+    <section class="section" id="pricing">
       <div class="container">
-        <div class="pricing">
+        <div class="panel panel--sage pricing">
           <div class="pricing__head">
-            <p class="eyebrow eyebrow--light">Условия участия</p>
+            <p class="chip chip--milk">Условия участия</p>
             <p class="pricing__price">5&nbsp;490&nbsp;₽ <span>/ месяц</span></p>
           </div>
-          <div class="pricing__body">
+          <div class="pricing__card">
             <h3 class="pricing__subtitle">Что входит</h3>
             <ul class="checklist">
               <li>4 встречи в месяц с экспертами</li>
@@ -248,7 +303,7 @@
               <li>Закрытый чат с ежедневными рубриками</li>
               <li>Доступ к сети участников на всех уровнях системы Академии</li>
             </ul>
-            <a class="btn btn--gold" href="#apply-form">Подать заявку на вступление</a>
+            <a class="btn" href="#apply-form">Подать заявку на вступление</a>
           </div>
         </div>
       </div>
@@ -257,25 +312,29 @@
     <!-- ===================================================================
          БЛОК 8 — ФИНАЛЬНЫЙ ПРИЗЫВ
          =================================================================== -->
-    <section class="section section--bordeaux final" id="final">
-      <div class="container final__inner">
-        <h2 class="final__title">Деловой клуб Регины Штягиной — часть системы «От&nbsp;Анонима до&nbsp;Звезды»</h2>
+    <section class="section" id="final">
+      <div class="container">
+        <div class="panel panel--sky final">
+          <h2 class="final__title">Деловой клуб Регины Штягиной — часть системы «От&nbsp;Анонима до&nbsp;Звезды»</h2>
 
-        <ol class="steps" aria-label="Ступени системы Академии">
-          <li class="steps__item steps__item--current"><span>Ступень 1</span>Деловой клуб</li>
-          <li class="steps__item"><span>Ступень 2</span>«От Анонима до Звезды»</li>
-          <li class="steps__item"><span>Ступень 3</span>Годовое сопровождение</li>
-        </ol>
+          <ol class="steps" aria-label="Ступени системы Академии">
+            <li class="steps__item steps__item--current"><span>Ступень 1</span>Деловой клуб</li>
+            <li class="steps__item"><span>Ступень 2</span>«От Анонима до Звезды»</li>
+            <li class="steps__item"><span>Ступень 3</span>Годовое сопровождение</li>
+          </ol>
 
-        <p class="final__text">Клуб — первая ступень: здесь вы формируете окружение, находите экспертизу и партнёров, необходимых для роста. Дальнейшие шаги системы — программа «От Анонима до Звезды» и годовое сопровождение с Региной — доступны участникам клуба напрямую.</p>
-        <a class="btn btn--gold" href="#apply-form">Подать заявку на вступление — 5&nbsp;490&nbsp;₽/мес</a>
+          <p class="final__text">Клуб — первая ступень: здесь вы формируете окружение, находите экспертизу и партнёров, необходимых для роста. Дальнейшие шаги системы — программа «От Анонима до Звезды» и годовое сопровождение с Региной — доступны участникам клуба напрямую.</p>
+          <a class="btn" href="#apply-form">Подать заявку на вступление — 5&nbsp;490&nbsp;₽/мес</a>
+
+          <!-- Личная деталь: теннисный мяч (теннис — фан-факт Регины). Только здесь, точечно. -->
+          <svg class="tennis" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M8.5 9.5c7 6 7 23 0 29M39.5 9.5c-7 6-7 23 0 29"/></svg>
+        </div>
       </div>
     </section>
 
     <!-- ===================================================================
          ФОРМА ЗАЯВКИ — ЗАГЛУШКА
-         Все CTA-кнопки ведут на якорь #apply-form. Саму форму соберём
-         отдельным шагом (или сюда встанет виджет формы GetCourse).
+         Все CTA-кнопки ведут на #apply-form. Форму соберём отдельным шагом.
          =================================================================== -->
     <section class="apply-stub" id="apply-form">
       <div class="container">
@@ -286,12 +345,11 @@
   </main>
 
   <!-- =====================================================================
-       ПОДВАЛ САЙТА АКАДЕМИИ
-       Сюда встраивается общий футер reginashtyagina.ru.
+       ПОДВАЛ САЙТА АКАДЕМИИ — сюда встраивается общий футер reginashtyagina.ru
        ===================================================================== -->
   <footer class="site-footer">
     <div class="container">
-      <span class="site-header__stub">[подвал сайта Академии]</span>
+      <span class="stub">[подвал сайта Академии]</span>
     </div>
   </footer>
 
