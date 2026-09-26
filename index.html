@@ -13,6 +13,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+  <!-- Иконка вкладки — фирменная «S.» (по брендбуку: там, где логотип меньше 1 см) -->
+  <link rel="icon" type="image/png" href="images/brand/favicon-64.png">
+  <link rel="apple-touch-icon" href="images/brand/apple-touch-icon.png">
+
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -20,14 +24,14 @@
   <!-- =====================================================================
        ШАПКА САЙТА АКАДЕМИИ
        Сюда встраивается общее меню reginashtyagina.ru.
-       Логотип — только «shtyagina» (иконку «S.» рядом с ним не ставим).
-       ЗАМЕНИТЬ текстовую заглушку на фирменный SVG.
+       Логотип — только «shtyagina» из брендбука 2026 (иконку «S.» рядом не ставим).
+       Чёрный — на светлом фоне, молочный (logo-milk.png) — на тёмном.
+       Минимальная ширина — 1 см, охранное поле — высота буквы «s».
        ===================================================================== -->
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="logo" href="/" aria-label="shtyagina — на главную">
-        <!-- ЛОГОТИП SHTYAGINA (SVG) -->
-        <span class="logo__word">shtyagina</span>
+        <img src="images/brand/logo-black.png" alt="shtyagina" width="1598" height="343">
       </a>
       <nav class="site-header__nav" aria-label="Меню сайта Академии">
         <!-- ОБЩЕЕ МЕНЮ САЙТА АКАДЕМИИ -->
@@ -89,7 +93,7 @@
          =================================================================== -->
     <section class="section" id="how">
       <div class="container">
-        <p class="chip">Что внутри</p>
+        <p class="chip">что внутри</p>
         <h2 class="section__title">Как устроена работа клуба</h2>
 
         <div class="bento">
@@ -157,7 +161,7 @@
          =================================================================== -->
     <section class="section" id="format">
       <div class="container">
-        <p class="chip">Ритм месяца</p>
+        <p class="chip">ритм месяца</p>
         <h2 class="section__title">Формат встреч</h2>
 
         <ul class="rhythm">
@@ -191,7 +195,7 @@
       <div class="container">
         <div class="panel panel--sage host">
           <div class="host__text">
-            <p class="chip chip--milk">Кто ведёт клуб</p>
+            <p class="chip chip--milk">кто ведёт клуб</p>
             <h2 class="host__title">Регина Штягина</h2>
             <p class="host__lead">15 лет в PR и личном брендинге. Владелица PR-агентства R&amp;R с 2013 года.</p>
             <p>Среди клиентов — Сбербанк, Башнефть, Мегафон, Heineken, Ростелеком, Porsche, Swarovski.</p>
@@ -223,7 +227,7 @@
          =================================================================== -->
     <section class="section" id="experts">
       <div class="container">
-        <p class="chip">Окружение</p>
+        <p class="chip">окружение</p>
         <h2 class="section__title">Эксперты и партнёры клуба</h2>
         <ul class="experts" id="experts-grid" aria-label="Эксперты и партнёры клуба">
           <!-- заполняется из js/data.js → EXPERTS -->
@@ -267,7 +271,7 @@
          =================================================================== -->
     <section class="section" id="reviews">
       <div class="container">
-        <p class="chip">Отзывы</p>
+        <p class="chip">отзывы</p>
         <h2 class="section__title">Что говорят участники клуба</h2>
       </div>
       <div class="reviews">
@@ -284,7 +288,7 @@
       <div class="container">
         <div class="panel panel--sage pricing">
           <div class="pricing__head">
-            <p class="chip chip--milk">Условия участия</p>
+            <p class="chip chip--milk">условия участия</p>
             <p class="pricing__price">5&nbsp;490&nbsp;₽ <span>/ месяц</span></p>
           </div>
           <div class="pricing__card">
@@ -311,16 +315,17 @@
           <h2 class="final__title">Деловой клуб Регины Штягиной — часть системы «От&nbsp;Анонима до&nbsp;Звезды»</h2>
 
           <ol class="steps" aria-label="Ступени системы Академии">
-            <li class="steps__item steps__item--current"><span>Ступень 1</span>Деловой клуб</li>
-            <li class="steps__item"><span>Ступень 2</span>«От Анонима до Звезды»</li>
-            <li class="steps__item"><span>Ступень 3</span>Годовое сопровождение</li>
+            <li class="steps__item steps__item--current"><span>ступень 1</span>Деловой клуб</li>
+            <li class="steps__item"><span>ступень 2</span>«От Анонима до Звезды»</li>
+            <li class="steps__item"><span>ступень 3</span>Годовое сопровождение</li>
           </ol>
 
           <p class="final__text">Клуб — первая ступень: здесь вы формируете окружение, находите экспертизу и партнёров, необходимых для роста. Дальнейшие шаги системы — программа «От Анонима до Звезды» и годовое сопровождение с Региной — доступны участникам клуба напрямую.</p>
           <a class="btn" href="#apply-form">Подать заявку на вступление — 5&nbsp;490&nbsp;₽/мес</a>
 
-          <!-- Личная деталь: теннисный мяч (теннис — фан-факт Регины). Только здесь, точечно. -->
-          <svg class="tennis" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M8.5 9.5c7 6 7 23 0 29M39.5 9.5c-7 6-7 23 0 29"/></svg>
+          <!-- Графика из брендбука: зелёный круг, уходящий за край блока (как в примере «яркая система»).
+               Тонкие линии на нём — теннисный мяч, личная деталь Регины (≈5% контента, только здесь). -->
+          <svg class="ball" viewBox="0 0 200 200" aria-hidden="true"><circle class="ball__fill" cx="100" cy="100" r="100"/><path class="ball__seam" d="M30 28c34 36 34 108 0 144M170 28c-34 36-34 108 0 144"/></svg>
         </div>
       </div>
     </section>

@@ -27,23 +27,23 @@
     return ph;
   }
 
-  // Цвет карточек экспертов чередуется «шахматкой»: голубой / зелёный
-  const TONES = ['sky', 'sage', 'sage', 'sky'];
-
-  function personPhoto(src, alt, comment) {
-    const box = el('div', 'person-photo');
-    box.appendChild(document.createComment(' ' + comment + ' '));
-    box.appendChild(media(src, alt, 'ph--person'));
-    return box;
-  }
+  // Цвет карточек экспертов чередуется: голубой / зелёный / чёрный (один цвет на карточку)
+  const TONES = ['sky', 'sage', 'black'];
 
   function renderExperts(list, root) {
     const frag = document.createDocumentFragment();
     list.forEach(function (expert, i) {
       const item = el('li', 'expert expert--' + TONES[i % TONES.length]);
-      item.appendChild(el('p', 'expert__name', expert.name));
-      item.appendChild(personPhoto(expert.photo, expert.name, 'ФОТО ЭКСПЕРТА ' + (i + 1)));
+      item.appendChild(el('p', 'expert__label', 'эксперт клуба'));
       item.appendChild(el('p', 'expert__role', expert.role));
+      const photo = el('div', 'expert__photo');
+      photo.appendChild(document.createComment(' ФОТО ЭКСПЕРТА ' + (i + 1) + ' '));
+      photo.appendChild(media(expert.photo, expert.name, 'ph--portrait', 'портрет эксперта'));
+      item.appendChild(photo);
+      const meta = el('div', 'expert__meta');
+      meta.appendChild(el('p', 'expert__name', expert.name));
+      if (expert.niche) meta.appendChild(el('p', 'expert__niche', expert.niche));
+      item.appendChild(meta);
       frag.appendChild(item);
     });
     root.appendChild(frag);
@@ -71,7 +71,7 @@
       fig.appendChild(img);
     } else {
       const ph = el('div', 'review__shot-ph');
-      ph.appendChild(el('span', 'ph__label', 'Скрин отзыва'));
+      ph.appendChild(el('span', 'ph__label', 'скрин отзыва'));
       ph.appendChild(el('p', 'review__draft', '«' + review.text + '»'));
       fig.appendChild(ph);
     }
