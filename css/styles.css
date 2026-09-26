@@ -261,16 +261,8 @@ strong, b { font-weight: var(--medium); }
   gap: 16px;
   min-height: 68px;
 }
-.logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
-.logo__icon {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  background: var(--black);
-  color: var(--milk);
-  font-weight: var(--medium);
-  font-size: 16px;
-}
+.logo { display: inline-flex; align-items: center; text-decoration: none; }
+.logo svg, .logo img { height: 28px; width: auto; }
 .logo__word { font-weight: var(--medium); font-size: 20px; letter-spacing: -0.01em; }
 
 /* ---------- Секции ---------- */
