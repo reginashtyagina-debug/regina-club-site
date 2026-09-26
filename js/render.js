@@ -80,7 +80,8 @@
 
   function renderReviews(list, root) {
     const frag = document.createDocumentFragment();
-    list.forEach(function (review, i) {
+    // На странице — только отзывы со скрином; остальные ждут скрина в data.js
+    list.filter(function (review) { return review.screenshot; }).forEach(function (review, i) {
       const card = el('li', 'review');
       if (review.photo || review.photoLabel) {
         const fig = el('figure', 'review__photo');
@@ -89,7 +90,8 @@
         card.appendChild(fig);
       }
       card.appendChild(reviewShot(review, i));
-      card.appendChild(el('p', 'review__author', review.author));
+      if (review.caption) card.appendChild(el('p', 'review__caption', review.caption));
+      else card.appendChild(el('p', 'review__author', review.author));
       frag.appendChild(card);
     });
     root.appendChild(frag);

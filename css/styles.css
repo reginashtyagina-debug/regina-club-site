@@ -542,6 +542,7 @@ strong, b { font-weight: var(--medium); }
 .review__shot-ph .ph__label { color: var(--graphite); font-size: 13px; }
 .review__draft { font-size: 15px; line-height: 1.5; }
 .review__author { margin-top: 14px; font-weight: var(--medium); font-size: 15px; }
+.review__caption { margin-top: 12px; font-size: 14px; color: var(--graphite); }
 @media (min-width: 600px)  { .review { flex-basis: 340px; } }
 @media (min-width: 1100px) { .review { flex-basis: 370px; } }
 
