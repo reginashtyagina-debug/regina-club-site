@@ -66,7 +66,7 @@
     if (review.screenshot) {
       const img = el('img');
       img.src = review.screenshot;
-      img.alt = 'Сообщение от участника клуба ' + review.author + ': «' + review.text + '»';
+      img.alt = (review.showAuthor === false ? 'Отзыв участника клуба' : 'Сообщение от участника клуба ' + review.author) + ': «' + review.text + '»';
       img.loading = 'lazy';
       fig.appendChild(img);
     } else {
@@ -91,7 +91,7 @@
       }
       card.appendChild(reviewShot(review, i));
       if (review.caption) card.appendChild(el('p', 'review__caption', review.caption));
-      else card.appendChild(el('p', 'review__author', review.author));
+      else if (review.showAuthor !== false) card.appendChild(el('p', 'review__author', review.author));
       frag.appendChild(card);
     });
     root.appendChild(frag);
