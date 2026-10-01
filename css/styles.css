@@ -366,7 +366,7 @@ html[data-accent="year"] :is(.hero, .final) .cta-year {
 .reviews { grid-auto-columns: min(calc(100vw - 2 * var(--gutter)), 440px); align-items: start; }
 /* Text review card (regina-design: quote in PT Serif Italic, black plaque rhythm) */
 .review {
-  display: flex; flex-direction: column; height: 100%;
+  display: flex; flex-direction: column;
   padding: 28px 26px 24px; border-radius: 20px;
   background: var(--warm-white); border: 1px solid var(--line);
 }
@@ -379,7 +379,7 @@ html[data-accent="year"] :is(.hero, .final) .cta-year {
 .review:nth-child(3n+2) .review__who b { color: var(--warm-white); }
 .review--shot { height: auto; padding: 10px 10px 14px; background: var(--white); }
 .review--shot a { display: block; border-radius: 12px; overflow: hidden; }
-.review--shot img { width: 100%; height: auto; border: 0; border-radius: 0; }
+.reviews .review--shot img { width: 100%; height: auto; border: 0; border-radius: 0; }
 .review--shot .review__source { margin: 12px 4px 0; }
 .review__source { margin-top: 10px; font-size: 13px; color: var(--grey); }
 .review:nth-child(3n+2) .review__source { color: var(--grey-on-dark); }
@@ -497,6 +497,10 @@ html[data-accent="year"] .plan--trial .plan__btn { background: var(--graphite); 
 @media (prefers-reduced-motion: reduce) { .faq summary::after { transition: none; } }
 
 .system__link { margin-top: 24px; }
+.system__proof { margin-top: 40px; max-width: 460px; padding: 10px 10px 14px; background: var(--white); border: 1px solid var(--line); border-radius: 20px; }
+.system__proof a { display: block; border-radius: 12px; overflow: hidden; }
+.system__proof img { width: 100%; height: auto; }
+.system__proof figcaption { margin: 12px 4px 0; font-size: 13px; color: var(--grey); }
 
 /* 13. Final */
 .final { background: var(--graphite); color: var(--warm-white); padding: var(--space) 0; }
