@@ -56,7 +56,8 @@ export const CONFIG = {
     personalData: "https://reginapr.getcourse.ru/agreement_pers",
     cookies: "privacy.html",
     telegram: "ССЫЛКА_TELEGRAM",
-    instagram: "ССЫЛКА_INSTAGRAM",
+    // Ссылка на страницу в социальных сетях. Название сети на сайте не пишем.
+    social: "ССЫЛКА_СОЦСЕТИ",
     email: "pracademy@mail.ru",
     phone: ""
   },
