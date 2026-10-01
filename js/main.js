@@ -207,7 +207,9 @@ const initials = (name) => name.split(/\s+/).filter(Boolean).slice(0, 2).map((w)
 async function renderSpeakers() {
   const data = await loadJson(CONFIG.speakersJson);
   if (!Array.isArray(data)) return;
-  const list = data.filter((s) => s && s.name && !s.name.startsWith('['));
+  const valid = data.filter((s) => s && s.name && !s.name.startsWith('['));
+  const list = valid.filter((s) => s.kind !== 'rubric');
+  const rubrics = valid.filter((s) => s.kind === 'rubric');
   if (list.length < 4) return;
   const ul = $('[data-speakers]');
   list.forEach((s) => {
@@ -239,6 +241,17 @@ async function renderSpeakers() {
     li.append(wrap);
     ul.append(li);
   });
+  if (rubrics.length) {
+    const box = $('[data-rubrics]');
+    rubrics.forEach((r) => {
+      const li = document.createElement('li');
+      const b = document.createElement('b');
+      b.textContent = r.name;
+      li.append(b, r.topic || '');
+      box.append(li);
+    });
+    box.parentElement.hidden = false;
+  }
   $('#speakers').hidden = false;
 }
 
