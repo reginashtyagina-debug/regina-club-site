@@ -1,5 +1,6 @@
 import { CONFIG } from './config.js';
 import { initAnalytics, goal } from './analytics.js';
+import { setupLogo } from './logo.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
@@ -407,6 +408,7 @@ function startNetwork() {
 
 const accent = detectAccent();
 fillConfig();
+setupLogo();
 setupCheckoutLinks();
 setupLinks();
 setupVideo();

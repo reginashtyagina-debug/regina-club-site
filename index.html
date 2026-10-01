@@ -12,6 +12,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/montserrat-cyrillic-600-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/golos-text-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/pt-serif-cyrillic-400-italic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/styles.css">
   <script>
     // Акцент пакета ставится до отрисовки, чтобы первый экран не перескакивал.
@@ -28,6 +29,12 @@
   <!-- 1. Первый экран -->
   <header class="hero" id="top" data-block="hero">
     <div class="hero__net" aria-hidden="true"></div>
+    <div class="wrap topbar">
+      <a class="brand" href="#top" data-logo="onDark" aria-label="shtyagina, на главную">
+        <span class="brand__text" aria-hidden="true">shtyagina</span>
+      </a>
+      <p class="topbar__academy">Академия PR и&nbsp;Личного бренда</p>
+    </div>
     <div class="wrap hero__grid">
       <div class="hero__text">
         <h1 class="hero__title">Деловой клуб Регины Штягиной</h1>
@@ -175,7 +182,7 @@
           </article>
         </div>
 
-        <p class="credit">Если вы&nbsp;остаётесь на&nbsp;год в&nbsp;течение тест-драйва или <span data-cfg="creditWindowDaysAfterTrial" data-unit="days">7 дней</span> после него, стоимость первого месяца засчитывается. Год&nbsp;— <span data-cfg="creditedYearPrice">49&nbsp;410&nbsp;₽</span>.</p>
+        <p class="credit"><b class="credit__label">Главное</b>Если вы&nbsp;остаётесь на&nbsp;год в&nbsp;течение тест-драйва или <span data-cfg="creditWindowDaysAfterTrial" data-unit="days">7 дней</span> после него, стоимость первого месяца засчитывается. Год&nbsp;— <span data-cfg="creditedYearPrice">49&nbsp;410&nbsp;₽</span>.</p>
 
         <div class="scale" data-scale data-mode="trial">
           <div class="scale__head">
@@ -222,7 +229,8 @@
     <!-- 13. Финальный призыв -->
     <section class="final" id="final" data-block="final">
       <div class="wrap">
-        <h2 class="final__title">Деловой клуб Регины Штягиной</h2>
+        <h2 class="final__title">Превратите репутацию в&nbsp;доход</h2>
+        <p class="final__club">Деловой клуб Регины Штягиной</p>
         <div class="cta-pair">
           <a class="btn cta-trial" data-checkout="trial" data-block="final" href="#terms"><span>Начать тест-драйв — <span data-cfg="trial.price">5&nbsp;490&nbsp;₽</span></span></a>
           <a class="btn cta-year" data-checkout="year" data-block="final" href="#terms"><span>Вступить на год — <span data-cfg="year.price">54&nbsp;900&nbsp;₽</span></span></a>
