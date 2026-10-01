@@ -300,9 +300,9 @@ async function renderSpeakers() {
   });
 
   const hiddenCount = groups.more.length;
-  const total = Math.max(Number(CONFIG.expertsTotal) || 0, groups.featured.length + groups.more.length);
   const countEl = $('[data-experts-count]');
-  countEl.textContent = total + ' ' + plural(total, 'эксперт и партнёр клуба', 'эксперта и партнёра клуба', 'экспертов и партнёров клуба');
+  countEl.textContent = CONFIG.expertsNote || '';
+  countEl.hidden = !CONFIG.expertsNote;
   const toggle = $('[data-experts-toggle]');
   const all = $('#experts-all');
   if (!hiddenCount) toggle.hidden = true;
@@ -310,7 +310,7 @@ async function renderSpeakers() {
     const open = all.hidden;
     all.hidden = !open;
     toggle.setAttribute('aria-expanded', String(open));
-    toggle.textContent = open ? 'Свернуть' : 'Все эксперты и\u00A0партнёры';
+    toggle.textContent = open ? 'Свернуть' : 'Ещё эксперты и\u00A0партнёры';
     if (open) goal('experts_expand');
   });
 

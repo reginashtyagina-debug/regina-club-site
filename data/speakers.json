@@ -15,16 +15,16 @@
   },
   {
     "group": "featured",
-    "name": "Раис Габитов",
-    "topic": "Блогер-миллионник",
-    "photo": "assets/img/people/gabitov.webp",
+    "name": "Роберто Дагостино",
+    "topic": "Почётный консул Италии",
+    "photo": "assets/img/people/dagostino.webp",
     "url": ""
   },
   {
     "group": "featured",
-    "name": "Алексей Александров",
-    "topic": "Продюсер онлайн-проектов",
-    "photo": "assets/img/people/aleksandrov.webp",
+    "name": "Раис Габитов",
+    "topic": "Блогер-миллионник",
+    "photo": "assets/img/people/gabitov.webp",
     "url": ""
   },
   {
@@ -36,37 +36,30 @@
   },
   {
     "group": "featured",
-    "name": "Игорь Андрианов",
-    "topic": "Серийный предприниматель",
-    "photo": "assets/img/people/andrianov.webp",
+    "name": "Елена Арямнова",
+    "topic": "Агентство по печати и СМИ",
+    "photo": "assets/img/people/aryamnova.webp",
     "url": ""
   },
   {
     "group": "featured",
-    "name": "Лилия Асфандиярова",
-    "topic": "Дизайнер интерьера",
-    "photo": "assets/img/people/asfandiyarova.webp",
+    "name": "Анастасия Шведчикова",
+    "topic": "Дизайн-ателье для олимпийских чемпионов",
+    "photo": "assets/img/people/shvedchikova.webp",
     "url": ""
   },
   {
     "group": "featured",
-    "name": "Лилия Горина",
-    "topic": "Налоговый консультант",
-    "photo": "assets/img/people/gorina.webp",
+    "name": "Дарья Бондаренко",
+    "topic": "Продюсер, предприниматель, Италия",
+    "photo": "assets/img/people/bondarenko.webp",
     "url": ""
   },
   {
     "group": "featured",
-    "name": "Лариса Маркова",
-    "topic": "Юрист",
-    "photo": "assets/img/people/markova.webp",
-    "url": ""
-  },
-  {
-    "group": "featured",
-    "name": "Мария Гайнетдинова",
-    "topic": "Гранты, лицензирование",
-    "photo": "assets/img/people/gainetdinova.webp",
+    "name": "Анна Берчатова",
+    "topic": "Директор по развитию Prodamus",
+    "photo": "assets/img/people/berchatova.webp",
     "url": ""
   },
   {
@@ -84,6 +77,48 @@
     "url": ""
   },
   {
+    "group": "featured",
+    "name": "Алексей Александров",
+    "topic": "Продюсер онлайн-проектов",
+    "photo": "assets/img/people/aleksandrov.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Игорь Андрианов",
+    "topic": "Серийный предприниматель",
+    "photo": "assets/img/people/andrianov.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Лилия Асфандиярова",
+    "topic": "Дизайнер интерьера",
+    "photo": "assets/img/people/asfandiyarova.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Лилия Горина",
+    "topic": "Налоговый консультант",
+    "photo": "assets/img/people/gorina.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Лариса Маркова",
+    "topic": "Юрист",
+    "photo": "assets/img/people/markova.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Мария Гайнетдинова",
+    "topic": "Гранты, лицензирование",
+    "photo": "assets/img/people/gainetdinova.webp",
+    "url": ""
+  },
+  {
     "group": "more",
     "name": "Дарья Трубарова",
     "topic": "Визуальная упаковка, Париж",
@@ -95,13 +130,6 @@
     "name": "Диана Биглова",
     "topic": "Психолог",
     "photo": "assets/img/people/biglova.webp",
-    "url": ""
-  },
-  {
-    "group": "more",
-    "name": "Дарья Бондаренко",
-    "topic": "Продюсер, предприниматель, Италия",
-    "photo": "assets/img/people/bondarenko.webp",
     "url": ""
   },
   {
@@ -162,13 +190,6 @@
   },
   {
     "group": "more",
-    "name": "Елена Арямнова",
-    "topic": "Агентство по печати и СМИ",
-    "photo": "assets/img/people/aryamnova.webp",
-    "url": ""
-  },
-  {
-    "group": "more",
     "name": "Екатерина Чернякова",
     "topic": "Продюсер",
     "photo": "assets/img/people/chernyakova.webp",
@@ -179,13 +200,6 @@
     "name": "Айгуль Малика",
     "topic": "Стилист",
     "photo": "assets/img/people/malika.webp",
-    "url": ""
-  },
-  {
-    "group": "more",
-    "name": "Анна Берчатова",
-    "topic": "Директор по развитию Prodamus",
-    "photo": "assets/img/people/berchatova.webp",
     "url": ""
   },
   {
@@ -239,23 +253,9 @@
   },
   {
     "group": "more",
-    "name": "Анастасия Шведчикова",
-    "topic": "Дизайн-ателье для олимпийских чемпионов",
-    "photo": "assets/img/people/shvedchikova.webp",
-    "url": ""
-  },
-  {
-    "group": "more",
     "name": "Ольга Рамазанова",
     "topic": "Галерея современного искусства «Мирас»",
     "photo": "assets/img/people/ramazanova.webp",
-    "url": ""
-  },
-  {
-    "group": "more",
-    "name": "Роберто Дагостино",
-    "topic": "Почётный консул Италии",
-    "photo": "assets/img/people/dagostino.webp",
     "url": ""
   },
   {
