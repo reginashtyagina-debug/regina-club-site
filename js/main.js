@@ -127,13 +127,60 @@ function setupLinks() {
 function setupVideo() {
   const root = $('[data-video]');
   if (!root) return;
-  const { src, poster } = CONFIG.video;
+  const frame = $('.video__frame', root);
   const posterEl = $('[data-video-poster]', root);
-  if (poster) posterEl.style.backgroundImage = `linear-gradient(180deg, rgba(22,22,22,0) 55%, rgba(22,22,22,.85)), url("${poster}")`;
+  const caption = $('[data-video-caption]', root);
+  const toggle = $('[data-video-toggle]', root);
+  const ev = CONFIG.eventVideo || {};
+  if (ev.poster) posterEl.src = ev.poster;
+  if (ev.caption) caption.textContent = ev.caption;
+
+  // Видео с мероприятия: без звука, по кругу, только пока первый экран виден
+  let loop = null;
+  const c = navigator.connection || {};
+  if (ev.src && !reducedMotion && c.saveData !== true) {
+    const startLoop = () => {
+      loop = document.createElement('video');
+      loop.className = 'video__loop';
+      loop.muted = true; loop.loop = true; loop.playsInline = true;
+      loop.setAttribute('muted', ''); loop.setAttribute('playsinline', '');
+      loop.preload = 'auto';
+      loop.poster = ev.poster || '';
+      [[ev.src, 'video/mp4'], [ev.srcWebm, 'video/webm']].forEach(([u, type]) => {
+        if (!u) return;
+        const source = document.createElement('source');
+        source.src = u; source.type = type;
+        loop.append(source);
+      });
+      loop.setAttribute('aria-hidden', 'true');
+      posterEl.after(loop);
+      let paused = false;
+      const setPaused = (p) => {
+        paused = p;
+        toggle.classList.toggle('is-paused', p);
+        toggle.setAttribute('aria-label', p ? 'Запустить видео' : 'Остановить видео');
+        if (p) loop.pause(); else loop.play().catch(() => {});
+      };
+      toggle.hidden = false;
+      toggle.addEventListener('click', () => setPaused(!paused));
+      loop.addEventListener('playing', () => frame.classList.add('is-playing'), { once: true });
+      new IntersectionObserver(([e]) => {
+        if (!e.isIntersecting) loop.pause();
+        else if (!paused) loop.play().catch(() => {});
+      }).observe(frame);
+    };
+    if (document.readyState === 'complete') setTimeout(startLoop, 300);
+    else addEventListener('load', () => setTimeout(startLoop, 300), { once: true });
+  }
+
+  // Приветствие Регины со звуком: загружается только по нажатию
+  const { src, poster } = CONFIG.video;
   if (!src) return;
   const play = $('[data-video-play]', root);
   play.hidden = false;
   play.addEventListener('click', () => {
+    if (loop) loop.remove();
+    toggle.remove();
     const video = document.createElement('video');
     video.src = src;
     video.controls = true;
@@ -143,9 +190,10 @@ function setupVideo() {
     let started = false;
     video.addEventListener('play', () => { if (!started) { started = true; goal('video_start'); } });
     video.addEventListener('ended', () => goal('video_complete'));
-    $('.video__frame', root).append(video);
+    frame.append(video);
     play.remove();
     posterEl.remove();
+    caption.remove();
     video.play().catch(() => {});
     video.focus();
   }, { once: true });
@@ -286,15 +334,33 @@ async function renderStory() {
 async function renderReviews() {
   const data = await loadJson(CONFIG.reviewsJson);
   if (!Array.isArray(data)) return;
-  const list = data.filter((r) => r && r.src && r.alt);
+  // Отзыв — либо текстом (name + text), либо скриншотом (src + alt)
+  const list = data.filter((r) => r && ((r.text && r.name) || (r.src && r.alt)));
   if (!list.length) return;
   const ul = $('[data-reviews]');
   list.forEach((r) => {
     const li = document.createElement('li');
-    const img = document.createElement('img');
-    img.src = r.src; img.alt = r.alt; img.loading = 'lazy'; img.decoding = 'async';
-    img.width = r.width || 600; img.height = r.height || 1000;
-    li.append(img);
+    if (r.text) {
+      li.className = 'review';
+      const q = document.createElement('blockquote');
+      q.className = 'review__text';
+      q.textContent = r.text;
+      const who = document.createElement('p');
+      who.className = 'review__who';
+      const b = document.createElement('b');
+      b.textContent = r.name;
+      who.append(b);
+      if (r.role) who.append(r.role);
+      const src = document.createElement('p');
+      src.className = 'review__source';
+      src.textContent = r.source || 'Из закрытого чата клуба';
+      li.append(q, who, src);
+    } else {
+      const img = document.createElement('img');
+      img.src = r.src; img.alt = r.alt; img.loading = 'lazy'; img.decoding = 'async';
+      img.width = r.width || 600; img.height = r.height || 1000;
+      li.append(img);
+    }
     ul.append(li);
   });
   const step = () => (ul.firstElementChild ? ul.firstElementChild.getBoundingClientRect().width + 16 : 300);

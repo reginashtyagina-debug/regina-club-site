@@ -13,6 +13,7 @@
   <link rel="preload" href="assets/fonts/montserrat-cyrillic-600-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/golos-text-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/pt-serif-cyrillic-400-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/img/event-poster.webp" as="image" type="image/webp">
   <link rel="stylesheet" href="css/styles.css">
   <script>
     // Акцент пакета ставится до отрисовки, чтобы первый экран не перескакивал.
@@ -48,9 +49,12 @@
 
       <figure class="video" data-video>
         <div class="video__frame">
-          <div class="video__poster" data-video-poster>
-            <span class="video__caption">Приветствие Регины</span>
-          </div>
+          <img class="video__img" data-video-poster src="assets/img/event-poster.webp" width="540" height="960" alt="Регина Штягина на сцене перед полным залом" fetchpriority="high">
+          <figcaption class="video__caption" data-video-caption>С&nbsp;мероприятия Регины Штягиной</figcaption>
+          <button class="video__toggle" type="button" data-video-toggle hidden aria-label="Остановить видео">
+            <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>
+            <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>
+          </button>
           <button class="video__play" type="button" data-video-play hidden aria-label="Смотреть приветствие Регины">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>
           </button>
@@ -155,7 +159,7 @@
       <div class="wrap">
         <h2 class="section__title">Отзывы участников</h2>
       </div>
-      <ul class="reviews" data-reviews tabindex="0" aria-label="Скриншоты отзывов, прокрутка по горизонтали"></ul>
+      <ul class="reviews" data-reviews tabindex="0" aria-label="Отзывы участников, прокрутка по горизонтали"></ul>
       <div class="wrap reviews__nav">
         <button type="button" data-reviews-prev aria-label="Предыдущие отзывы"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
         <button type="button" data-reviews-next aria-label="Следующие отзывы"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>

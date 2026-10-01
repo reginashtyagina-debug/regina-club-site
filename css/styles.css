@@ -204,20 +204,37 @@ html[data-accent="year"] :is(.hero, .final) .cta-year {
   background: var(--graphite-2);
   border: 1px solid var(--line-dark);
 }
-.video__poster {
-  position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(22,22,22,0) 55%, rgba(22,22,22,.85)), var(--graphite-2) center / cover no-repeat;
-  display: flex; align-items: flex-end; padding: 20px;
+.video__img, .video__loop {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;
 }
-.video__caption { font-size: 15px; color: var(--warm-white); }
+.video__loop { opacity: 0; transition: opacity .4s ease; }
+.video__frame.is-playing .video__loop { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .video__loop { transition: none; } }
+.video__frame::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(22,22,22,0) 60%, rgba(22,22,22,.85));
+}
+.video__caption {
+  position: absolute; left: 20px; right: 64px; bottom: 18px; z-index: 1;
+  font: italic 400 16px/1.35 var(--serif); color: var(--warm-white);
+}
+.video__toggle {
+  position: absolute; right: 12px; bottom: 12px; z-index: 2;
+  width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(243, 241, 238, .5);
+  background: rgba(22, 22, 22, .55); color: var(--warm-white); cursor: pointer;
+  display: grid; place-items: center;
+}
+.video__toggle svg { width: 16px; height: 16px; fill: currentColor; }
+.video__toggle .i-play, .video__toggle.is-paused .i-pause { display: none; }
+.video__toggle.is-paused .i-play { display: block; }
 .video__play {
-  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 2;
   width: 72px; height: 72px; border-radius: 50%; border: 0;
   background: var(--lime); color: var(--graphite); cursor: pointer;
   display: grid; place-items: center;
 }
 .video__play svg { width: 28px; height: 28px; fill: currentColor; margin-left: 4px; }
-.video__frame video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #000; }
+.video__frame video:not(.video__loop) { position: absolute; inset: 0; z-index: 3; width: 100%; height: 100%; object-fit: cover; background: #000; }
 
 @media (min-width: 900px) {
   .hero__grid { grid-template-columns: 1fr 300px; gap: 64px; }
@@ -346,6 +363,23 @@ html[data-accent="year"] :is(.hero, .final) .cta-year {
   .reviews { padding-left: calc((100vw - var(--wrap)) / 2 + var(--gutter)); scroll-padding-left: calc((100vw - var(--wrap)) / 2 + var(--gutter)); }
 }
 .reviews li { scroll-snap-align: start; }
+.reviews { grid-auto-columns: min(84vw, 380px); }
+/* Text review card (regina-design: quote in PT Serif Italic, black plaque rhythm) */
+.review {
+  display: flex; flex-direction: column; height: 100%;
+  padding: 28px 26px 24px; border-radius: 20px;
+  background: var(--warm-white); border: 1px solid var(--line);
+}
+.review:nth-child(3n+2) { background: var(--graphite); color: var(--warm-white); border-color: var(--graphite); }
+.review__text { margin: 0; flex: 1; font: italic 400 19px/1.5 var(--serif); }
+.review__text::before { content: "«"; } .review__text::after { content: "»"; }
+.review__who { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--line); display: grid; gap: 2px; font-size: 14px; color: var(--grey); }
+.review__who b { font: 600 16px/1.3 var(--display); color: var(--graphite); }
+.review:nth-child(3n+2) .review__who { border-top-color: var(--line-dark); color: var(--grey-on-dark); }
+.review:nth-child(3n+2) .review__who b { color: var(--warm-white); }
+.review__source { margin-top: 10px; font-size: 13px; color: var(--grey); }
+.review:nth-child(3n+2) .review__source { color: var(--grey-on-dark); }
+.review:nth-child(3n+2) .review__source::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 8px; border-radius: 50%; background: var(--lime); }
 .reviews__nav { display: flex; gap: 8px; margin-top: 16px; }
 .reviews__nav button {
   width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--graphite);
