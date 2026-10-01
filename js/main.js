@@ -356,10 +356,18 @@ async function renderReviews() {
       src.textContent = r.source || 'Из закрытого чата клуба';
       li.append(q, who, src);
     } else {
+      // Скриншот сообщения: по нажатию открывается в полном размере
+      li.className = 'review review--shot';
+      const a = document.createElement('a');
+      a.href = r.src; a.target = '_blank'; a.rel = 'noopener';
       const img = document.createElement('img');
       img.src = r.src; img.alt = r.alt; img.loading = 'lazy'; img.decoding = 'async';
       img.width = r.width || 600; img.height = r.height || 1000;
-      li.append(img);
+      a.append(img);
+      const src = document.createElement('p');
+      src.className = 'review__source';
+      src.textContent = r.source || 'Из закрытого чата клуба';
+      li.append(a, src);
     }
     ul.append(li);
   });
