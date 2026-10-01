@@ -30,7 +30,7 @@
   {
     "group": "featured",
     "name": "Алиса Кулоби Тестина",
-    "topic": "Бизнес и искусственный интеллект",
+    "topic": "Бизнес и ИИ, Северная Европа",
     "photo": "assets/img/people/kulobi-testina.webp",
     "url": ""
   },
@@ -186,6 +186,13 @@
     "name": "Анна Берчатова",
     "topic": "Директор по развитию Prodamus",
     "photo": "assets/img/people/berchatova.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Алексей Зубанов",
+    "topic": "Компания Public, Брюссель",
+    "photo": "assets/img/people/zubanov.webp",
     "url": ""
   },
   {
