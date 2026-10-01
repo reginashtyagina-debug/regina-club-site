@@ -55,7 +55,7 @@ export const CONFIG = {
     privacy: "https://reginapr.getcourse.ru/confidetial",
     personalData: "https://reginapr.getcourse.ru/agreement_pers",
     cookies: "privacy.html",
-    telegram: "ССЫЛКА_TELEGRAM",
+    telegram: "https://t.me/regina_pro_pr",
     // Ссылка на страницу в социальных сетях. Название сети на сайте не пишем.
     social: "ССЫЛКА_СОЦСЕТИ",
     email: "pracademy@mail.ru",
