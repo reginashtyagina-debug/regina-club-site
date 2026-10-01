@@ -49,7 +49,7 @@ export const CONFIG = {
   legal: "ИП Штягина Регина Андреевна, ИНН 027414006490, ОГРНИП 319028000020569",
 
   links: {
-    academy: "ССЫЛКА_САЙТ_АКАДЕМИИ",
+    academy: "https://reginashtyagina.ru",
     // С действующей страницы клуба на GetCourse (regina_club_06)
     offer: "https://reginapr.getcourse.ru/oferta_club",
     privacy: "https://reginapr.getcourse.ru/confidetial",
