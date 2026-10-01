@@ -34,6 +34,7 @@ function fillConfig() {
     el.textContent = unit === 'days' ? days(v) : unit === 'months' ? months(v) : money(v);
   });
   $$('[data-text="subtitle"]').forEach((el) => { el.textContent = CONFIG.subtitle; });
+  $$('[data-text="legal"]').forEach((el) => { if (CONFIG.legal) el.textContent = CONFIG.legal; else el.hidden = true; });
 }
 
 function template(text) {

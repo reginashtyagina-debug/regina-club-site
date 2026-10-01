@@ -462,6 +462,7 @@ html[data-accent="year"] .plan--trial .plan__btn { background: var(--graphite); 
 .footer { background: var(--graphite); color: var(--grey-on-dark); border-top: 1px solid var(--line-dark); padding: 32px 0 calc(32px + env(safe-area-inset-bottom)); font-size: 14px; }
 .footer__inner { display: grid; gap: 16px; }
 .footer__name { color: var(--warm-white); }
+.footer__legal { margin-top: 6px; font-size: 13px; }
 .footer__links { display: flex; flex-wrap: wrap; gap: 10px 24px; }
 .footer a { text-decoration: none; }
 .footer a:hover { color: var(--warm-white); text-decoration: underline; }
