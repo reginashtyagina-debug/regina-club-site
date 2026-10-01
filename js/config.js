@@ -23,10 +23,11 @@ export const CONFIG = {
   // Приветствие Регины. Пока src пустой, показывается постер без кнопки запуска.
   video: { src: "", poster: "" },
 
-  // Логотип-вордмарк «shtyagina». Если файла нет, на странице временно стоит набранное слово.
+  // Логотип-вордмарк «shtyagina». Сейчас PNG, вырезанный из карусели (168×36 px).
+  // Когда будет исходный SVG, положите его в assets/logo/ и поменяйте пути здесь.
   logo: {
-    onDark: "assets/logo/shtyagina-white.svg",
-    onLight: "assets/logo/shtyagina-black.svg"
+    onDark: "assets/logo/shtyagina-white.png",
+    onLight: "assets/logo/shtyagina-black.png"
   },
 
   // Портрет Регины для блока «Кто ведёт клуб».
