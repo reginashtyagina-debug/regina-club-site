@@ -328,17 +328,27 @@ html[data-accent="year"] .hero .cta-year {
 }
 
 /* 5. Speakers */
-.speakers { margin-top: 48px; display: grid; gap: 32px 24px; grid-template-columns: repeat(2, 1fr); }
-@media (min-width: 900px) { .speakers { grid-template-columns: repeat(4, 1fr); } }
+.speakers { margin-top: 48px; display: grid; gap: 36px 20px; grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 640px) { .speakers { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1000px) { .speakers { grid-template-columns: repeat(6, 1fr); } }
+.speaker { text-align: center; }
 .speaker a { text-decoration: none; display: block; }
+/* Round portraits: one look for all 37 cards, whatever the source photo */
 .speaker__photo {
-  aspect-ratio: 4 / 5; border-radius: 14px; overflow: hidden;
+  width: min(100%, 148px); aspect-ratio: 1; margin: 0 auto; border-radius: 50%; overflow: hidden;
   background: var(--warm-white); display: grid; place-items: center;
-  font: 600 28px/1 var(--display); color: var(--grey);
+  font: 600 26px/1 var(--display); color: var(--grey);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.55);
 }
 .speaker__photo img { width: 100%; height: 100%; object-fit: cover; }
-.speaker__name { margin-top: 14px; font: 600 17px/1.3 var(--display); letter-spacing: -0.01em; }
-.speaker__topic { margin-top: 4px; font-size: 15px; color: var(--grey); }
+.speaker__name { margin-top: 14px; font: 600 16px/1.3 var(--display); letter-spacing: -0.01em; }
+.speaker__topic { margin-top: 4px; font-size: 14px; line-height: 1.4; color: var(--grey); }
+.experts-more { margin-top: 48px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
+.experts-more__count { font: 600 clamp(20px, 2.4vw, 28px)/1.2 var(--display); letter-spacing: -0.02em; }
+.experts-more__btn { border-color: #0B0B0B; }
+.experts-all { margin-top: 8px; }
+.experts-group { margin-top: 56px; }
+.experts-group .speakers { margin-top: 28px; }
 .speaker a:hover .speaker__name { text-decoration: underline; text-underline-offset: 4px; }
 
 .rubrics { margin-top: 64px; display: grid; gap: 24px; }

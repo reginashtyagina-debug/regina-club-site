@@ -113,7 +113,18 @@
     <section class="section theme-blue" id="speakers" hidden>
       <div class="wrap">
         <h2 class="section__title">Партнёры и&nbsp;спикеры клуба</h2>
-        <ul class="speakers" data-speakers></ul>
+        <ul class="speakers" data-speakers="featured"></ul>
+        <div class="experts-more" data-experts-more>
+          <p class="experts-more__count" data-experts-count></p>
+          <button type="button" class="btn experts-more__btn" data-experts-toggle aria-expanded="false" aria-controls="experts-all">Все эксперты и&nbsp;партнёры</button>
+        </div>
+        <div id="experts-all" class="experts-all" hidden>
+          <ul class="speakers" data-speakers="more"></ul>
+          <div class="experts-group" hidden>
+            <h3 class="rubrics__title">Партнёры и&nbsp;клиенты Академии</h3>
+            <ul class="speakers" data-speakers="academy"></ul>
+          </div>
+        </div>
         <div class="rubrics" hidden>
           <h3 class="rubrics__title">Рубрики закрытого чата ведут</h3>
           <ul class="lines rubrics__list" data-rubrics></ul>

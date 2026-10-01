@@ -1,50 +1,156 @@
 [
   {
-    "name": "Алиса Кулоби Тестина",
-    "topic": "Бизнес и искусственный интеллект, Северная Европа",
+    "group": "featured",
+    "name": "Николай Ягодкин",
+    "topic": "Развитие когнитивных навыков",
     "photo": "",
     "url": ""
   },
   {
-    "name": "Алексей Александров",
-    "topic": "Запуски на миллиард",
+    "group": "featured",
+    "name": "[Имя] Аднабаев",
+    "topic": "",
     "photo": "",
     "url": ""
   },
   {
-    "name": "Дарья Трубарова",
-    "topic": "Визуальная упаковка, Париж",
-    "photo": "",
-    "url": ""
-  },
-  {
-    "name": "Диана Биглова",
-    "topic": "Психолог",
-    "photo": "",
-    "url": ""
-  },
-  {
+    "group": "featured",
     "name": "Раис Габитов",
     "topic": "Блогер-миллионник",
     "photo": "",
     "url": ""
   },
   {
+    "group": "featured",
+    "name": "Алексей Александров",
+    "topic": "Запуски на миллиард",
+    "photo": "",
+    "url": ""
+  },
+  {
+    "group": "featured",
+    "name": "Алиса Кулоби Тестина",
+    "topic": "Бизнес и искусственный интеллект, Северная Европа",
+    "photo": "",
+    "url": ""
+  },
+  {
+    "group": "featured",
+    "name": "[Имя] Андриянов",
+    "topic": "",
+    "photo": "",
+    "url": ""
+  },
+  {
+    "group": "featured",
+    "name": "[Имя] Асфандиярова",
+    "topic": "",
+    "photo": "",
+    "url": ""
+  },
+  {
+    "group": "featured",
+    "name": "[Имя] Горина",
+    "topic": "",
+    "photo": "",
+    "url": ""
+  },
+  {
+    "group": "featured",
+    "name": "Лариса Маркова",
+    "topic": "Юрист",
+    "photo": "",
+    "url": ""
+  },
+  {
+    "group": "featured",
+    "name": "Мария Гайнетдинова",
+    "topic": "Гранты",
+    "photo": "",
+    "url": ""
+  },
+  {
+    "group": "featured",
+    "name": "[Имя] Гарифуллина",
+    "topic": "",
+    "photo": "",
+    "url": ""
+  },
+  {
+    "group": "featured",
     "name": "Юлия Власенко",
     "topic": "Финалистка «Топ-модель по-русски»",
     "photo": "",
     "url": ""
   },
   {
-    "name": "Дарья Бондаренко",
-    "topic": "Маркетинг в социальных сетях, воронки продаж",
+    "group": "more",
+    "name": "Дарья Трубарова",
+    "topic": "Визуальная упаковка, Париж",
     "photo": "",
     "url": ""
   },
   {
-    "name": "Николай Ягодкин",
-    "topic": "Развитие когнитивных навыков",
+    "group": "more",
+    "name": "Диана Биглова",
+    "topic": "Психолог",
     "photo": "",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Дарья Бондаренко",
+    "topic": "Маркетинг в социальных сетях, воронки продаж",
+    "photo": "assets/img/people/bondarenko.webp",
+    "url": ""
+  },
+  {
+    "group": "academy",
+    "name": "Регина Каримова",
+    "topic": "Школа скорочтения",
+    "photo": "assets/img/people/karimova.webp",
+    "url": ""
+  },
+  {
+    "group": "academy",
+    "name": "Азат Валеев",
+    "topic": "Инфопродюсер",
+    "photo": "assets/img/people/valeev.webp",
+    "url": ""
+  },
+  {
+    "group": "academy",
+    "name": "Катя Асламова",
+    "topic": "Академия брендинга",
+    "photo": "assets/img/people/aslamova.webp",
+    "url": ""
+  },
+  {
+    "group": "academy",
+    "name": "Алина Ныркова",
+    "topic": "Клининговая компания",
+    "photo": "assets/img/people/nyrkova.webp",
+    "url": ""
+  },
+  {
+    "group": "academy",
+    "name": "Светлана Утяшева",
+    "topic": "Магазин одежды",
+    "photo": "assets/img/people/utyasheva.webp",
+    "url": ""
+  },
+  {
+    "group": "academy",
+    "name": "Эллина Цветкович",
+    "topic": "Психология",
+    "photo": "assets/img/people/tsvetkovich.webp",
+    "url": ""
+  },
+  {
+    "group": "academy",
+    "name": "Руслан Садыков",
+    "topic": "Спортсмен",
+    "photo": "assets/img/people/sadykov.webp",
     "url": ""
   },
   {

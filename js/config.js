@@ -14,6 +14,8 @@ export const CONFIG = {
   speakersJson: "data/speakers.json",
   storyJson: "data/story.json",
   reviewsJson: "data/reviews.json",
+  // Число под сеткой спикеров: «37 экспертов и партнёров клуба»
+  expertsTotal: 37,
 
   // Тёплый трафик: при этих значениях параметра from главной становится кнопка года.
   warmFrom: ["event", "ufa", "year"],

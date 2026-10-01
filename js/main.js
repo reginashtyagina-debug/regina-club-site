@@ -252,43 +252,69 @@ async function renderSchedule() {
 
 const initials = (name) => name.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
 
+function speakerCard(s) {
+  const li = document.createElement('li');
+  li.className = 'speaker';
+  const wrap = document.createElement(isUrl(s.url) ? 'a' : 'div');
+  if (isUrl(s.url)) { wrap.href = s.url; wrap.target = '_blank'; wrap.rel = 'noopener'; }
+  const photo = document.createElement('div');
+  photo.className = 'speaker__photo';
+  if (s.photo) {
+    const img = document.createElement('img');
+    img.src = s.photo; img.alt = s.name; img.loading = 'lazy'; img.decoding = 'async';
+    img.width = 300; img.height = 300;
+    photo.append(img);
+  } else {
+    photo.textContent = initials(s.name);
+    photo.setAttribute('aria-hidden', 'true');
+  }
+  const name = document.createElement('p');
+  name.className = 'speaker__name';
+  name.textContent = s.name;
+  wrap.append(photo, name);
+  if (s.topic) {
+    const topic = document.createElement('p');
+    topic.className = 'speaker__topic';
+    topic.textContent = s.topic;
+    wrap.append(topic);
+  }
+  li.append(wrap);
+  return li;
+}
+
+// Сетка: 12 главных карточек видны сразу (group: featured), остальные — по кнопке
+// (group: more — эксперты клуба, group: academy — партнёры и клиенты Академии).
 async function renderSpeakers() {
   const data = await loadJson(CONFIG.speakersJson);
   if (!Array.isArray(data)) return;
   const valid = data.filter((s) => s && s.name && !s.name.startsWith('['));
-  const list = valid.filter((s) => s.kind !== 'rubric');
+  const people = valid.filter((s) => s.kind !== 'rubric');
   const rubrics = valid.filter((s) => s.kind === 'rubric');
-  if (list.length < 4) return;
-  const ul = $('[data-speakers]');
-  list.forEach((s) => {
-    const li = document.createElement('li');
-    li.className = 'speaker';
-    const wrap = document.createElement(isUrl(s.url) ? 'a' : 'div');
-    if (isUrl(s.url)) { wrap.href = s.url; wrap.target = '_blank'; wrap.rel = 'noopener'; }
-    const photo = document.createElement('div');
-    photo.className = 'speaker__photo';
-    if (s.photo) {
-      const img = document.createElement('img');
-      img.src = s.photo; img.alt = s.name; img.loading = 'lazy'; img.decoding = 'async';
-      img.width = 400; img.height = 500;
-      photo.append(img);
-    } else {
-      photo.textContent = initials(s.name);
-      photo.setAttribute('aria-hidden', 'true');
-    }
-    const name = document.createElement('p');
-    name.className = 'speaker__name';
-    name.textContent = s.name;
-    wrap.append(photo, name);
-    if (s.topic) {
-      const topic = document.createElement('p');
-      topic.className = 'speaker__topic';
-      topic.textContent = s.topic;
-      wrap.append(topic);
-    }
-    li.append(wrap);
-    ul.append(li);
+  const groups = { featured: [], more: [], academy: [] };
+  people.forEach((s) => (groups[s.group] || groups.more).push(s));
+  if (groups.featured.length < 4) return;
+
+  Object.entries(groups).forEach(([g, list]) => {
+    const ul = $(`[data-speakers="${g}"]`);
+    list.forEach((s) => ul.append(speakerCard(s)));
   });
+  if (groups.academy.length) $('.experts-group').hidden = false;
+
+  const hiddenCount = groups.more.length + groups.academy.length;
+  const total = Math.max(Number(CONFIG.expertsTotal) || 0, groups.featured.length + groups.more.length);
+  const countEl = $('[data-experts-count]');
+  countEl.textContent = total + ' ' + plural(total, 'эксперт и партнёр клуба', 'эксперта и партнёра клуба', 'экспертов и партнёров клуба');
+  const toggle = $('[data-experts-toggle]');
+  const all = $('#experts-all');
+  if (!hiddenCount) toggle.hidden = true;
+  toggle.addEventListener('click', () => {
+    const open = all.hidden;
+    all.hidden = !open;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.textContent = open ? 'Свернуть' : 'Все эксперты и\u00A0партнёры';
+    if (open) goal('experts_expand');
+  });
+
   if (rubrics.length) {
     const box = $('[data-rubrics]');
     rubrics.forEach((r) => {
