@@ -283,14 +283,14 @@ function speakerCard(s) {
 }
 
 // Сетка: 12 главных карточек видны сразу (group: featured), остальные — по кнопке
-// (group: more — эксперты клуба, group: academy — партнёры и клиенты Академии).
+// (group: more), в одной общей сетке.
 async function renderSpeakers() {
   const data = await loadJson(CONFIG.speakersJson);
   if (!Array.isArray(data)) return;
   const valid = data.filter((s) => s && s.name && !s.name.startsWith('['));
   const people = valid.filter((s) => s.kind !== 'rubric');
   const rubrics = valid.filter((s) => s.kind === 'rubric');
-  const groups = { featured: [], more: [], academy: [] };
+  const groups = { featured: [], more: [] };
   people.forEach((s) => (groups[s.group] || groups.more).push(s));
   if (groups.featured.length < 4) return;
 
@@ -298,9 +298,8 @@ async function renderSpeakers() {
     const ul = $(`[data-speakers="${g}"]`);
     list.forEach((s) => ul.append(speakerCard(s)));
   });
-  if (groups.academy.length) $('.experts-group').hidden = false;
 
-  const hiddenCount = groups.more.length + groups.academy.length;
+  const hiddenCount = groups.more.length;
   const total = Math.max(Number(CONFIG.expertsTotal) || 0, groups.featured.length + groups.more.length);
   const countEl = $('[data-experts-count]');
   countEl.textContent = total + ' ' + plural(total, 'эксперт и партнёр клуба', 'эксперта и партнёра клуба', 'экспертов и партнёров клуба');
