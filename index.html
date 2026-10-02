@@ -223,10 +223,11 @@
       <div class="wrap">
         <h2 class="section__title">Отзывы участников</h2>
       </div>
-      <ul class="reviews" data-reviews tabindex="0" aria-label="Отзывы участников, прокрутка по горизонтали"></ul>
-      <div class="wrap reviews__nav">
-        <button type="button" data-reviews-prev aria-label="Предыдущие отзывы"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
-        <button type="button" data-reviews-next aria-label="Следующие отзывы"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+      <div class="wrap">
+        <ul class="reviews" data-reviews id="reviews-list"></ul>
+        <div class="reviews__more">
+          <button type="button" class="btn reviews__btn" data-reviews-toggle aria-expanded="false" aria-controls="reviews-list" hidden><span>Ещё отзывы</span></button>
+        </div>
       </div>
     </section>
 
