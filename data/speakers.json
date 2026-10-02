@@ -92,9 +92,9 @@
   },
   {
     "group": "more",
-    "name": "Алексей Зубанов",
-    "topic": "Компания Public, Брюссель",
-    "photo": "assets/img/people/zubanov.webp",
+    "name": "Азат Валеев",
+    "topic": "Инвестор, эксперт РБК, Telegram‑канал 500+ тыс. читателей",
+    "photo": "assets/img/people/valeev.webp",
     "url": ""
   },
   {
@@ -106,9 +106,37 @@
   },
   {
     "group": "more",
+    "name": "Регина Казарян",
+    "topic": "Сеть школ скорочтения № 1 в России",
+    "photo": "assets/img/people/kazaryan.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Алексей Зубанов",
+    "topic": "Компания Public, Брюссель",
+    "photo": "assets/img/people/zubanov.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Айгуль Малика",
+    "topic": "Стилист первых лиц, писатель",
+    "photo": "assets/img/people/malika.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
     "name": "Светлана Барановска",
     "topic": "Студия текстиля Domo Dezains, Латвия",
     "photo": "assets/img/people/baranovska.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Руслан Садыков",
+    "topic": "Рекордсмен Книги рекордов Гиннесса",
+    "photo": "assets/img/people/sadykov.webp",
     "url": ""
   },
   {
@@ -148,6 +176,13 @@
   },
   {
     "group": "more",
+    "name": "Камиль Амирханов",
+    "topic": "Целеполагание",
+    "photo": "assets/img/people/amirkhanov.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
     "name": "Элина Фрейдина",
     "topic": "Студии пилатеса, финансы",
     "photo": "assets/img/people/freidina.webp",
@@ -155,23 +190,16 @@
   },
   {
     "group": "more",
-    "name": "Екатерина Чернякова",
-    "topic": "Продюсер",
-    "photo": "assets/img/people/chernyakova.webp",
-    "url": ""
-  },
-  {
-    "group": "more",
-    "name": "Айгуль Малика",
-    "topic": "Стилист первых лиц, писатель",
-    "photo": "assets/img/people/malika.webp",
-    "url": ""
-  },
-  {
-    "group": "more",
     "name": "Лариса Маркова",
     "topic": "Юрист",
     "photo": "assets/img/people/markova.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Екатерина Чернякова",
+    "topic": "Продюсер",
+    "photo": "assets/img/people/chernyakova.webp",
     "url": ""
   },
   {
@@ -190,16 +218,16 @@
   },
   {
     "group": "more",
-    "name": "Лилия Асфандиярова",
-    "topic": "Дизайнер интерьера",
-    "photo": "assets/img/people/asfandiyarova.webp",
+    "name": "Марина Заворухина",
+    "topic": "Фотограф",
+    "photo": "assets/img/people/zavorukhina.webp",
     "url": ""
   },
   {
     "group": "more",
-    "name": "Марина Заворухина",
-    "topic": "Фотограф",
-    "photo": "assets/img/people/zavorukhina.webp",
+    "name": "Лилия Асфандиярова",
+    "topic": "Дизайнер интерьера",
+    "photo": "assets/img/people/asfandiyarova.webp",
     "url": ""
   },
   {
@@ -211,37 +239,9 @@
   },
   {
     "group": "more",
-    "name": "Камиль Амирханов",
-    "topic": "Целеполагание",
-    "photo": "assets/img/people/amirkhanov.webp",
-    "url": ""
-  },
-  {
-    "group": "more",
-    "name": "Регина Казарян",
-    "topic": "Сеть школ скорочтения № 1 в России",
-    "photo": "assets/img/people/kazaryan.webp",
-    "url": ""
-  },
-  {
-    "group": "more",
-    "name": "Азат Валеев",
-    "topic": "Инвестор, эксперт РБК, Telegram‑канал 500+ тыс. читателей",
-    "photo": "assets/img/people/valeev.webp",
-    "url": ""
-  },
-  {
-    "group": "more",
     "name": "Катя Асламова",
     "topic": "Академия брендинга",
     "photo": "assets/img/people/aslamova.webp",
-    "url": ""
-  },
-  {
-    "group": "more",
-    "name": "Руслан Садыков",
-    "topic": "Спортсмен",
-    "photo": "assets/img/people/sadykov.webp",
     "url": ""
   },
   {
