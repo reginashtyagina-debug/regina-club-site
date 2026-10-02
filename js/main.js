@@ -368,21 +368,22 @@ async function renderReviews() {
     }
     ul.append(li);
   });
-  // Стена отзывов: сначала 6 (на телефоне 4), остальные по кнопке
+  // Первая строка — 3 отзыва (на телефоне 2), остальные раскрываются ниже по кнопке
   const items = [...ul.children];
-  items.forEach((li, i) => {
-    if (i >= 4) li.classList.add('review--extra-m');
-    if (i >= 6) li.classList.add('review--extra');
-  });
+  const more = $('[data-reviews-more]');
+  items.slice(3).forEach((li) => more.append(li));
+  const wrap = $('[data-reviews-wrap]');
   const toggle = $('[data-reviews-toggle]');
-  if (items.length > 4) {
+  if (items.length > 2) {
+    const label = 'Все ' + items.length + NBSP + plural(items.length, 'отзыв', 'отзыва', 'отзывов');
+    toggle.firstElementChild.textContent = label;
     toggle.hidden = false;
-    if (items.length <= 6) toggle.classList.add('reviews__btn--mobile');
+    if (items.length === 3) toggle.classList.add('reviews__btn--mobile');
     toggle.addEventListener('click', () => {
-      const open = !ul.classList.contains('is-open');
-      ul.classList.toggle('is-open', open);
+      const open = !wrap.classList.contains('is-open');
+      wrap.classList.toggle('is-open', open);
       toggle.setAttribute('aria-expanded', String(open));
-      toggle.firstElementChild.textContent = open ? 'Свернуть' : 'Ещё отзывы';
+      toggle.firstElementChild.textContent = open ? 'Свернуть' : label;
       if (open) goal('reviews_expand');
       else $('#reviews').scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' });
     });

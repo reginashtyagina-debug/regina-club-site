@@ -224,9 +224,12 @@
         <h2 class="section__title">Отзывы участников</h2>
       </div>
       <div class="wrap">
-        <ul class="reviews" data-reviews id="reviews-list"></ul>
+        <div class="reviews-wrap" data-reviews-wrap>
+          <ul class="reviews reviews--top" data-reviews></ul>
+          <ul class="reviews reviews--more" id="reviews-more" data-reviews-more></ul>
+        </div>
         <div class="reviews__more">
-          <button type="button" class="btn reviews__btn" data-reviews-toggle aria-expanded="false" aria-controls="reviews-list" hidden><span>Ещё отзывы</span></button>
+          <button type="button" class="btn reviews__btn" data-reviews-toggle aria-expanded="false" aria-controls="reviews-more" hidden><span>Все отзывы</span></button>
         </div>
       </div>
     </section>

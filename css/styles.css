@@ -413,15 +413,20 @@ html[data-accent="year"] .hero .cta-year {
 .path-card .path-topic { margin-top: auto; padding-top: 18px; }
 @media (min-width: 900px) { .path-cards { grid-template-columns: repeat(3, 1fr); } }
 
-/* 9. Reviews: стена скриншотов, 3 колонки на компьютере, 6 видно сразу */
-.reviews { margin-top: 40px; columns: 1; column-gap: 20px; }
-@media (min-width: 640px) { .reviews { columns: 2; } }
-@media (min-width: 1000px) { .reviews { columns: 3; } }
-.reviews > li { break-inside: avoid; margin-bottom: 20px; }
-.reviews:not(.is-open) .review--extra { display: none; }
-@media (max-width: 639px) { .reviews:not(.is-open) .review--extra-m { display: none; } }
-.reviews__more { margin-top: 12px; }
-@media (min-width: 640px) { .reviews__btn--mobile { display: none; } }
+/* 9. Reviews: одна строка из 3 отзывов, остальные раскрываются стеной ниже */
+.reviews { margin-top: 40px; }
+.reviews--top { display: grid; gap: 20px; align-items: start; }
+@media (min-width: 640px) { .reviews--top { grid-template-columns: 1fr 1fr; } .reviews--top > li:nth-child(3) { display: none; } }
+@media (min-width: 1000px) { .reviews--top { grid-template-columns: repeat(3, 1fr); } .reviews--top > li:nth-child(3) { display: flex; } }
+@media (max-width: 639px) { .reviews-wrap:not(.is-open) .reviews--top > li:nth-child(3) { display: none; } }
+@media (min-width: 640px) and (max-width: 999px) { .reviews-wrap.is-open .reviews--top > li:nth-child(3) { display: flex; } }
+.reviews--more { margin-top: 20px; columns: 1; column-gap: 20px; }
+@media (min-width: 640px) { .reviews--more { columns: 2; } }
+@media (min-width: 1000px) { .reviews--more { columns: 3; } }
+.reviews--more > li { break-inside: avoid; margin-bottom: 20px; }
+.reviews-wrap:not(.is-open) .reviews--more { display: none; }
+.reviews__more { margin-top: 28px; }
+@media (min-width: 1000px) { .reviews__btn--mobile { display: none; } }
 /* Text review card (regina-design: quote in PT Serif Italic, black plaque rhythm) */
 .review {
   display: flex; flex-direction: column;
