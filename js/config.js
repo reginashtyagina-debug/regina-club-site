@@ -2,11 +2,13 @@
 // Инструкция по каждому полю — в README.md.
 
 export const CONFIG = {
+  // Пока обе кнопки ведут на общую страницу оплаты клуба, где человек сам выбирает вариант.
+  // Когда появятся отдельные страницы (тест-драйв и год), поставить их сюда.
   // В GetCourse: предложение 4580392 «Клуб Регины Штягиной (2024) (1 модуль=1 месяц)», 5 490 руб.
-  trial:  { price: 5490,  days: 30,  url: "ССЫЛКА_GETCOURSE_ТЕСТДРАЙВ" },
+  trial:  { price: 5490,  days: 30,  url: "https://reginapr.getcourse.ru/regina_club_06" },
   // В GetCourse: предложение 4580395 «Клуб Регины Штягиной (2024) (12 модулей=12 месяцев)», 54 900 руб.
   // (есть также 5377593 — то же, в рассрочку)
-  year:   { price: 54900, months: 12, url: "ССЫЛКА_GETCOURSE_ГОД" },
+  year:   { price: 54900, months: 12, url: "https://reginapr.getcourse.ru/regina_club_06" },
   creditedYearPrice: 49410,
   creditWindowDaysAfterTrial: 7,
   subtitle: "Сообщество предпринимателей, экспертов и медийных лидеров из разных стран",
