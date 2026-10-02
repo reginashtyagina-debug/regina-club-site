@@ -44,7 +44,7 @@
   {
     "group": "featured",
     "name": "Анастасия Шведчикова",
-    "topic": "Международный бренд костюмов для олимпийских чемпионов",
+    "topic": "Бренд костюмов для олимпийских чемпионов",
     "photo": "assets/img/people/shvedchikova.webp",
     "url": ""
   },
@@ -156,7 +156,7 @@
   {
     "group": "more",
     "name": "Диана Биглова",
-    "topic": "Психолог, магистратура Института Франкла, Вена",
+    "topic": "Психолог, Институт Франкла, Вена",
     "photo": "assets/img/people/biglova.webp",
     "url": ""
   },
@@ -219,7 +219,7 @@
   {
     "group": "more",
     "name": "Марина Заворухина",
-    "topic": "Фотограф",
+    "topic": "Фотограф, визуальный маркетолог",
     "photo": "assets/img/people/zavorukhina.webp",
     "url": ""
   },
