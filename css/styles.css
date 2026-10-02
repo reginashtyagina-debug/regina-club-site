@@ -425,7 +425,7 @@ html[data-accent="year"] .hero .cta-year {
   .reviews { padding-left: calc((100vw - var(--wrap)) / 2 + var(--gutter)); scroll-padding-left: calc((100vw - var(--wrap)) / 2 + var(--gutter)); }
 }
 .reviews li { scroll-snap-align: start; }
-.reviews { grid-auto-columns: min(calc(100vw - 2 * var(--gutter)), 440px); align-items: start; }
+.reviews { grid-auto-columns: min(calc(100vw - 2 * var(--gutter)), 440px); align-items: center; }
 /* Text review card (regina-design: quote in PT Serif Italic, black plaque rhythm) */
 .review {
   display: flex; flex-direction: column;
@@ -444,8 +444,8 @@ html[data-accent="year"] .hero .cta-year {
 .reviews .review--shot img { width: 100%; height: auto; border: 0; border-radius: 0; }
 .review--shot .review__source { margin: 12px 4px 0; }
 .review__source { margin-top: 10px; font-size: 13px; color: var(--grey); }
-.review:nth-child(3n+2) .review__source { color: #A9A6A1; }
-.review:nth-child(3n+2) .review__source::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 8px; border-radius: 50%; background: var(--lime); }
+.review:not(.review--shot):nth-child(3n+2) .review__source { color: #A9A6A1; }
+.review:not(.review--shot):nth-child(3n+2) .review__source::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 8px; border-radius: 50%; background: var(--lime); }
 .reviews__nav { display: flex; gap: 8px; margin-top: 16px; }
 .reviews__nav button {
   width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--graphite);
