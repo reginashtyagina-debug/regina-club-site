@@ -14,7 +14,6 @@ export const CONFIG = {
   subtitle: "Сообщество предпринимателей, экспертов и медийных лидеров из разных стран",
   scheduleJson: "data/schedule.json",
   speakersJson: "data/speakers.json",
-  storyJson: "data/story.json",
   reviewsJson: "data/reviews.json",
   // Строка под сеткой спикеров. Числа нет: состав постоянно пополняется.
   // Пусто — строка не показывается.
