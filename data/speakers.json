@@ -86,43 +86,15 @@
   {
     "group": "more",
     "name": "Диляра Хафизова",
-    "topic": "Агент компании Disney",
+    "topic": "Агент компании Disney, США",
     "photo": "assets/img/people/khafizova.webp",
     "url": ""
   },
   {
     "group": "more",
-    "name": "Игорь Андрианов",
-    "topic": "Серийный предприниматель",
-    "photo": "assets/img/people/andrianov.webp",
-    "url": ""
-  },
-  {
-    "group": "more",
-    "name": "Лилия Асфандиярова",
-    "topic": "Дизайнер интерьера",
-    "photo": "assets/img/people/asfandiyarova.webp",
-    "url": ""
-  },
-  {
-    "group": "more",
-    "name": "Лилия Горина",
-    "topic": "Налоговый консультант",
-    "photo": "assets/img/people/gorina.webp",
-    "url": ""
-  },
-  {
-    "group": "more",
-    "name": "Лариса Маркова",
-    "topic": "Юрист",
-    "photo": "assets/img/people/markova.webp",
-    "url": ""
-  },
-  {
-    "group": "more",
-    "name": "Мария Гайнетдинова",
-    "topic": "Гранты, лицензирование",
-    "photo": "assets/img/people/gainetdinova.webp",
+    "name": "Алексей Зубанов",
+    "topic": "Компания Public, Брюссель",
+    "photo": "assets/img/people/zubanov.webp",
     "url": ""
   },
   {
@@ -134,9 +106,114 @@
   },
   {
     "group": "more",
+    "name": "Светлана Барановска",
+    "topic": "Студия текстиля Domo Dezains, Латвия",
+    "photo": "assets/img/people/baranovska.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Ольга Рамазанова",
+    "topic": "Галерея современного искусства «Мирас»",
+    "photo": "assets/img/people/ramazanova.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Игорь Андрианов",
+    "topic": "Серийный предприниматель",
+    "photo": "assets/img/people/andrianov.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
     "name": "Диана Биглова",
     "topic": "Психолог",
     "photo": "assets/img/people/biglova.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Владимир Пиндрик",
+    "topic": "Компания «Бизнес Советник»",
+    "photo": "assets/img/people/pindrik.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Айгуль Гареева",
+    "topic": "Фонд «Мархамат»",
+    "photo": "assets/img/people/gareeva.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Элина Фрейдина",
+    "topic": "Студии пилатеса, финансы",
+    "photo": "assets/img/people/freidina.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Екатерина Чернякова",
+    "topic": "Продюсер",
+    "photo": "assets/img/people/chernyakova.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Айгуль Малика",
+    "topic": "Стилист",
+    "photo": "assets/img/people/malika.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Лариса Маркова",
+    "topic": "Юрист",
+    "photo": "assets/img/people/markova.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Лилия Горина",
+    "topic": "Налоговый консультант",
+    "photo": "assets/img/people/gorina.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Мария Гайнетдинова",
+    "topic": "Гранты, лицензирование",
+    "photo": "assets/img/people/gainetdinova.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Лилия Асфандиярова",
+    "topic": "Дизайнер интерьера",
+    "photo": "assets/img/people/asfandiyarova.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Марина Заворухина",
+    "topic": "Фотограф",
+    "photo": "assets/img/people/zavorukhina.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Елена Маркозашвили",
+    "topic": "Коуч",
+    "photo": "assets/img/people/markozashvili.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Камиль Амирханов",
+    "topic": "Целеполагание",
+    "photo": "assets/img/people/amirkhanov.webp",
     "url": ""
   },
   {
@@ -169,79 +246,9 @@
   },
   {
     "group": "more",
-    "name": "Марина Заворухина",
-    "topic": "Фотограф",
-    "photo": "assets/img/people/zavorukhina.webp",
-    "url": ""
-  },
-  {
-    "group": "more",
-    "name": "Екатерина Чернякова",
-    "topic": "Продюсер",
-    "photo": "assets/img/people/chernyakova.webp",
-    "url": ""
-  },
-  {
-    "group": "more",
-    "name": "Айгуль Малика",
-    "topic": "Стилист",
-    "photo": "assets/img/people/malika.webp",
-    "url": ""
-  },
-  {
-    "group": "more",
-    "name": "Алексей Зубанов",
-    "topic": "Компания Public, Брюссель",
-    "photo": "assets/img/people/zubanov.webp",
-    "url": ""
-  },
-  {
-    "group": "more",
-    "name": "Елена Маркозашвили",
-    "topic": "Коуч",
-    "photo": "assets/img/people/markozashvili.webp",
-    "url": ""
-  },
-  {
-    "group": "more",
-    "name": "Камиль Амирханов",
-    "topic": "Целеполагание",
-    "photo": "assets/img/people/amirkhanov.webp",
-    "url": ""
-  },
-  {
-    "group": "more",
-    "name": "Элина Фрейдина",
-    "topic": "Студии пилатеса, финансы",
-    "photo": "assets/img/people/freidina.webp",
-    "url": ""
-  },
-  {
-    "group": "more",
-    "name": "Владимир Пиндрик",
-    "topic": "Компания «Бизнес Советник»",
-    "photo": "assets/img/people/pindrik.webp",
-    "url": ""
-  },
-  {
-    "group": "more",
-    "name": "Айгуль Гареева",
-    "topic": "Фонд «Мархамат»",
-    "photo": "assets/img/people/gareeva.webp",
-    "url": ""
-  },
-  {
-    "group": "more",
     "name": "Юлия Соло",
     "topic": "Управляющий клуба, формирование привычек",
     "photo": "assets/img/people/solo.webp",
-    "url": ""
-  },
-  {
-    "group": "more",
-    "name": "Ольга Рамазанова",
-    "topic": "Галерея современного искусства «Мирас»",
-    "photo": "assets/img/people/ramazanova.webp",
     "url": ""
   },
   {
