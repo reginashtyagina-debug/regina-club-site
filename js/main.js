@@ -33,6 +33,10 @@ function fillConfig() {
     const unit = el.dataset.unit;
     el.textContent = unit === 'days' ? days(v) : unit === 'months' ? months(v) : money(v);
   });
+  $$('[data-per-month]').forEach((el) => {
+    const { price, months: m } = CONFIG.year;
+    if (price && m) el.textContent = '=' + NBSP + money(Math.round(price / m)) + ' в' + NBSP + 'месяц';
+  });
   $$('[data-text="subtitle"]').forEach((el) => { el.textContent = CONFIG.subtitle; });
   $$('[data-text="legal"]').forEach((el) => { if (CONFIG.legal) el.textContent = CONFIG.legal; else el.hidden = true; });
 }
@@ -100,6 +104,13 @@ function setupCheckoutLinks() {
       goal(plan === 'trial' ? 'click_trial' : 'click_year', { block: a.dataset.block || 'unknown' });
       if (a.hasAttribute('data-missing')) console.warn('Ссылка GetCourse для «' + plan + '» не указана в js/config.js');
     });
+  });
+}
+
+// Кнопки первого экрана ведут к условиям: там видны цены и зачёт
+function setupTermsLinks() {
+  $$('[data-to-terms]').forEach((a) => {
+    a.addEventListener('click', () => goal('hero_to_terms', { plan: a.dataset.toTerms }));
   });
 }
 
@@ -512,6 +523,7 @@ const accent = detectAccent();
 fillConfig();
 setupLogo();
 setupCheckoutLinks();
+setupTermsLinks();
 setupLinks();
 setupVideo();
 setupFounder();

@@ -200,6 +200,9 @@ html[data-accent="year"] .hero .cta-year {
   color: var(--grey-on-dark); font-size: 16px; line-height: 1.65;
 }
 .hero .cta-pair { margin-top: 36px; }
+.hero__facts { margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(243, 241, 238, 0.16); display: flex; flex-wrap: wrap; gap: 10px 28px; font-size: 14px; line-height: 1.4; color: #A9A6A1; max-width: 640px; }
+.hero__facts b { color: #D7FF00; font: 600 18px/1.2 var(--display); letter-spacing: -0.01em; margin-right: 4px; }
+.hero__facts li:last-child { flex-basis: 100%; }
 
 .video { width: min(100%, 320px); }
 .video__frame {
@@ -460,6 +463,7 @@ html[data-accent="year"] .hero .cta-year {
   cursor: pointer;
 }
 .plan__name { font: 600 22px/1.2 var(--display); letter-spacing: -0.015em; }
+.plan__per { margin-top: 4px; font-size: 15px; color: var(--grey); }
 .plan__price { font-variant-numeric: tabular-nums; margin-top: 24px; font: 600 clamp(40px, 6vw, 60px)/1 var(--display); letter-spacing: -0.035em; }
 .plan__term { margin-top: 8px; color: var(--grey); }
 .plan__content { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--line); }

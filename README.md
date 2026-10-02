@@ -127,7 +127,8 @@ founderPhoto: "assets/img/regina.webp",
 | Цель | Когда |
 |---|---|
 | `terms_view` | Блок условий попал в экран |
-| `click_trial`, `click_year` | Нажатие кнопки пакета; параметр `block`: `hero`, `terms`, `final` |
+| `hero_to_terms` | Нажатие кнопки на первом экране (ведёт к условиям); параметр `plan` |
+| `click_trial`, `click_year` | Переход на оплату; параметр `block`: `terms`, `final` |
 | `sticky_click` | Нажатие закреплённой кнопки на телефоне |
 | `video_start`, `video_complete` | Запуск и досмотр видео |
 | `faq_open` | Раскрытие вопроса; параметр `question` |
