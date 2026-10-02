@@ -368,9 +368,25 @@ async function renderReviews() {
     }
     ul.append(li);
   });
-  const step = () => (ul.firstElementChild ? ul.firstElementChild.getBoundingClientRect().width + 16 : 300);
-  $('[data-reviews-prev]').addEventListener('click', () => ul.scrollBy({ left: -step(), behavior: reducedMotion ? 'auto' : 'smooth' }));
-  $('[data-reviews-next]').addEventListener('click', () => ul.scrollBy({ left: step(), behavior: reducedMotion ? 'auto' : 'smooth' }));
+  // Стена отзывов: сначала 6 (на телефоне 4), остальные по кнопке
+  const items = [...ul.children];
+  items.forEach((li, i) => {
+    if (i >= 4) li.classList.add('review--extra-m');
+    if (i >= 6) li.classList.add('review--extra');
+  });
+  const toggle = $('[data-reviews-toggle]');
+  if (items.length > 4) {
+    toggle.hidden = false;
+    if (items.length <= 6) toggle.classList.add('reviews__btn--mobile');
+    toggle.addEventListener('click', () => {
+      const open = !ul.classList.contains('is-open');
+      ul.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.firstElementChild.textContent = open ? 'Свернуть' : 'Ещё отзывы';
+      if (open) goal('reviews_expand');
+      else $('#reviews').scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' });
+    });
+  }
   $('#reviews').hidden = false;
 }
 

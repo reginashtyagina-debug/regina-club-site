@@ -413,19 +413,15 @@ html[data-accent="year"] .hero .cta-year {
 .path-card .path-topic { margin-top: auto; padding-top: 18px; }
 @media (min-width: 900px) { .path-cards { grid-template-columns: repeat(3, 1fr); } }
 
-/* 9. Reviews: horizontal scroll */
-.reviews {
-  margin-top: 40px;
-  display: grid; grid-auto-flow: column; grid-auto-columns: min(78vw, 300px); gap: 16px;
-  overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
-  padding: 0 var(--gutter) 12px;
-  scroll-padding-left: var(--gutter);
-}
-@media (min-width: 1200px) {
-  .reviews { padding-left: calc((100vw - var(--wrap)) / 2 + var(--gutter)); scroll-padding-left: calc((100vw - var(--wrap)) / 2 + var(--gutter)); }
-}
-.reviews li { scroll-snap-align: start; }
-.reviews { grid-auto-columns: min(calc(100vw - 2 * var(--gutter)), 440px); align-items: center; }
+/* 9. Reviews: стена скриншотов, 3 колонки на компьютере, 6 видно сразу */
+.reviews { margin-top: 40px; columns: 1; column-gap: 20px; }
+@media (min-width: 640px) { .reviews { columns: 2; } }
+@media (min-width: 1000px) { .reviews { columns: 3; } }
+.reviews > li { break-inside: avoid; margin-bottom: 20px; }
+.reviews:not(.is-open) .review--extra { display: none; }
+@media (max-width: 639px) { .reviews:not(.is-open) .review--extra-m { display: none; } }
+.reviews__more { margin-top: 12px; }
+@media (min-width: 640px) { .reviews__btn--mobile { display: none; } }
 /* Text review card (regina-design: quote in PT Serif Italic, black plaque rhythm) */
 .review {
   display: flex; flex-direction: column;
@@ -446,13 +442,6 @@ html[data-accent="year"] .hero .cta-year {
 .review__source { margin-top: 10px; font-size: 13px; color: var(--grey); }
 .review:not(.review--shot):nth-child(3n+2) .review__source { color: #A9A6A1; }
 .review:not(.review--shot):nth-child(3n+2) .review__source::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 8px; border-radius: 50%; background: var(--lime); }
-.reviews__nav { display: flex; gap: 8px; margin-top: 16px; }
-.reviews__nav button {
-  width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--graphite);
-  background: transparent; color: var(--graphite); cursor: pointer; display: grid; place-items: center;
-}
-.reviews__nav button:hover { background: rgba(22, 22, 22, .06); }
-.reviews__nav svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; }
 .reviews img { width: 100%; border-radius: 14px; border: 1px solid var(--line); background: var(--warm-white); }
 
 /* 10. Terms */
