@@ -415,7 +415,8 @@ html[data-accent="year"] .hero .cta-year {
 
 /* 9. Reviews: одна строка из 3 отзывов, остальные раскрываются стеной ниже */
 .reviews { margin-top: 40px; }
-.reviews--top { display: grid; gap: 20px; align-items: start; }
+.reviews--top { display: grid; gap: 20px; align-items: stretch; }
+.reviews--top .review--shot .review__source { margin-top: auto; padding-top: 12px; }
 @media (min-width: 640px) { .reviews--top { grid-template-columns: 1fr 1fr; } .reviews--top > li:nth-child(3) { display: none; } }
 @media (min-width: 1000px) { .reviews--top { grid-template-columns: repeat(3, 1fr); } .reviews--top > li:nth-child(3) { display: flex; } }
 @media (max-width: 639px) { .reviews-wrap:not(.is-open) .reviews--top > li:nth-child(3) { display: none; } }
