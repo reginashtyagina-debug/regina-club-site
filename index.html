@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ru" data-accent="trial">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Деловой клуб Регины Штягиной</title>
+  <meta name="description" content="Сообщество предпринимателей, экспертов и медийных лидеров из разных стран. Встречи с экспертами, эфиры с Региной Штягиной, закрытый чат и библиотека видеоуроков.">
+  <meta name="theme-color" content="#161616">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://club.reginashtyagina.ru/">
+  <link rel="canonical" href="https://club.reginashtyagina.ru/">
+  <meta property="og:title" content="Деловой клуб Регины Штягиной">
+  <meta property="og:description" content="Сообщество предпринимателей, экспертов и медийных лидеров из разных стран.">
+  <meta property="og:image" content="https://club.reginashtyagina.ru/assets/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/montserrat-cyrillic-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/golos-text-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/pt-serif-cyrillic-400-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/img/event-poster.webp" as="image" type="image/webp">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    // Акцент пакета ставится до отрисовки, чтобы первый экран не перескакивал.
+    (function () {
+      var p = new URLSearchParams(location.search).get('from');
+      if (p && ['event', 'ufa', 'year'].indexOf(p) !== -1) document.documentElement.dataset.accent = 'year';
+    })();
+  </script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <a class="skip" href="#inside">Перейти к содержанию</a>
+
+  <!-- 1. Первый экран -->
+  <header class="hero" id="top" data-block="hero">
+    <div class="hero__net" aria-hidden="true"></div>
+    <div class="wrap topbar">
+      <a class="brand" href="#top" data-logo="onDark" aria-label="shtyagina, на главную">
+        <span class="brand__text" aria-hidden="true">shtyagina</span>
+      </a>
+      <p class="topbar__academy">Академия PR и&nbsp;Личного бренда</p>
+    </div>
+    <div class="wrap hero__grid">
+      <div class="hero__text">
+        <h1 class="hero__title">Деловой клуб Регины Штягиной</h1>
+        <p class="hero__subtitle" data-text="subtitle">Сообщество предпринимателей, экспертов и медийных лидеров из разных стран</p>
+        <p class="hero__offer">Внутри клуба уже сегодня — блогеры-миллионники, эксперты с&nbsp;чеком за&nbsp;услуги выше миллиона рублей, предприниматели, которые ведут переговоры с&nbsp;мировыми лидерами. Светское, медийное и&nbsp;деловое окружение в&nbsp;одном пространстве — с&nbsp;прямым доступом к&nbsp;экспертизе, которая обычно недоступна.</p>
+        <div class="cta-pair">
+          <a class="btn cta-trial" data-checkout="trial" data-block="hero" href="#terms"><span>Начать тест-драйв — <span data-cfg="trial.price">5&nbsp;490&nbsp;₽</span></span></a>
+          <a class="btn cta-year" data-checkout="year" data-block="hero" href="#terms"><span>Вступить на год — <span data-cfg="year.price">54&nbsp;900&nbsp;₽</span></span></a>
+        </div>
+      </div>
+
+      <figure class="video" data-video>
+        <div class="video__frame">
+          <img class="video__img" data-video-poster src="assets/img/event-poster.webp" width="540" height="960" alt="Регина Штягина на сцене перед полным залом" fetchpriority="high">
+          <figcaption class="video__caption" data-video-caption>С&nbsp;мероприятия Регины Штягиной</figcaption>
+          <button class="video__toggle" type="button" data-video-toggle hidden aria-label="Остановить видео">
+            <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>
+            <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>
+          </button>
+          <button class="video__play" type="button" data-video-play hidden aria-label="Смотреть приветствие Регины">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>
+          </button>
+        </div>
+      </figure>
+    </div>
+  </header>
+
+  <main>
+    <!-- 2. Что внутри клуба -->
+    <section class="section theme-lime" id="inside">
+      <div class="wrap split">
+        <h2 class="section__title">Что внутри клуба</h2>
+        <ul class="lines lines--large">
+          <li>Четыре встречи в&nbsp;месяц с&nbsp;экспертами: право, искусственный интеллект, визуальный маркетинг, психология</li>
+          <li>Ежемесячный эфир «Состояние»: личный разбор переговоров и&nbsp;коммуникаций участников с&nbsp;Региной</li>
+          <li>Закрытый чат с&nbsp;ежедневными рубриками: гранты, изменения в&nbsp;законах, разбор соцсетей, когнитивные навыки</li>
+          <li>Библиотека видеоуроков, открыта в&nbsp;любой момент</li>
+          <li>Партнёрства и&nbsp;совместные проекты между участниками</li>
+          <li>Сеть на&nbsp;всех уровнях системы: участники программы «От&nbsp;Анонима до&nbsp;Звезды» и&nbsp;годового сопровождения</li>
+          <li>Путь от&nbsp;участника к&nbsp;эксперту клуба</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3. Расписание: показывается, только если есть данные -->
+    <section class="section section--tight theme-dark" id="schedule" hidden>
+      <div class="wrap split">
+        <h2 class="section__title">Ближайшие встречи</h2>
+        <div>
+          <ol class="schedule" data-schedule></ol>
+          <p class="note">Время московское</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Первые 30 дней -->
+    <section class="section theme-dark" id="first-month">
+      <div class="wrap">
+        <h2 class="section__title">Первые 30 дней</h2>
+        <ol class="weeks">
+          <li><h3>Неделя 1</h3><p>Вход в&nbsp;чат, знакомство с&nbsp;участниками, первая встреча с&nbsp;экспертом.</p></li>
+          <li><h3>Неделя 2</h3><p>Эфир или разбор, участие в&nbsp;рубриках чата.</p></li>
+          <li><h3>Неделя 3</h3><p>Библиотека видеоуроков, партнёрства между участниками.</p></li>
+          <li><h3>Неделя 4</h3><p>Итоги месяца и&nbsp;решение: остаться на&nbsp;год.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 5. Спикеры: показывается при 4+ именах -->
+    <section class="section theme-blue" id="speakers" hidden>
+      <div class="wrap">
+        <h2 class="section__title">Партнёры и&nbsp;спикеры</h2>
+        <ul class="speakers" data-speakers="featured"></ul>
+        <div class="experts-more" data-experts-more>
+          <p class="experts-more__count" data-experts-count></p>
+          <button type="button" class="btn experts-more__btn" data-experts-toggle aria-expanded="false" aria-controls="experts-all">Ещё эксперты и&nbsp;партнёры</button>
+        </div>
+        <div id="experts-all" class="experts-all" hidden>
+          <ul class="speakers" data-speakers="more"></ul>
+        </div>
+        <div class="rubrics" hidden>
+          <h3 class="rubrics__title">Рубрики закрытого чата ведут</h3>
+          <ul class="lines rubrics__list" data-rubrics></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Кто ведёт клуб -->
+    <section class="section theme-dark" id="founder">
+      <div class="wrap founder">
+        <div class="founder__photo" data-founder-photo>
+          <span>Фото Регины</span>
+        </div>
+        <div class="founder__text">
+          <h2 class="section__title">Кто ведёт клуб</h2>
+          <p class="founder__name">Регина Штягина</p>
+          <ul class="lines">
+            <li>15 лет в&nbsp;PR и&nbsp;личном брендинге, с&nbsp;2013 года — владелица PR-агентства R&amp;R</li>
+            <li>Клиенты: Сбербанк, Газпром, Heineken, Porsche</li>
+            <li>Автор методики «От&nbsp;Анонима до&nbsp;Звезды», 25&nbsp;000+ учеников за&nbsp;всю историю Академии</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Кому подходит клуб -->
+    <section class="section theme-lime" id="audience">
+      <div class="wrap split">
+        <h2 class="section__title">Кому подходит клуб</h2>
+        <ul class="lines lines--large">
+          <li>Предпринимателям и&nbsp;владельцам бизнеса</li>
+          <li>Экспертам и&nbsp;специалистам, растущим в&nbsp;статусе</li>
+          <li>Медийным лидерам и&nbsp;блогерам</li>
+          <li>Новичкам, которые ещё не&nbsp;знают, как продвигать своё дело, и&nbsp;хотят учиться у&nbsp;сильного окружения</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 8. Путь от участника к эксперту: показывается, только если есть история -->
+    <section class="section" id="story" hidden>
+      <div class="wrap story" data-story>
+        <h2 class="section__title">Путь от&nbsp;участника к&nbsp;эксперту</h2>
+      </div>
+    </section>
+
+    <!-- 9. Отзывы: показывается, только если есть скриншоты -->
+    <section class="section theme-blue" id="reviews" hidden>
+      <div class="wrap">
+        <h2 class="section__title">Отзывы участников</h2>
+      </div>
+      <ul class="reviews" data-reviews tabindex="0" aria-label="Отзывы участников, прокрутка по горизонтали"></ul>
+      <div class="wrap reviews__nav">
+        <button type="button" data-reviews-prev aria-label="Предыдущие отзывы"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button type="button" data-reviews-next aria-label="Следующие отзывы"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </section>
+
+    <!-- 10. Условия участия -->
+    <section class="section terms" id="terms" data-block="terms">
+      <div class="wrap">
+        <h2 class="section__title">Условия участия</h2>
+
+        <div class="plans">
+          <article class="plan plan--trial" data-plan="trial">
+            <h3 class="plan__name">Тест-драйв</h3>
+            <p class="plan__price" data-cfg="trial.price">5&nbsp;490&nbsp;₽</p>
+            <p class="plan__term" data-cfg="trial.days" data-unit="days">30 дней</p>
+            <p class="plan__content">Всё, что входит в&nbsp;клуб</p>
+            <a class="btn plan__btn" data-checkout="trial" data-block="terms" href="#terms">Начать тест-драйв</a>
+            <p class="plan__note">Автоматического списания нет. Через месяц вы&nbsp;решаете, остаться&nbsp;ли на&nbsp;год.</p>
+          </article>
+
+          <article class="plan plan--year" data-plan="year">
+            <h3 class="plan__name">Год в&nbsp;клубе</h3>
+            <p class="plan__price" data-cfg="year.price">54&nbsp;900&nbsp;₽</p>
+            <p class="plan__term" data-cfg="year.months" data-unit="months">12 месяцев</p>
+            <p class="plan__content">Всё, что входит в&nbsp;клуб</p>
+            <a class="btn plan__btn" data-checkout="year" data-block="terms" href="#terms">Вступить на&nbsp;год</a>
+          </article>
+        </div>
+
+        <p class="credit"><b class="credit__label">Главное</b>Если вы&nbsp;остаётесь на&nbsp;год в&nbsp;течение тест-драйва или <span data-cfg="creditWindowDaysAfterTrial" data-unit="days">7 дней</span> после него, стоимость первого месяца засчитывается. Год&nbsp;— <span data-cfg="creditedYearPrice">49&nbsp;410&nbsp;₽</span>.</p>
+
+        <div class="scale" data-scale data-mode="trial">
+          <div class="scale__head">
+            <h3 class="scale__title">Срок участия</h3>
+            <div class="scale__toggle" role="group" aria-label="Показать на шкале">
+              <button type="button" data-scale-mode="trial" aria-pressed="true">С тест-драйва</button>
+              <button type="button" data-scale-mode="year" aria-pressed="false">Сразу на год</button>
+            </div>
+          </div>
+          <div class="scale__track" aria-hidden="true">
+            <span class="scale__seg scale__seg--trial"></span>
+            <span class="scale__seg scale__seg--window"></span>
+            <span class="scale__seg scale__seg--year"></span>
+          </div>
+          <ul class="scale__legend" aria-live="polite">
+            <li class="scale__item scale__item--trial"><b><span data-cfg="trial.days" data-unit="days">30 дней</span> тест-драйва</b><span data-cfg="trial.price">5&nbsp;490&nbsp;₽</span></li>
+            <li class="scale__item scale__item--window"><b><span data-cfg="creditWindowDaysAfterTrial" data-unit="days">7 дней</span> на&nbsp;решение</b><span>после окончания месяца</span></li>
+            <li class="scale__item scale__item--credited"><b>Год в&nbsp;клубе, <span data-cfg="creditedYearPrice">49&nbsp;410&nbsp;₽</span></b><span>Стоимость первого месяца засчитывается</span></li>
+            <li class="scale__item scale__item--year"><b>Год в&nbsp;клубе, <span data-cfg="year.months" data-unit="months">12 месяцев</span></b><span data-cfg="year.price">54&nbsp;900&nbsp;₽</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. Вопросы и ответы -->
+    <section class="section theme-dark" id="faq">
+      <div class="wrap split">
+        <h2 class="section__title">Вопросы и&nbsp;ответы</h2>
+        <div class="faq" data-faq></div>
+      </div>
+    </section>
+
+    <!-- 12. Ступень системы -->
+    <section class="section section--tight theme-blue" id="system">
+      <div class="wrap split">
+        <h2 class="section__title">Ступень системы</h2>
+        <div>
+          <p class="lead">Деловой клуб — первая ступень системы «От&nbsp;Анонима до&nbsp;Звезды». Дальнейшие шаги — программа «От&nbsp;Анонима до&nbsp;Звезды» и&nbsp;годовое сопровождение — доступны участникам клуба напрямую.</p>
+          <p class="system__link"><a class="link" data-link="academy" href="#">Сайт Академии PR и&nbsp;Личного бренда</a></p>
+          <figure class="system__proof">
+            <a href="assets/img/reviews/ig-disneymama.webp" target="_blank" rel="noopener">
+              <img src="assets/img/reviews/ig-disneymama.webp" width="815" height="324" loading="lazy" decoding="async" alt="disneymama.cruise: «Регина, как же я благодарна Вам и Вашей команде. Моя жизнь и мой бизнес изменились так сильно, что трудно поверить. Меня Дисней начал приглашать на специальные круизы и именно запрашивать мою кандидатуру»">
+            </a>
+            <figcaption>Комментарий из социальных сетей</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13. Финальный призыв -->
+    <section class="final theme-lime" id="final" data-block="final">
+      <div class="wrap">
+        <h2 class="final__title">Превратите репутацию в&nbsp;доход</h2>
+        <p class="final__club">Деловой клуб Регины Штягиной</p>
+        <div class="cta-pair">
+          <a class="btn cta-trial" data-checkout="trial" data-block="final" href="#terms"><span>Начать тест-драйв — <span data-cfg="trial.price">5&nbsp;490&nbsp;₽</span></span></a>
+          <a class="btn cta-year" data-checkout="year" data-block="final" href="#terms"><span>Вступить на год — <span data-cfg="year.price">54&nbsp;900&nbsp;₽</span></span></a>
+        </div>
+        <p class="final__terms">Тест-драйв <span data-cfg="trial.days" data-unit="days">30 дней</span> без автоматического списания. При переходе на&nbsp;год в&nbsp;срок стоимость первого месяца засчитывается.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <div>
+        <p class="footer__name">Деловой клуб Регины Штягиной</p>
+        <p class="footer__legal" data-text="legal">ИП Штягина Регина Андреевна, ИНН 027414006490, ОГРНИП 319028000020569</p>
+      </div>
+      <ul class="footer__links">
+        <li><a data-link="offer" href="#">Оферта</a></li>
+        <li><a data-link="privacy" href="https://reginapr.getcourse.ru/confidetial">Политика конфиденциальности</a></li>
+        <li><a data-link="personalData" href="https://reginapr.getcourse.ru/agreement_pers">Согласие на обработку персональных данных</a></li>
+        <li><a data-link="cookies" href="privacy.html">Cookie и аналитика</a></li>
+        <li><a data-link="telegram" href="#">Telegram-канал</a></li>
+        <li><a data-link="social" href="#">Социальные сети</a></li>
+        <li data-contact="email" hidden></li>
+        <li data-contact="phone" hidden></li>
+      </ul>
+    </div>
+  </footer>
+
+  <a class="sticky-cta" href="#terms" data-sticky aria-hidden="true" tabindex="-1">
+    <span>Условия участия</span>
+    <span class="sticky-cta__price"><span class="only-trial">Тест-драйв <span data-cfg="trial.price">5&nbsp;490&nbsp;₽</span></span><span class="only-year">Год <span data-cfg="year.price">54&nbsp;900&nbsp;₽</span></span></span>
+  </a>
+</body>
+</html>

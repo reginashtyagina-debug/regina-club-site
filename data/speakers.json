@@ -1,0 +1,284 @@
+[
+  {
+    "group": "featured",
+    "name": "Николай Ягодкин",
+    "topic": "Основатель школы Advance, развитие памяти и мышления",
+    "photo": "assets/img/people/yagodkin.webp",
+    "url": ""
+  },
+  {
+    "group": "featured",
+    "name": "Рустем Аднабаев",
+    "topic": "Режиссёр, основатель школы телевидения",
+    "photo": "assets/img/people/adnabaev.webp",
+    "url": ""
+  },
+  {
+    "group": "featured",
+    "name": "Роберто Д’Агостино",
+    "topic": "Почётный консул Италии",
+    "photo": "assets/img/people/dagostino.webp",
+    "url": ""
+  },
+  {
+    "group": "featured",
+    "name": "Раис Габитов",
+    "topic": "Блогер, более 1 млн подписчиков",
+    "photo": "assets/img/people/gabitov.webp",
+    "url": ""
+  },
+  {
+    "group": "featured",
+    "name": "Алиса Кулоби Тестина",
+    "topic": "Бизнес и ИИ, Северная Европа",
+    "photo": "assets/img/people/kulobi-testina.webp",
+    "url": ""
+  },
+  {
+    "group": "featured",
+    "name": "Елена Арямнова",
+    "topic": "Бывший депутат, Агентство по печати и СМИ",
+    "photo": "assets/img/people/aryamnova.webp",
+    "url": ""
+  },
+  {
+    "group": "featured",
+    "name": "Анастасия Шведчикова",
+    "topic": "Бренд костюмов для олимпийских чемпионов",
+    "photo": "assets/img/people/shvedchikova.webp",
+    "url": ""
+  },
+  {
+    "group": "featured",
+    "name": "Дарья Бондаренко",
+    "topic": "Продюсер, предприниматель, Италия",
+    "photo": "assets/img/people/bondarenko.webp",
+    "url": ""
+  },
+  {
+    "group": "featured",
+    "name": "Анна Берчатова",
+    "topic": "Директор по развитию Prodamus",
+    "photo": "assets/img/people/berchatova.webp",
+    "url": ""
+  },
+  {
+    "group": "featured",
+    "name": "Дина Гарифуллина",
+    "topic": "Телеведущая «Россия 1», певица шоу «Голос»",
+    "photo": "assets/img/people/garifullina.webp",
+    "url": ""
+  },
+  {
+    "group": "featured",
+    "name": "Юлия Власенко",
+    "topic": "Финалистка «Топ‑модель по-русски»",
+    "photo": "assets/img/people/vlasenko.webp",
+    "url": ""
+  },
+  {
+    "group": "featured",
+    "name": "Азат Валеев",
+    "topic": "Инвестор, эксперт РБК. Telegram‑канал, 500 тыс.+",
+    "photo": "assets/img/people/valeev.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Диляра Хафизова",
+    "topic": "Агент компании Disney, США",
+    "photo": "assets/img/people/khafizova.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Алексей Александров",
+    "topic": "Продюсер крупнейших онлайн‑проектов",
+    "photo": "assets/img/people/aleksandrov.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Дарья Трубарова",
+    "topic": "Арт-директор, художник, Париж",
+    "photo": "assets/img/people/trubarova.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Регина Казарян",
+    "topic": "Сеть школ скорочтения № 1 в России",
+    "photo": "assets/img/people/kazaryan.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Алексей Зубанов",
+    "topic": "Международный стартап Public",
+    "photo": "assets/img/people/zubanov.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Айгуль Гареева",
+    "topic": "Депутат Курултая РБ, президент фонда «Мархамат»",
+    "photo": "assets/img/people/gareeva.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Светлана Барановска",
+    "topic": "Студия текстиля Domo Dezains, Латвия",
+    "photo": "assets/img/people/baranovska.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Руслан Садыков",
+    "topic": "Рекордсмен Книги рекордов Гиннесса",
+    "photo": "assets/img/people/sadykov.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Ольга Рамазанова",
+    "topic": "Галерея современного искусства «Мирас»",
+    "photo": "assets/img/people/ramazanova.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Игорь Андрианов",
+    "topic": "Серийный предприниматель",
+    "photo": "assets/img/people/andrianov.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Диана Биглова",
+    "topic": "Психолог, Институт Франкла, Вена",
+    "photo": "assets/img/people/biglova.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Лилия Асфандиярова",
+    "topic": "Дизайнер «Квартирного вопроса», НТВ",
+    "photo": "assets/img/people/asfandiyarova.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Айгуль Малика",
+    "topic": "Стилист первых лиц, писатель",
+    "photo": "assets/img/people/malika.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Камиль Амирханов",
+    "topic": "Целеполагание",
+    "photo": "assets/img/people/amirkhanov.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Элина Фрейдина",
+    "topic": "Студии пилатеса, финансы",
+    "photo": "assets/img/people/freidina.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Лариса Маркова",
+    "topic": "Юрист",
+    "photo": "assets/img/people/markova.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Екатерина Чернякова",
+    "topic": "Продюсер",
+    "photo": "assets/img/people/chernyakova.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Лилия Горина",
+    "topic": "Налоговый консультант",
+    "photo": "assets/img/people/gorina.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Мария Гайнетдинова",
+    "topic": "Гранты, лицензирование",
+    "photo": "assets/img/people/gainetdinova.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Марина Заворухина",
+    "topic": "Фотограф, визуальный маркетолог",
+    "photo": "assets/img/people/zavorukhina.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Владимир Пиндрик",
+    "topic": "Компания «Бизнес Советник»",
+    "photo": "assets/img/people/pindrik.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Елена Маркозашвили",
+    "topic": "Эксперт по эффективности и ментальному здоровью",
+    "photo": "assets/img/people/markozashvili.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Катя Асламова",
+    "topic": "Основатель академии брендинга Metrics и бренда ASLAMOVA",
+    "photo": "assets/img/people/aslamova.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
+    "name": "Юлия Соло",
+    "topic": "Управляющая клубом, формирование привычек",
+    "photo": "assets/img/people/solo.webp",
+    "url": ""
+  },
+  {
+    "kind": "rubric",
+    "name": "Елена Арямнова",
+    "topic": "Инфоповоды участников в СМИ. Член Ассоциации интернет-технологов России"
+  },
+  {
+    "kind": "rubric",
+    "name": "Мария Гайнетдинова",
+    "topic": "Гранты"
+  },
+  {
+    "kind": "rubric",
+    "name": "Лариса Маркова",
+    "topic": "Юридические изменения и полезности"
+  },
+  {
+    "kind": "rubric",
+    "name": "Алиса Кулоби Тестина",
+    "topic": "Новости искусственного интеллекта"
+  },
+  {
+    "kind": "rubric",
+    "name": "Николай Ягодкин",
+    "topic": "Развитие когнитивных навыков"
+  },
+  {
+    "kind": "rubric",
+    "name": "Татьяна Принзина",
+    "topic": "Инвестиции на ранних этапах, фонд 2Shares"
+  }
+]

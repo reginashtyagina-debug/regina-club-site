@@ -1,0 +1,44 @@
+/* Шрифты лежат в assets/fonts/. Подключение для макетов на HTML: */
+@font-face { font-family: "Montserrat"; font-weight: 400; font-display: swap; src: url("assets/fonts/montserrat-cyrillic-400-normal.woff2") format("woff2"); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: "Montserrat"; font-weight: 400; font-display: swap; src: url("assets/fonts/montserrat-latin-400-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+20BD; }
+@font-face { font-family: "Montserrat"; font-weight: 500; font-display: swap; src: url("assets/fonts/montserrat-cyrillic-500-normal.woff2") format("woff2"); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: "Montserrat"; font-weight: 500; font-display: swap; src: url("assets/fonts/montserrat-latin-500-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+20BD; }
+@font-face { font-family: "Montserrat"; font-weight: 600; font-display: swap; src: url("assets/fonts/montserrat-cyrillic-600-normal.woff2") format("woff2"); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: "Montserrat"; font-weight: 600; font-display: swap; src: url("assets/fonts/montserrat-latin-600-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+20BD; }
+@font-face { font-family: "Montserrat"; font-weight: 900; font-display: swap; src: url("assets/fonts/montserrat-cyrillic-900-normal.woff2") format("woff2"); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: "Montserrat"; font-weight: 900; font-display: swap; src: url("assets/fonts/montserrat-latin-900-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+20BD; }
+@font-face { font-family: "PT Serif"; font-weight: 400; font-style: italic; font-display: swap; src: url("assets/fonts/pt-serif-cyrillic-400-italic.woff2") format("woff2"); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: "PT Serif"; font-weight: 400; font-style: italic; font-display: swap; src: url("assets/fonts/pt-serif-latin-400-italic.woff2") format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+20BD; }
+
+:root {
+  --blue: #8FD0E3;
+  --red: #FF1D3D;
+  --green: #7FAE7D;
+  --black: #0B0B0B;
+  --milk: #F8F7F4;
+  --gray: #A7A7A7;
+  --lime: #D7FF00;
+
+  --font-display: "Montserrat", sans-serif;
+  --font-serif: "PT Serif", Georgia, serif;
+  --font-body: "Montserrat", sans-serif;
+
+  --h-weight: 900;
+  --h-transform: uppercase;
+}
+body { background: var(--milk); color: var(--black); font-family: var(--font-body); }
+h1, h2, h3 { font-family: var(--font-display); font-weight: var(--h-weight); text-transform: var(--h-transform); }
+.subtitle, blockquote { font-family: var(--font-serif); font-style: italic; }
+.number, .key { color: var(--red); }
+.plaque { background: var(--black); color: var(--milk); }
+
+/* Сайт Делового клуба: решение Регины от 1 октября 2026 (SKILL.md, раздел 10) */
+.site-club {
+  --graphite: #161616;
+  --warm-white: #F3F1EE;
+  --white: #FFFFFF;
+  --grey-on-light: #6B6864;
+  --grey-on-dark: #A9A6A1;
+  --line: #DAD6D0;
+  --lime: #D7FF00;
+}
