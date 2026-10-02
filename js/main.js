@@ -328,34 +328,6 @@ async function renderSpeakers() {
   $('#speakers').hidden = false;
 }
 
-async function renderStory() {
-  const s = await loadJson(CONFIG.storyJson);
-  if (!s || !s.name || !s.result) return;
-  const root = $('[data-story]');
-  const grid = document.createElement('div');
-  grid.className = 'story__grid';
-  const photo = document.createElement('div');
-  photo.className = 'story__photo';
-  if (s.photo) {
-    const img = document.createElement('img');
-    img.src = s.photo; img.alt = s.name; img.loading = 'lazy'; img.width = 400; img.height = 500;
-    photo.append(img);
-  }
-  const text = document.createElement('div');
-  const name = document.createElement('p'); name.className = 'story__name'; name.textContent = s.name;
-  const result = document.createElement('p'); result.className = 'story__result'; result.textContent = s.result;
-  text.append(name, result);
-  if (s.topic) {
-    const topic = document.createElement('p'); topic.className = 'story__topic';
-    const b = document.createElement('b'); b.textContent = 'Её эфир в клубе';
-    topic.append(b, s.topic);
-    text.append(topic);
-  }
-  grid.append(photo, text);
-  root.append(grid);
-  $('#story').hidden = false;
-}
-
 async function renderReviews() {
   const data = await loadJson(CONFIG.reviewsJson);
   if (!Array.isArray(data)) return;
@@ -530,6 +502,6 @@ renderFaq();
 setupScale(accent);
 setupObservers();
 initAnalytics();
-Promise.all([renderSchedule(), renderSpeakers(), renderStory(), renderReviews()]);
+Promise.all([renderSchedule(), renderSpeakers(), renderReviews()]);
 if (document.readyState === 'complete') startNetwork();
 else addEventListener('load', startNetwork, { once: true });
