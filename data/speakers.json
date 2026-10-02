@@ -85,6 +85,13 @@
   },
   {
     "group": "more",
+    "name": "Диляра Хафизова",
+    "topic": "Агент компании Disney",
+    "photo": "assets/img/people/khafizova.webp",
+    "url": ""
+  },
+  {
+    "group": "more",
     "name": "Игорь Андрианов",
     "topic": "Серийный предприниматель",
     "photo": "assets/img/people/andrianov.webp",
