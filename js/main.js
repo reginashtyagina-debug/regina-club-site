@@ -1,4 +1,4 @@
-import { CONFIG } from './config.js';
+import { CONFIG, asset } from './config.js';
 import { initAnalytics, goal } from './analytics.js';
 import { setupLogo } from './logo.js';
 
@@ -143,7 +143,7 @@ function setupVideo() {
   const caption = $('[data-video-caption]', root);
   const toggle = $('[data-video-toggle]', root);
   const ev = CONFIG.eventVideo || {};
-  if (ev.poster) posterEl.src = ev.poster;
+  if (ev.poster) posterEl.src = asset(ev.poster);
   if (ev.caption) caption.textContent = ev.caption;
 
   // Видео с мероприятия: без звука, по кругу, только пока первый экран виден
@@ -156,11 +156,11 @@ function setupVideo() {
       loop.muted = true; loop.loop = true; loop.playsInline = true;
       loop.setAttribute('muted', ''); loop.setAttribute('playsinline', '');
       loop.preload = 'auto';
-      loop.poster = ev.poster || '';
+      loop.poster = asset(ev.poster) || '';
       [[ev.src, 'video/mp4'], [ev.srcWebm, 'video/webm']].forEach(([u, type]) => {
         if (!u) return;
         const source = document.createElement('source');
-        source.src = u; source.type = type;
+        source.src = asset(u); source.type = type;
         loop.append(source);
       });
       loop.setAttribute('aria-hidden', 'true');
@@ -193,11 +193,11 @@ function setupVideo() {
     if (loop) loop.remove();
     toggle.remove();
     const video = document.createElement('video');
-    video.src = src;
+    video.src = asset(src);
     video.controls = true;
     video.playsInline = true;
     video.preload = 'auto';
-    if (poster) video.poster = poster;
+    if (poster) video.poster = asset(poster);
     let started = false;
     video.addEventListener('play', () => { if (!started) { started = true; goal('video_start'); } });
     video.addEventListener('ended', () => goal('video_complete'));
@@ -216,7 +216,7 @@ async function loadJson(path) {
   if (!path) return null;
   const url = DEMO ? path.replace(/^(.*\/)?([^/]+)$/, (m, dir, file) => (dir || '') + 'demo/' + file) : path;
   try {
-    const res = await fetch(url, { cache: 'no-cache' });
+    const res = await fetch(asset(url), { cache: 'no-cache' });
     if (!res.ok) return null;
     return await res.json();
   } catch { return null; }
@@ -272,7 +272,7 @@ function speakerCard(s) {
   photo.className = 'speaker__photo';
   if (s.photo) {
     const img = document.createElement('img');
-    img.src = s.photo; img.alt = s.name; img.loading = 'lazy'; img.decoding = 'async';
+    img.src = asset(s.photo); img.alt = s.name; img.loading = 'lazy'; img.decoding = 'async';
     img.width = 300; img.height = 300;
     photo.append(img);
   } else {
@@ -367,9 +367,9 @@ async function renderReviews() {
       // Скриншот сообщения: по нажатию открывается в полном размере
       li.className = 'review review--shot';
       const a = document.createElement('a');
-      a.href = r.src; a.target = '_blank'; a.rel = 'noopener';
+      a.href = asset(r.src); a.target = '_blank'; a.rel = 'noopener';
       const img = document.createElement('img');
-      img.src = r.src; img.alt = r.alt; img.loading = 'lazy'; img.decoding = 'async';
+      img.src = asset(r.src); img.alt = r.alt; img.loading = 'lazy'; img.decoding = 'async';
       img.width = r.width || 600; img.height = r.height || 1000;
       a.append(img);
       const src = document.createElement('p');
@@ -428,7 +428,7 @@ function setupFounder() {
   const el = $('[data-founder-photo]');
   if (!CONFIG.founderPhoto || !el) return;
   const img = document.createElement('img');
-  img.src = CONFIG.founderPhoto;
+  img.src = asset(CONFIG.founderPhoto);
   img.alt = 'Регина Штягина';
   img.loading = 'lazy'; img.decoding = 'async'; img.width = 920; img.height = 1150;
   el.textContent = '';
