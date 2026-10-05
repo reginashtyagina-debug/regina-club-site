@@ -1,6 +1,14 @@
 // Всё, что меняется без правки вёрстки: цены, сроки, ссылки, тексты вопросов.
 // Инструкция по каждому полю — в README.md.
 
+// Адрес, откуда берутся фото, видео и данные. На своём хостинге пусто: пути от страницы.
+// Для Тильды задаётся в блоке кода: window.CLUB_ASSET_BASE = "https://…/".
+const ASSET_BASE = (typeof window !== 'undefined' && window.CLUB_ASSET_BASE) || '';
+export function asset(path) {
+  if (!path || /^(https?:|data:|mailto:|tel:|#)/.test(path)) return path;
+  return ASSET_BASE + path;
+}
+
 export const CONFIG = {
   // Пока обе кнопки ведут на общую страницу оплаты клуба, где человек сам выбирает вариант.
   // Когда появятся отдельные страницы (тест-драйв и год), поставить их сюда.
@@ -58,7 +66,8 @@ export const CONFIG = {
     offer: "https://reginapr.getcourse.ru/oferta_club",
     privacy: "https://reginapr.getcourse.ru/confidetial",
     personalData: "https://reginapr.getcourse.ru/agreement_pers",
-    cookies: "privacy.html",
+    // На Тильде страницы privacy.html нет: адрес задаётся в блоке кода (CLUB_COOKIES_URL)
+    cookies: (typeof window !== "undefined" && window.CLUB_COOKIES_URL) || "privacy.html",
     telegram: "https://t.me/regina_pro_pr",
     // Ссылка на страницу в социальных сетях. Название сети на сайте не пишем.
     social: "ССЫЛКА_СОЦСЕТИ",

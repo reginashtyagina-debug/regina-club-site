@@ -1,7 +1,7 @@
 // Логотип из файлов assets/logo/ (пути в config.js, поле logo).
 // Пока файла нет, остаётся временное набранное слово «shtyagina».
 
-import { CONFIG } from './config.js';
+import { CONFIG, asset } from './config.js';
 
 export function setupLogo() {
   document.querySelectorAll('[data-logo]').forEach((link) => {
@@ -15,7 +15,7 @@ export function setupLogo() {
       link.removeAttribute('aria-label');
       link.append(img);
     };
-    img.src = src;
+    img.src = asset(src);
   });
 }
 

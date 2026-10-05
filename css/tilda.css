@@ -1,0 +1,5 @@
+/* Поправки для страницы на Тильде: блок T123 без отступов, наш фон и шрифты внутри блока. */
+.t123 .t-container_100, .t123 .t-width, .t123 .t-container { max-width: none; width: 100%; padding: 0; margin: 0; }
+.club-root { background: var(--warm-white); color: var(--graphite); font-family: var(--text); line-height: 1.5; text-align: left; }
+.club-root *, .club-root *::before, .club-root *::after { box-sizing: border-box; }
+.club-root img, .club-root video { max-width: 100%; }
