@@ -10,13 +10,16 @@ export function asset(path) {
 }
 
 export const CONFIG = {
-  // Пока обе кнопки ведут на общую страницу оплаты клуба, где человек сам выбирает вариант.
-  // Когда появятся отдельные страницы (тест-драйв и год), поставить их сюда.
+  // Оплата: виджет GetCourse (widget) открывается окном поверх сайта.
+  // url — запасная ссылка: если виджет не загрузился, человек переходит на общую страницу оплаты.
   // В GetCourse: предложение 4580392 «Клуб Регины Штягиной (2024) (1 модуль=1 месяц)», 5 490 руб.
-  trial:  { price: 5490,  days: 30,  url: "https://reginapr.getcourse.ru/regina_club_06" },
+  trial:  { price: 5490,  days: 30,  url: "https://reginapr.getcourse.ru/regina_club_06",
+            // Виджет оплаты GetCourse: открывается поверх сайта по кнопке «Начать тест-драйв»
+            widget: { id: "8766588f76b6e717e78a10f1db67a993031410bb", src: "https://reginapr.ru/pl/lite/widget/script?id=1664635" } },
   // В GetCourse: предложение 4580395 «Клуб Регины Штягиной (2024) (12 модулей=12 месяцев)», 54 900 руб.
   // (есть также 5377593 — то же, в рассрочку)
-  year:   { price: 54900, months: 12, url: "https://reginapr.getcourse.ru/regina_club_06" },
+  year:   { price: 54900, months: 12, url: "https://reginapr.getcourse.ru/regina_club_06",
+            widget: { id: "c69ef34719afe8f2440df50b1704c959005837b1", src: "https://reginapr.ru/pl/lite/widget/script?id=1664637" } },
   creditedYearPrice: 49410,
   creditWindowDaysAfterTrial: 7,
   subtitle: "Сообщество предпринимателей, экспертов и медийных лидеров из разных стран",

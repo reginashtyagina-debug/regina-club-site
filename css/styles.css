@@ -610,3 +610,16 @@ html[data-accent="trial"] .only-year, html[data-accent="year"] .only-trial { dis
 
 /* Photo placeholder on dark until Regina's portrait arrives */
 .theme-dark .founder__photo { background: #232323; color: #A9A6A1; }
+
+/* Окно оплаты с виджетом GetCourse */
+.pay { width: min(560px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); padding: 0; border: 0; border-radius: 24px; background: var(--white); color: #161616; box-shadow: 0 30px 80px rgba(0, 0, 0, .35); overflow: auto; }
+.pay::backdrop { background: rgba(22, 22, 22, .72); }
+.pay__head { position: sticky; top: 0; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 20px 14px 24px; background: var(--white); border-bottom: 1px solid #E6E2DC; }
+.pay__title { font: 600 20px/1.2 var(--display); letter-spacing: -0.02em; }
+.pay__close { flex: none; width: 40px; height: 40px; border-radius: 50%; border: 1px solid #DAD6D0; background: transparent; display: grid; place-items: center; cursor: pointer; color: #161616; }
+.pay__close svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+.pay__body { min-height: 320px; padding: 16px 20px; }
+.pay__loading { color: #6B6864; font-size: 15px; }
+.pay__widget iframe { width: 100% !important; border: 0; }
+.pay__note, .pay__terms { padding: 0 24px; font-size: 14px; color: #6B6864; }
+.pay__terms { padding-bottom: 20px; margin-top: 8px; font-size: 13px; }
