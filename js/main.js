@@ -100,11 +100,66 @@ function setupCheckoutLinks() {
       a.href = '#terms';
       a.dataset.missing = '';
     }
-    a.addEventListener('click', () => {
+    a.addEventListener('click', (e) => {
       goal(plan === 'trial' ? 'click_trial' : 'click_year', { block: a.dataset.block || 'unknown' });
       if (a.hasAttribute('data-missing')) console.warn('Ссылка GetCourse для «' + plan + '» не указана в js/config.js');
+      const w = CONFIG[plan] && CONFIG[plan].widget;
+      if (w && w.src && typeof HTMLDialogElement === 'function') {
+        e.preventDefault();
+        openPayWidget(plan, a.href);
+      }
     });
   });
+}
+
+/* ---------- Окно оплаты с виджетом GetCourse ---------- */
+
+const payBoxes = {};
+function openPayWidget(plan, fallbackUrl) {
+  const dlg = $('[data-pay]');
+  if (!dlg) { location.href = fallbackUrl; return; }
+  const c = CONFIG[plan];
+  $('[data-pay-title]', dlg).textContent = plan === 'trial'
+    ? 'Тест-драйв' + NBSP + '— ' + money(c.price)
+    : 'Год в' + NBSP + 'клубе' + NBSP + '— ' + money(c.price);
+  $('[data-pay-fallback]', dlg).href = fallbackUrl;
+  Object.entries(payBoxes).forEach(([k, box]) => { box.hidden = k !== plan; });
+  if (!payBoxes[plan]) {
+    // Виджет GetCourse вставляет форму рядом со своим скриптом, поэтому скрипт кладём внутрь окна
+    const box = document.createElement('div');
+    box.className = 'pay__widget';
+    const loading = document.createElement('p');
+    loading.className = 'pay__loading';
+    loading.textContent = 'Загружаем форму оплаты…';
+    box.append(loading);
+    new MutationObserver((list, obs) => {
+      if (box.querySelector('iframe, form')) { loading.remove(); obs.disconnect(); }
+    }).observe(box, { childList: true, subtree: true });
+    const s = document.createElement('script');
+    s.id = c.widget.id;
+    s.src = c.widget.src;
+    box.append(s);
+    $('[data-pay-body]', dlg).append(box);
+    payBoxes[plan] = box;
+  }
+  const note = $('[data-pay-note]', dlg);
+  note.hidden = true;
+  clearTimeout(openPayWidget.t);
+  // Если форма не появилась за 8 секунд, показываем запасную ссылку
+  openPayWidget.t = setTimeout(() => {
+    const box = payBoxes[plan];
+    if (box && !box.querySelector('iframe, form')) note.hidden = false;
+  }, 8000);
+  if (!dlg.open) dlg.showModal();
+  goal('pay_open', { plan });
+}
+
+function setupPayDialog() {
+  const dlg = $('[data-pay]');
+  if (!dlg) return;
+  $('[data-pay-close]', dlg).addEventListener('click', () => dlg.close());
+  // Клик по затемнению вокруг окна закрывает его
+  dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
 }
 
 // Кнопки первого экрана ведут к условиям: там видны цены и зачёт
@@ -523,6 +578,7 @@ const accent = detectAccent();
 fillConfig();
 setupLogo();
 setupCheckoutLinks();
+setupPayDialog();
 setupTermsLinks();
 setupLinks();
 setupVideo();
