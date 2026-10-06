@@ -123,25 +123,9 @@ function openPayWidget(plan, fallbackUrl) {
     ? 'Тест-драйв' + NBSP + '— ' + money(c.price)
     : 'Год в' + NBSP + 'клубе' + NBSP + '— ' + money(c.price);
   $('[data-pay-fallback]', dlg).href = fallbackUrl;
+  if (!payBoxes[plan]) payBoxes[plan] = $(`[data-pay-widget="${plan}"]`, dlg) || injectPayWidget(c.widget, dlg);
   Object.entries(payBoxes).forEach(([k, box]) => { box.hidden = k !== plan; });
-  if (!payBoxes[plan]) {
-    // Виджет GetCourse вставляет форму рядом со своим скриптом, поэтому скрипт кладём внутрь окна
-    const box = document.createElement('div');
-    box.className = 'pay__widget';
-    const loading = document.createElement('p');
-    loading.className = 'pay__loading';
-    loading.textContent = 'Загружаем форму оплаты…';
-    box.append(loading);
-    new MutationObserver((list, obs) => {
-      if (box.querySelector('iframe, form')) { loading.remove(); obs.disconnect(); }
-    }).observe(box, { childList: true, subtree: true });
-    const s = document.createElement('script');
-    s.id = c.widget.id;
-    s.src = c.widget.src;
-    box.append(s);
-    $('[data-pay-body]', dlg).append(box);
-    payBoxes[plan] = box;
-  }
+  watchPayWidget(payBoxes[plan]);
   const note = $('[data-pay-note]', dlg);
   note.hidden = true;
   clearTimeout(openPayWidget.t);
@@ -152,6 +136,40 @@ function openPayWidget(plan, fallbackUrl) {
   }, 8000);
   if (!dlg.open) dlg.showModal();
   goal('pay_open', { plan });
+}
+
+// Убираем «Загружаем…», как только GetCourse вставил форму
+function watchPayWidget(box) {
+  const loading = $('.pay__loading', box);
+  const done = () => box.querySelector('iframe, form');
+  if (!loading) return;
+  if (done()) { loading.remove(); return; }
+  new MutationObserver((list, obs) => {
+    if (done()) { loading.remove(); obs.disconnect(); }
+  }).observe(box, { childList: true, subtree: true });
+}
+
+// Запасной путь для старой версии блока без виджетов в разметке
+function injectPayWidget(widget, dlg) {
+  const box = document.createElement('div');
+  box.className = 'pay__widget';
+  const loading = document.createElement('p');
+  loading.className = 'pay__loading';
+  loading.textContent = 'Загружаем форму оплаты…';
+  box.append(loading);
+  const s = document.createElement('script');
+  s.id = widget.id;
+  s.src = widget.src;
+  // Если скрипт GetCourse пишет форму через document.write, перехватываем вывод в окно
+  const write = document.write;
+  document.write = (html) => {
+    if (document.currentScript === s) box.insertAdjacentHTML('beforeend', html);
+    else write.call(document, html);
+  };
+  s.onload = s.onerror = () => { document.write = write; };
+  box.append(s);
+  $('[data-pay-body]', dlg).append(box);
+  return box;
 }
 
 function setupPayDialog() {
