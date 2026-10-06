@@ -309,25 +309,35 @@ html[data-accent="year"] .hero .cta-year {
   .schedule__expert { grid-column: 2; }
 }
 
-/* 4. First 30 days: a real sequence */
-.weeks {
-  margin-top: 48px; display: grid; gap: 0;
-  border-left: 1px solid var(--graphite);
+/* Первый месяц и дальше: инфографика */
+.month { margin-top: 40px; }
+.month__label { display: flex; align-items: center; gap: 12px; font: 600 15px/1 var(--display); letter-spacing: 0.04em; text-transform: uppercase; color: var(--grey); }
+.month__label span { padding: 8px 14px; border-radius: 999px; background: #D7FF00; color: #161616; }
+.month--next .month__label span { background: #8FD0E3; color: #0B0B0B; }
+.month__grid { margin-top: 20px; display: grid; gap: 12px; }
+.month__grid li { padding: 22px 24px; border-radius: 20px; background: #232323; border: 1px solid var(--line); }
+.month--next .month__grid li { background: transparent; border-color: rgba(143, 208, 227, 0.45); }
+.month__num { display: block; font: 600 30px/1 var(--display); letter-spacing: -0.03em; color: #D7FF00; }
+.month__grid h3 { margin-top: 14px; font: 600 clamp(19px, 2vw, 22px)/1.2 var(--display); letter-spacing: -0.02em; }
+.month--next .month__grid h3 { margin-top: 0; color: #8FD0E3; }
+.month__grid p { margin-top: 6px; color: var(--grey); }
+.chain { margin-top: 32px; display: grid; gap: 10px; padding: 20px; border-radius: 20px; background: #D7FF00; color: #161616; }
+.chain li { position: relative; padding: 12px 16px; border-radius: 12px; background: rgba(22, 22, 22, 0.07); font: 600 17px/1.25 var(--display); letter-spacing: -0.01em; text-align: center; }
+.chain li:not(:last-child)::after { content: "↓"; position: absolute; left: 50%; bottom: -15px; transform: translateX(-50%); z-index: 1; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: #161616; color: #D7FF00; font: 600 12px/1 var(--text); }
+.month__final { margin-top: 48px; display: grid; gap: 24px; justify-items: start; }
+.month__final p { font: 600 clamp(26px, 4vw, 42px)/1.12 var(--display); letter-spacing: -0.03em; max-width: 22ch; }
+.month__final em { font-style: normal; color: #8FD0E3; }
+.month__final .btn { background: #D7FF00; border-color: #D7FF00; color: #161616; }
+.month__final .btn:hover { background: #E4FF4D; }
+@media (min-width: 700px) {
+  .month__grid { grid-template-columns: repeat(2, 1fr); }
 }
-.weeks li { position: relative; padding: 0 0 32px 28px; }
-.weeks li:last-child { padding-bottom: 0; }
-.weeks li::before {
-  content: ""; position: absolute; left: -6px; top: 8px;
-  width: 11px; height: 11px; border-radius: 50%;
-  background: var(--warm-white); border: 1px solid var(--graphite);
-}
-.weeks li:last-child::before { background: var(--lime); }
-.weeks h3 { font: 600 20px/1.3 var(--display); letter-spacing: -0.01em; margin-bottom: 6px; }
-.weeks p { color: var(--grey); max-width: 30em; }
-@media (min-width: 900px) {
-  .weeks { grid-template-columns: repeat(4, 1fr); gap: 32px; border-left: 0; border-top: 1px solid var(--graphite); }
-  .weeks li { padding: 32px 0 0; }
-  .weeks li::before { left: 0; top: -6px; }
+@media (min-width: 1000px) {
+  .month__grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .chain { grid-template-columns: repeat(5, 1fr); gap: 22px; align-items: stretch; }
+  .chain li { display: grid; place-items: center; font-size: 16px; }
+  .chain li:not(:last-child)::after { content: "→"; left: auto; right: -21px; top: 50%; bottom: auto; transform: translateY(-50%); }
+  .month__final { grid-template-columns: 1fr auto; align-items: end; }
 }
 
 /* 5. Speakers */
