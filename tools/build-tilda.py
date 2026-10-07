@@ -7,17 +7,29 @@
 свежие файлы, без сброса кэша. Сначала закоммитьте и отправьте правки, потом:
     python3 tools/build-tilda.py
 Результат: tilda/tilda-block.html — вставить целиком в блок T123.
+
+Чтобы файлы отдавались не с jsDelivr, а со своего хостинга в России
+(например, static.reginashtyagina.ru в Яндекс Object Storage), передайте адрес:
+    python3 tools/build-tilda.py --base https://static.reginashtyagina.ru/
+На хостинг нужно выложить папки assets, css, js, data (tools/pack-static.py)
+и включить CORS (Access-Control-Allow-Origin для https://reginashtyagina.ru):
+без него браузер не запустит скрипты-модули и не загрузит шрифты и данные.
 """
-import pathlib, re, subprocess
+import argparse, pathlib, re, subprocess
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SHA = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True, check=True).stdout.strip()
-BASE = f"https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@{SHA}/"
+parser = argparse.ArgumentParser()
+parser.add_argument("--base", help="адрес, где лежат папки assets, css, js, data (со слешем в конце)")
+args = parser.parse_args()
+BASE = args.base or f"https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@{SHA}/"
+if not BASE.endswith("/"):
+    BASE += "/"
 COOKIES_URL = "https://reginapr.getcourse.ru/confidetial"
 
 html = (ROOT / "index.html").read_text(encoding="utf-8")
 body = re.search(r"<body[^>]*>(.*)</body>", html, re.S).group(1).strip()
-# Относительные пути к файлам сайта → полный адрес на jsDelivr
+# Относительные пути к файлам сайта → полный адрес хранилища файлов
 body = re.sub(r'((?:src|href|poster)=")((?:assets|css|js|data)/)', r"\1" + BASE + r"\2", body)
 body = body.replace('href="privacy.html"', f'href="{COOKIES_URL}"')
 
