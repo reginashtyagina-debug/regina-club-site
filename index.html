@@ -403,6 +403,15 @@
     </div>
   </footer>
 
+  <dialog class="pay" data-pay aria-labelledby="pay-title">
+    <div class="pay__head">
+      <p class="pay__title" id="pay-title" data-pay-title>Оплата</p>
+      <button type="button" class="pay__close" data-pay-close aria-label="Закрыть"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="pay__body" data-pay-body></div>
+    <p class="pay__terms">Оплата проходит в&nbsp;GetCourse. Автоматического списания нет.</p>
+  </dialog>
+
   <a class="sticky-cta" href="#terms" data-sticky aria-hidden="true" tabindex="-1">
     <span>Условия участия</span>
     <span class="sticky-cta__price"><span class="only-trial">Тест-драйв <span data-cfg="trial.price">5&nbsp;490&nbsp;₽</span></span><span class="only-year">Год <span data-cfg="year.price">54&nbsp;900&nbsp;₽</span></span></span>

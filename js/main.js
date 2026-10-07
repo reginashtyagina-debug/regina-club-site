@@ -103,10 +103,12 @@ function setupCheckoutLinks() {
     a.addEventListener('click', (e) => {
       goal(plan === 'trial' ? 'click_trial' : 'click_year', { block: a.dataset.block || 'unknown' });
       if (a.hasAttribute('data-missing')) console.warn('Ссылка GetCourse для «' + plan + '» не указана в js/config.js');
-      // Формы GetCourse стоят на странице: кнопка прокручивает к нужной форме
-      const form = CONFIG.payMode === 'inline' && document.getElementById('pay-' + plan);
+      // Формы GetCourse загружены на странице: кнопка открывает нужную форму окном
+      // (или прокручивает к ней, если браузер не умеет окна)
+      const form = CONFIG.payMode !== 'link' && document.getElementById('pay-' + plan);
       if (form) {
         e.preventDefault();
+        if (CONFIG.payMode === 'modal' && openPayModal(plan, form)) return;
         form.scrollIntoView({ behavior: 'smooth', block: 'start' });
         goal('pay_open', { plan });
       }
@@ -126,6 +128,30 @@ function setupPayForms() {
       if (!form.querySelector('iframe, form')) $('[data-pay-fallback]', form).hidden = false;
     }, 10000);
   });
+}
+
+// Окно оплаты: форму GetCourse переносим из карточки в окно, после закрытия возвращаем обратно
+function openPayModal(plan, form) {
+  const dlg = $('[data-pay]');
+  if (!dlg || typeof dlg.showModal !== 'function') return false;
+  if (dlg.open) dlg.close();
+  const c = CONFIG[plan];
+  $('[data-pay-title]', dlg).textContent = (plan === 'trial' ? 'Тест-драйв' : 'Год в' + NBSP + 'клубе') + NBSP + '— ' + money(c.price);
+  const parts = $$('.pay-form__box, [data-pay-fallback]', form);
+  const body = $('[data-pay-body]', dlg);
+  parts.forEach((el) => body.append(el));
+  dlg.addEventListener('close', () => parts.forEach((el) => form.append(el)), { once: true });
+  dlg.showModal();
+  goal('pay_open', { plan });
+  return true;
+}
+
+function setupPayDialog() {
+  const dlg = $('[data-pay]');
+  if (!dlg) return;
+  $('[data-pay-close]', dlg).addEventListener('click', () => dlg.close());
+  // Клик по затемнению вокруг окна закрывает его
+  dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
 }
 
 // Кнопки первого экрана ведут к условиям: там видны цены и зачёт
@@ -545,6 +571,7 @@ fillConfig();
 setupLogo();
 setupCheckoutLinks();
 setupPayForms();
+setupPayDialog();
 setupTermsLinks();
 setupLinks();
 setupVideo();
