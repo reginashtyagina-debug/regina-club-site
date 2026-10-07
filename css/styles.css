@@ -624,6 +624,9 @@ html[data-accent="trial"] .only-year, html[data-accent="year"] .only-trial { dis
 
 /* Формы оплаты GetCourse на странице */
 .pay-forms { padding-top: 0; }
+/* В режиме окна блок с формами не виден: формы загружаются за пределами экрана
+   и переносятся в окно по кнопке. В режиме "inline" (js/config.js) блок показывается. */
+.pay-forms:not(.is-inline) { position: absolute; left: -10000px; top: 0; width: 560px; max-width: none; pointer-events: none; }
 .pay-forms__grid { margin-top: 32px; display: grid; gap: 20px; align-items: start; }
 @media (min-width: 900px) { .pay-forms__grid { grid-template-columns: 1fr 1fr; } }
 .pay-form { scroll-margin-top: 16px; padding: 24px 20px; border-radius: 24px; background: var(--white); border: 1px solid var(--line); }

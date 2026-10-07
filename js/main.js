@@ -108,7 +108,11 @@ function setupCheckoutLinks() {
       const form = CONFIG.payMode !== 'link' && document.getElementById('pay-' + plan);
       if (form) {
         e.preventDefault();
-        if (CONFIG.payMode === 'modal' && openPayModal(plan, form)) return;
+        if (CONFIG.payMode === 'modal') {
+          // Окно не открылось (очень старый браузер) — ведём на страницу оплаты
+          if (!openPayModal(plan, form)) location.href = a.href;
+          return;
+        }
         form.scrollIntoView({ behavior: 'smooth', block: 'start' });
         goal('pay_open', { plan });
       }
@@ -120,6 +124,9 @@ function setupCheckoutLinks() {
 
 // Если форма не появилась за 10 секунд, показываем ссылку на отдельную страницу оплаты
 function setupPayForms() {
+  const section = $('#pay');
+  if (section && CONFIG.payMode === 'inline') section.classList.add('is-inline');
+  else if (section) section.setAttribute('aria-hidden', 'true');
   $$('[data-pay-form]').forEach((form) => {
     const plan = form.dataset.payForm;
     const link = $('[data-pay-fallback] a', form);
