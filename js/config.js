@@ -22,7 +22,9 @@ export const CONFIG = {
   year:   { price: 54900, months: 12, url: "https://reginapr.getcourse.ru/regina_club_06",
             widget: { id: "c69ef34719afe8f2440df50b1704c959005837b1", src: "https://reginapr.ru/pl/lite/widget/script?id=1664637" } },
   creditedYearPrice: 49410,
-  creditWindowDaysAfterTrial: 7,
+  // Последние 7 дней тест-драйва — время на решение: зачёт действует до конца тест-драйва
+  creditWindowDays: 7,
+  get trialActiveDays() { return this.trial.days - this.creditWindowDays; },
   subtitle: "Сообщество предпринимателей, экспертов и медийных лидеров из разных стран",
   scheduleJson: "data/schedule.json",
   speakersJson: "data/speakers.json",
@@ -85,11 +87,11 @@ export const CONFIG = {
   faq: [
     {
       q: "Что происходит после тест-драйва?",
-      a: "Автоматического списания нет. Доступ к материалам действует в течение оплаченного периода. Остаться на год можно по персональной ссылке в течение {creditWindow} после окончания месяца."
+      a: "Автоматического списания нет. Доступ к материалам действует в течение оплаченного периода. За {creditWindow} до конца тест-драйва мы напомним о переходе на год. Остаться на год с зачётом можно до окончания тест-драйва."
     },
     {
       q: "Как работает зачёт?",
-      a: "Стоимость первого месяца засчитывается при переходе на год в срок. Год — {creditedYearPrice}."
+      a: "Стоимость первого месяца засчитывается, если вы переходите на год до конца тест-драйва. Год — {creditedYearPrice}."
     },
     {
       q: "Как попасть на встречу?",

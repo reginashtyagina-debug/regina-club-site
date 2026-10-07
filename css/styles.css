@@ -525,9 +525,10 @@ html[data-accent="year"] .plan--trial .plan__btn { background: var(--graphite); 
 .scale__seg--year { background: #77736E; }
 
 /* Widths follow days: 30 + 7 + 365. Drawing uses transform only. */
-[data-mode="trial"] .scale__seg--trial { width: 7.46%; }
-[data-mode="trial"] .scale__seg--window { width: 1.74%; }
-[data-mode="trial"] .scale__seg--year { width: calc(90.8% - 6px); }
+/* 23 + 7 дней тест-драйва, затем год: 30 + 365 = 395 дней */
+[data-mode="trial"] .scale__seg--trial { width: 5.82%; }
+[data-mode="trial"] .scale__seg--window { width: 1.77%; }
+[data-mode="trial"] .scale__seg--year { width: calc(92.41% - 6px); }
 [data-mode="year"] .scale__seg--trial, [data-mode="year"] .scale__seg--window { display: none; }
 [data-mode="year"] .scale__seg--year { width: 100%; }
 .scale.is-drawn .scale__seg { transform: scaleX(1); transition: transform .5s cubic-bezier(.2, .8, .2, 1); }
