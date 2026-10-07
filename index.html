@@ -321,6 +321,30 @@
       </div>
     </section>
 
+    <!-- 10a. Формы оплаты GetCourse: код виджетов вставлен целиком, форма появляется на месте скрипта -->
+    <section class="section section--tight pay-forms" id="pay">
+      <div class="wrap">
+        <h2 class="section__title">Оформить участие</h2>
+        <div class="pay-forms__grid">
+          <div class="pay-form" id="pay-trial" data-pay-form="trial">
+            <h3 class="pay-form__title">Тест-драйв, <span data-cfg="trial.price">5&nbsp;490&nbsp;₽</span></h3>
+            <div class="pay-form__box">
+              <script id="8766588f76b6e717e78a10f1db67a993031410bb" src="https://reginapr.ru/pl/lite/widget/script?id=1664635"></script>
+            </div>
+            <p class="pay-form__fallback" data-pay-fallback hidden>Форма не загрузилась? <a class="link" href="https://reginapr.getcourse.ru/regina_club_06" target="_blank" rel="noopener">Открыть оплату на&nbsp;отдельной странице</a></p>
+          </div>
+          <div class="pay-form" id="pay-year" data-pay-form="year">
+            <h3 class="pay-form__title">Год в&nbsp;клубе, <span data-cfg="year.price">54&nbsp;900&nbsp;₽</span></h3>
+            <div class="pay-form__box">
+              <script id="c69ef34719afe8f2440df50b1704c959005837b1" src="https://reginapr.ru/pl/lite/widget/script?id=1664637"></script>
+            </div>
+            <p class="pay-form__fallback" data-pay-fallback hidden>Форма не загрузилась? <a class="link" href="https://reginapr.getcourse.ru/regina_club_06" target="_blank" rel="noopener">Открыть оплату на&nbsp;отдельной странице</a></p>
+          </div>
+        </div>
+        <p class="pay-forms__note">Оплата проходит в&nbsp;GetCourse. Автоматического списания нет.</p>
+      </div>
+    </section>
+
     <!-- 11. Вопросы и ответы -->
     <section class="section theme-dark" id="faq">
       <div class="wrap split">
@@ -378,16 +402,6 @@
       </ul>
     </div>
   </footer>
-
-  <dialog class="pay" data-pay aria-labelledby="pay-title">
-    <div class="pay__head">
-      <p class="pay__title" id="pay-title" data-pay-title>Оплата</p>
-      <button type="button" class="pay__close" data-pay-close aria-label="Закрыть"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-    </div>
-    <div class="pay__body" data-pay-body></div>
-    <p class="pay__note" data-pay-note hidden>Форма не загрузилась? <a class="link" data-pay-fallback href="#" target="_blank" rel="noopener">Открыть оплату на&nbsp;отдельной странице</a></p>
-    <p class="pay__terms">Оплата проходит в&nbsp;GetCourse. Автоматического списания нет.</p>
-  </dialog>
 
   <a class="sticky-cta" href="#terms" data-sticky aria-hidden="true" tabindex="-1">
     <span>Условия участия</span>

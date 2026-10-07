@@ -103,81 +103,29 @@ function setupCheckoutLinks() {
     a.addEventListener('click', (e) => {
       goal(plan === 'trial' ? 'click_trial' : 'click_year', { block: a.dataset.block || 'unknown' });
       if (a.hasAttribute('data-missing')) console.warn('Ссылка GetCourse для «' + plan + '» не указана в js/config.js');
-      const w = CONFIG[plan] && CONFIG[plan].widget;
-      if (CONFIG.payMode === 'widget' && w && w.src && typeof HTMLDialogElement === 'function') {
+      // Формы GetCourse стоят на странице: кнопка прокручивает к нужной форме
+      const form = CONFIG.payMode === 'inline' && document.getElementById('pay-' + plan);
+      if (form) {
         e.preventDefault();
-        openPayWidget(plan, a.href);
+        form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        goal('pay_open', { plan });
       }
     });
   });
 }
 
-/* ---------- Окно оплаты с виджетом GetCourse ---------- */
+/* ---------- Формы оплаты GetCourse на странице ---------- */
 
-const payBoxes = {};
-function openPayWidget(plan, fallbackUrl) {
-  const dlg = $('[data-pay]');
-  if (!dlg) { location.href = fallbackUrl; return; }
-  const c = CONFIG[plan];
-  $('[data-pay-title]', dlg).textContent = plan === 'trial'
-    ? 'Тест-драйв' + NBSP + '— ' + money(c.price)
-    : 'Год в' + NBSP + 'клубе' + NBSP + '— ' + money(c.price);
-  $('[data-pay-fallback]', dlg).href = fallbackUrl;
-  if (!payBoxes[plan]) payBoxes[plan] = $(`[data-pay-widget="${plan}"]`, dlg) || injectPayWidget(c.widget, dlg);
-  Object.entries(payBoxes).forEach(([k, box]) => { box.hidden = k !== plan; });
-  watchPayWidget(payBoxes[plan]);
-  const note = $('[data-pay-note]', dlg);
-  note.hidden = true;
-  clearTimeout(openPayWidget.t);
-  // Если форма не появилась за 8 секунд, показываем запасную ссылку
-  openPayWidget.t = setTimeout(() => {
-    const box = payBoxes[plan];
-    if (box && !box.querySelector('iframe, form')) note.hidden = false;
-  }, 8000);
-  if (!dlg.open) dlg.showModal();
-  goal('pay_open', { plan });
-}
-
-// Убираем «Загружаем…», как только GetCourse вставил форму
-function watchPayWidget(box) {
-  const loading = $('.pay__loading', box);
-  const done = () => box.querySelector('iframe, form');
-  if (!loading) return;
-  if (done()) { loading.remove(); return; }
-  new MutationObserver((list, obs) => {
-    if (done()) { loading.remove(); obs.disconnect(); }
-  }).observe(box, { childList: true, subtree: true });
-}
-
-// Запасной путь для старой версии блока без виджетов в разметке
-function injectPayWidget(widget, dlg) {
-  const box = document.createElement('div');
-  box.className = 'pay__widget';
-  const loading = document.createElement('p');
-  loading.className = 'pay__loading';
-  loading.textContent = 'Загружаем форму оплаты…';
-  box.append(loading);
-  const s = document.createElement('script');
-  s.id = widget.id;
-  s.src = widget.src;
-  // Если скрипт GetCourse пишет форму через document.write, перехватываем вывод в окно
-  const write = document.write;
-  document.write = (html) => {
-    if (document.currentScript === s) box.insertAdjacentHTML('beforeend', html);
-    else write.call(document, html);
-  };
-  s.onload = s.onerror = () => { document.write = write; };
-  box.append(s);
-  $('[data-pay-body]', dlg).append(box);
-  return box;
-}
-
-function setupPayDialog() {
-  const dlg = $('[data-pay]');
-  if (!dlg) return;
-  $('[data-pay-close]', dlg).addEventListener('click', () => dlg.close());
-  // Клик по затемнению вокруг окна закрывает его
-  dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+// Если форма не появилась за 10 секунд, показываем ссылку на отдельную страницу оплаты
+function setupPayForms() {
+  $$('[data-pay-form]').forEach((form) => {
+    const plan = form.dataset.payForm;
+    const link = $('[data-pay-fallback] a', form);
+    if (link && isUrl(CONFIG[plan] && CONFIG[plan].url)) link.href = CONFIG[plan].url;
+    setTimeout(() => {
+      if (!form.querySelector('iframe, form')) $('[data-pay-fallback]', form).hidden = false;
+    }, 10000);
+  });
 }
 
 // Кнопки первого экрана ведут к условиям: там видны цены и зачёт
@@ -596,7 +544,7 @@ const accent = detectAccent();
 fillConfig();
 setupLogo();
 setupCheckoutLinks();
-setupPayDialog();
+setupPayForms();
 setupTermsLinks();
 setupLinks();
 setupVideo();
