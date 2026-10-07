@@ -104,7 +104,7 @@ function setupCheckoutLinks() {
       goal(plan === 'trial' ? 'click_trial' : 'click_year', { block: a.dataset.block || 'unknown' });
       if (a.hasAttribute('data-missing')) console.warn('Ссылка GetCourse для «' + plan + '» не указана в js/config.js');
       const w = CONFIG[plan] && CONFIG[plan].widget;
-      if (w && w.src && typeof HTMLDialogElement === 'function') {
+      if (CONFIG.payMode === 'widget' && w && w.src && typeof HTMLDialogElement === 'function') {
         e.preventDefault();
         openPayWidget(plan, a.href);
       }
