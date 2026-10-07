@@ -283,7 +283,7 @@
             <p class="plan__term" data-cfg="trial.days" data-unit="days">30 дней</p>
             <p class="plan__content">Всё, что входит в&nbsp;клуб</p>
             <a class="btn plan__btn" data-checkout="trial" data-block="terms" href="#terms">Начать тест-драйв</a>
-            <p class="plan__note">Автоматического списания нет. Через месяц вы&nbsp;решаете, остаться&nbsp;ли на&nbsp;год.</p>
+            <p class="plan__note">Автоматического списания нет. В&nbsp;последние <span data-cfg="creditWindowDays" data-unit="days">7 дней</span> вы&nbsp;решаете, остаться&nbsp;ли на&nbsp;год.</p>
           </article>
 
           <article class="plan plan--year" data-plan="year">
@@ -296,7 +296,7 @@
           </article>
         </div>
 
-        <p class="credit"><b class="credit__label">Главное</b>Если вы&nbsp;остаётесь на&nbsp;год в&nbsp;течение тест-драйва или <span data-cfg="creditWindowDaysAfterTrial" data-unit="days">7 дней</span> после него, стоимость первого месяца засчитывается. Год&nbsp;— <span data-cfg="creditedYearPrice">49&nbsp;410&nbsp;₽</span>.</p>
+        <p class="credit"><b class="credit__label">Главное</b>Если вы&nbsp;остаётесь на&nbsp;год до&nbsp;конца тест-драйва, стоимость первого месяца засчитывается. Год&nbsp;— <span data-cfg="creditedYearPrice">49&nbsp;410&nbsp;₽</span>. Последние <span data-cfg="creditWindowDays" data-unit="days">7 дней</span> тест-драйва&nbsp;— время на&nbsp;решение, мы напомним заранее.</p>
 
         <div class="scale" data-scale data-mode="trial">
           <div class="scale__head">
@@ -312,9 +312,9 @@
             <span class="scale__seg scale__seg--year"></span>
           </div>
           <ul class="scale__legend" aria-live="polite">
-            <li class="scale__item scale__item--trial"><b><span data-cfg="trial.days" data-unit="days">30 дней</span> тест-драйва</b><span data-cfg="trial.price">5&nbsp;490&nbsp;₽</span></li>
-            <li class="scale__item scale__item--window"><b><span data-cfg="creditWindowDaysAfterTrial" data-unit="days">7 дней</span> на&nbsp;решение</b><span>после окончания месяца</span></li>
-            <li class="scale__item scale__item--credited"><b>Год в&nbsp;клубе, <span data-cfg="creditedYearPrice">49&nbsp;410&nbsp;₽</span></b><span>Стоимость первого месяца засчитывается</span></li>
+            <li class="scale__item scale__item--trial"><b>Первые <span data-cfg="trialActiveDays" data-unit="days">23 дня</span> тест-драйва</b><span>Тест-драйв <span data-cfg="trial.days" data-unit="days">30 дней</span>, <span data-cfg="trial.price">5&nbsp;490&nbsp;₽</span></span></li>
+            <li class="scale__item scale__item--window"><b>Последние <span data-cfg="creditWindowDays" data-unit="days">7 дней</span> на&nbsp;решение</b><span>внутри тест-драйва, напомним заранее</span></li>
+            <li class="scale__item scale__item--credited"><b>Год в&nbsp;клубе, <span data-cfg="creditedYearPrice">49&nbsp;410&nbsp;₽</span></b><span>При переходе до&nbsp;конца тест-драйва</span></li>
             <li class="scale__item scale__item--year"><b>Год в&nbsp;клубе, <span data-cfg="year.months" data-unit="months">12 месяцев</span></b><span data-cfg="year.price">54&nbsp;900&nbsp;₽</span></li>
           </ul>
         </div>
@@ -355,7 +355,7 @@
           <a class="btn cta-trial" data-checkout="trial" data-block="final" href="#terms"><span>Начать тест-драйв</span></a>
           <a class="btn cta-year" data-checkout="year" data-block="final" href="#terms"><span>Вступить на&nbsp;год</span></a>
         </div>
-        <p class="final__terms">Тест-драйв <span data-cfg="trial.days" data-unit="days">30 дней</span> без автоматического списания. При переходе на&nbsp;год в&nbsp;срок стоимость первого месяца засчитывается.</p>
+        <p class="final__terms">Тест-драйв <span data-cfg="trial.days" data-unit="days">30 дней</span> без автоматического списания. При переходе на&nbsp;год до&nbsp;конца тест-драйва стоимость первого месяца засчитывается.</p>
       </div>
     </section>
   </main>

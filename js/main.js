@@ -46,7 +46,7 @@ function template(text) {
     .replaceAll('{trialPrice}', money(CONFIG.trial.price))
     .replaceAll('{yearPrice}', money(CONFIG.year.price))
     .replaceAll('{creditedYearPrice}', money(CONFIG.creditedYearPrice))
-    .replaceAll('{creditWindow}', days(CONFIG.creditWindowDaysAfterTrial));
+    .replaceAll('{creditWindow}', days(CONFIG.creditWindowDays));
 }
 
 const isUrl = (u) => typeof u === 'string' && /^https?:\/\//.test(u);

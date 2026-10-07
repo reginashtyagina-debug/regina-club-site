@@ -38,7 +38,7 @@
 trial: { price: 5490,  days: 30,  url: "https://….getcourse.ru/…" },
 year:  { price: 54900, months: 12, url: "https://….getcourse.ru/…" },
 creditedYearPrice: 49410,
-creditWindowDaysAfterTrial: 7,
+creditWindowDays: 7, // последние 7 дней тест-драйва — на решение, зачёт до конца тест-драйва
 ```
 
 `payMode: "link"` (сейчас): кнопки оплаты сразу ведут на `url` — страницу оплаты GetCourse. `payMode: "widget"`: открывается окно с виджетом GetCourse (поле `widget` — id и src из кода `<script>`); если он не загрузился за 8 секунд, в окне появляется ссылка на `url`.
