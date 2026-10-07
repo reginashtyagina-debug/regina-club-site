@@ -2,14 +2,17 @@
 """Собирает код для блока «HTML-код» (T123) на Тильде из index.html.
 
 Тильда не хранит наши файлы, поэтому стили, скрипты, фото и данные
-подгружаются с jsDelivr прямо из GitHub-репозитория. Запуск:
+подгружаются с jsDelivr прямо из GitHub-репозитория. Адрес закреплён
+за коммитом, поэтому после вставки нового кода на Тильде сразу работают
+свежие файлы, без сброса кэша. Сначала закоммитьте и отправьте правки, потом:
     python3 tools/build-tilda.py
 Результат: tilda/tilda-block.html — вставить целиком в блок T123.
 """
-import pathlib, re
+import pathlib, re, subprocess
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-BASE = "https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@main/"
+SHA = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True, check=True).stdout.strip()
+BASE = f"https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@{SHA}/"
 COOKIES_URL = "https://reginapr.getcourse.ru/confidetial"
 
 html = (ROOT / "index.html").read_text(encoding="utf-8")
