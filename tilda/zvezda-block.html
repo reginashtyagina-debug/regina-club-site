@@ -1,16 +1,16 @@
 <!-- «От Анонима до Звезды»: код для блока T123 на Тильде.
      Собран tools/build-tilda.py --page zvezda. Файлы сайта берутся из хранилища по адресу ниже. -->
-<link rel="preload" href="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@130828d1b0b3f1461b3f160b5b1dd33a488a8d31/assets/fonts/montserrat-cyrillic-900-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@130828d1b0b3f1461b3f160b5b1dd33a488a8d31/assets/fonts/golos-text-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@130828d1b0b3f1461b3f160b5b1dd33a488a8d31/assets/fonts/pt-serif-cyrillic-400-italic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@130828d1b0b3f1461b3f160b5b1dd33a488a8d31/css/zvezda.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@2a16ea255085a1968fb043ff3dcfc7293ae697b2/assets/fonts/montserrat-cyrillic-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@2a16ea255085a1968fb043ff3dcfc7293ae697b2/assets/fonts/golos-text-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@2a16ea255085a1968fb043ff3dcfc7293ae697b2/assets/fonts/pt-serif-cyrillic-400-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@2a16ea255085a1968fb043ff3dcfc7293ae697b2/css/zvezda.css">
 <div class="zv-root">
 
   <!-- Шапка: логотип слева, академия справа на базовой линии, тонкая линия -->
   <header class="zv-head">
     <div class="zv-wrap"><div class="zv-head__row">
       <a class="zv-head__logo" href="https://reginashtyagina.ru" aria-label="shtyagina, Академия PR и Личного бренда">
-        <img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@130828d1b0b3f1461b3f160b5b1dd33a488a8d31/assets/logo/shtyagina-black.png" width="561" height="120" alt="shtyagina">
+        <img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@2a16ea255085a1968fb043ff3dcfc7293ae697b2/assets/logo/shtyagina-black.png" width="561" height="120" alt="shtyagina">
       </a>
       <p class="zv-head__academy">Академия PR и&nbsp;Личного бренда</p>
     </div></div>
@@ -33,7 +33,7 @@
           <a class="zv-btn" href="#format" data-goal="zv_hero_more">Узнать подробнее</a>
         </div>
         <figure class="zv-hero__photo">
-          <img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@130828d1b0b3f1461b3f160b5b1dd33a488a8d31/assets/img/regina.webp" width="920" height="1150" alt="Регина Штягина">
+          <img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@2a16ea255085a1968fb043ff3dcfc7293ae697b2/assets/img/regina.webp" width="920" height="1150" alt="Регина Штягина">
         </figure>
       </div>
     </section>
@@ -187,11 +187,14 @@
     <!-- 7. Кейсы. Скриншоты — только настоящие. Новый кейс: скопируйте <article class="zv-case"> -->
     <section class="zv-section zv-soft" id="cases">
       <div class="zv-wrap">
-        <h2 class="zv-title">Кейсы</h2>
+        <div class="zv-program__head">
+          <h2 class="zv-title">Кейсы</h2>
+          <p class="zv-quote">Личный бренд, который видят нейросети: на&nbsp;вопрос о&nbsp;лучшем специалисте ИИ-поиск называет их&nbsp;первыми</p>
+        </div>
         <article class="zv-case">
           <div class="zv-case__text">
           <div class="zv-case__who">
-            <img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@130828d1b0b3f1461b3f160b5b1dd33a488a8d31/assets/img/people/asfandiyarova.webp" width="400" height="400" alt="Лилия Асфандиярова" loading="lazy">
+            <img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@2a16ea255085a1968fb043ff3dcfc7293ae697b2/assets/img/people/asfandiyarova.webp" width="400" height="400" alt="Лилия Асфандиярова" loading="lazy">
             <div>
               <p class="zv-case__name">Лилия Асфандиярова</p>
               <p class="zv-case__role">Дизайнер интерьеров, участник передачи «Квартирный вопрос» на&nbsp;НТВ</p>
@@ -200,8 +203,8 @@
           <p class="zv-case__result">ChatGPT называет её первой на&nbsp;запрос «лучший дизайнер интерьера в&nbsp;Уфе»</p>
           </div>
           <figure class="zv-case__proof">
-            <img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@130828d1b0b3f1461b3f160b5b1dd33a488a8d31/assets/img/reviews/ig-asfan-design.webp" width="815" height="770" alt="asfan_design: «За три года знакомства и обучения у Регины я научилась чётко понимать свои сильные стороны, выстраивать чёткий свой путь развития, проявляться, открыла онлайн-школу по дизайну, стала постоянным участником передачи «Квартирный вопрос»»" loading="lazy">
-            <figcaption>Комментарий Лилии в&nbsp;социальных сетях</figcaption>
+            <img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@2a16ea255085a1968fb043ff3dcfc7293ae697b2/assets/img/cases/gpt-asfandiyarova.webp" width="688" height="966" alt="Ответ ChatGPT на вопрос «Кто лучший дизайнер интерьера в Уфе?»: «…сейчас в Уфе очень заметно выглядит Лилия Асфандиярова». Дальше: 20+ лет практики, участник проекта «Квартирный вопрос» на НТВ, победитель премии «Лучшие дизайнеры и интерьеры Уфы» в 2023 и 2024 годах, публикации в интерьерных изданиях" loading="lazy">
+            <figcaption>Ответ ChatGPT на&nbsp;вопрос «Кто лучший дизайнер интерьера в&nbsp;Уфе?»</figcaption>
           </figure>
         </article>
       </div>
@@ -248,4 +251,4 @@
   </footer>
 
 </div>
-<script type="module" src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@130828d1b0b3f1461b3f160b5b1dd33a488a8d31/js/zvezda.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@2a16ea255085a1968fb043ff3dcfc7293ae697b2/js/zvezda.js"></script>
