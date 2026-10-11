@@ -60,7 +60,14 @@ if (diag && out) {
     const top = max ? Math.max(...Object.keys(count).filter((k) => count[k] === max).map(Number)) : 0;
     $$('.zv-diag__row', diag).forEach((r) => r.classList.toggle('is-top', Number(r.dataset.stage) === top));
     out.hidden = !top;
-    if (top) out.innerHTML = 'Ваша стадия: <em>' + top + '. ' + names[top - 1] + '</em>';
+    if (top) {
+      const next = top === 1
+        ? 'Начните с <a href="https://reginashtyagina.ru/club">Делового клуба</a>: там проходится шаг от Анонима до Узнают.'
+        : top <= 3
+          ? 'Ваш следующий шаг — эта программа: она ведёт к стадии «Признают».'
+          : 'Следующий шаг — годовое сопровождение: путь к стадии «Я-Звезда».';
+      out.innerHTML = 'Ваша стадия: <em>' + top + '. ' + names[top - 1] + '</em><span>' + next + '</span>';
+    }
     if (top && !tracked) { goal('zv_diagnostics'); tracked = true; }
   });
 }
