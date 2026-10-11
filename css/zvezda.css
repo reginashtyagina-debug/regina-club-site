@@ -179,8 +179,7 @@ body:has(> .zv-root) { margin: 0; background: #F8F7F4; }
 .zv-case__role { margin-top: 4px; font-size: 15px; color: var(--grey); }
 .zv-case__result { font: italic 400 clamp(24px, 3.2vw, 38px)/1.25 var(--serif); max-width: 20em; }
 .zv-case + .zv-case { margin-top: 72px; }
-.zv-case__proofs { display: grid; gap: 16px; justify-items: end; }
-.zv-case__proofs .zv-case__proof { width: 100%; }
+.zv-case .zv-case__proof--inline { max-width: 440px; justify-self: start; }
 .zv-case__before { font-size: 16px; color: var(--grey); max-width: 34em; }
 .zv-case__before b { color: var(--black); font-weight: 500; }
 .zv-case__more { max-width: 34em; }
