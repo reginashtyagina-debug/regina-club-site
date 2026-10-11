@@ -8,6 +8,10 @@
     python3 tools/build-tilda.py
 Результат: tilda/tilda-block.html — вставить целиком в блок T123.
 
+Страница «От Анонима до Звезды» (zvezda.html) собирается так же:
+    python3 tools/build-tilda.py --page zvezda
+Результат: tilda/zvezda-block.html.
+
 Чтобы файлы отдавались не с jsDelivr, а со своего хостинга в России
 (например, static.reginashtyagina.ru в Яндекс Object Storage), передайте адрес:
     python3 tools/build-tilda.py --base https://static.reginashtyagina.ru/
@@ -21,16 +25,38 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 SHA = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True, check=True).stdout.strip()
 parser = argparse.ArgumentParser()
 parser.add_argument("--base", help="адрес, где лежат папки assets, css, js, data (со слешем в конце)")
+parser.add_argument("--page", choices=["club", "zvezda"], default="club", help="какую страницу собрать")
 args = parser.parse_args()
 BASE = args.base or f"https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@{SHA}/"
 if not BASE.endswith("/"):
     BASE += "/"
 COOKIES_URL = "https://reginapr.getcourse.ru/confidetial"
 
+
+def rebase(html_text):
+    """Относительные пути к файлам сайта → полный адрес хранилища файлов."""
+    return re.sub(r'((?:src|href|poster)=")((?:assets|css|js|data)/)', r"\1" + BASE + r"\2", html_text)
+
+
+if args.page == "zvezda":
+    # Страница программы: стили и шрифты из <head>, всё содержимое <body> (обёртка .zv-root и скрипт внутри)
+    html = (ROOT / "zvezda.html").read_text(encoding="utf-8")
+    head = re.search(r"<head>(.*)</head>", html, re.S).group(1)
+    links = "\n".join(re.findall(r'<link rel="(?:preload|stylesheet)"[^>]*>', head))
+    body = re.search(r"<body[^>]*>(.*)</body>", html, re.S).group(1).strip()
+    out = f"""<!-- «От Анонима до Звезды»: код для блока T123 на Тильде.
+     Собран tools/build-tilda.py --page zvezda. Файлы сайта берутся из хранилища по адресу ниже. -->
+{rebase(links)}
+{rebase(body)}
+"""
+    (ROOT / "tilda").mkdir(exist_ok=True)
+    (ROOT / "tilda" / "zvezda-block.html").write_text(out, encoding="utf-8")
+    print("tilda/zvezda-block.html:", len(out.encode("utf-8")), "байт")
+    raise SystemExit
+
 html = (ROOT / "index.html").read_text(encoding="utf-8")
 body = re.search(r"<body[^>]*>(.*)</body>", html, re.S).group(1).strip()
-# Относительные пути к файлам сайта → полный адрес хранилища файлов
-body = re.sub(r'((?:src|href|poster)=")((?:assets|css|js|data)/)', r"\1" + BASE + r"\2", body)
+body = rebase(body)
 body = body.replace('href="privacy.html"', f'href="{COOKIES_URL}"')
 
 accent = re.search(r"<script>\s*// Акцент.*?</script>", html, re.S).group(0)

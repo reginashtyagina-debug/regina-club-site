@@ -20,6 +20,9 @@ export const CONFIG = {
   // В GetCourse: предложение 4580395 «Клуб Регины Штягиной (2024) (12 модулей=12 месяцев)», 54 900 руб.
   // (есть также 5377593 — то же, в рассрочку)
   year:   { price: 54900, months: 12, url: "https://reginapr.getcourse.ru/regina_club_06" },
+  // Страница «От Анонима до Звезды» (zvezda.html). url — страница записи на GetCourse:
+  // пока он пуст, кнопка «Записаться на программу» ведёт в Telegram-канал (links.telegram).
+  zvezda: { price: 250000, url: "" },
   creditedYearPrice: 49410,
   // Последние 7 дней тест-драйва — время на решение: зачёт действует до конца тест-драйва
   creditWindowDays: 7,
