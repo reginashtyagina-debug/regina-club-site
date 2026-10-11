@@ -182,6 +182,13 @@ body:has(> .zv-root) { margin: 0; background: #F8F7F4; }
 .zv-case__proofs { display: grid; gap: 16px; justify-items: end; }
 .zv-case__proofs .zv-case__proof { width: 100%; }
 .zv-case__before { font-size: 16px; color: var(--grey); max-width: 34em; }
+.zv-case__before b { color: var(--black); font-weight: 500; }
+.zv-case__more { max-width: 34em; }
+.zv-case__more summary { cursor: pointer; list-style: none; display: inline-block; font: 600 13px/1.2 var(--display); text-transform: uppercase; letter-spacing: .12em; border-bottom: 1px solid currentColor; padding-bottom: 4px; }
+.zv-case__more summary::-webkit-details-marker { display: none; }
+.zv-case__more[open] summary { margin-bottom: 12px; }
+.zv-case__more li { padding: 10px 0 10px 24px; position: relative; font-size: 16px; border-bottom: 1px solid var(--rule); }
+.zv-case__more li::before { content: ""; position: absolute; left: 0; top: 1.15em; width: 12px; height: 1.5px; background: currentColor; }
 .zv-case__stats { display: grid; gap: 0; border-top: 1px solid var(--rule); max-width: 34em; }
 .zv-case__stats li { padding: 14px 0; border-bottom: 1px solid var(--rule); display: grid; gap: 4px; }
 .zv-case__stats b { font: 900 clamp(20px, 2.4vw, 28px)/1.1 var(--display); text-transform: uppercase; }
