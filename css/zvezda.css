@@ -358,7 +358,10 @@ body:has(> .zv-root) { margin: 0; background: #F8F7F4; }
   .zv-ladder__stage span { grid-row: 3; white-space: nowrap; }
   .zv-ladder__stage:nth-child(even) span { grid-row: 1; }
   .zv-ladder__stages::before { top: 37px; }
-  .zv-ladder__products li { padding: 10px 8px 12px; }
+  .zv-ladder__products { grid-template-columns: 1fr; row-gap: 10px; }
+  .zv-ladder__products li { grid-column: 1 / -1 !important; grid-row: auto !important; padding: 12px 14px; }
+  .zv-ladder__products b { font-size: 14px; }
+  .zv-ladder__products span { font-size: 13px; }
 }
 
 /* Шаги: где проходится */
