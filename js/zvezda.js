@@ -47,4 +47,22 @@ if (toggle && modules.length) {
 
 $$('[data-goal]').forEach((a) => a.addEventListener('click', () => goal(a.dataset.goal)));
 
+// Диагностика: стадия с наибольшим числом отметок (при равенстве — более поздняя)
+const diag = $('[data-diag]');
+const out = $('[data-diag-result]');
+if (diag && out) {
+  const names = ['Аноним', 'Узнают', 'Интересуются', 'Признают', 'Я-Звезда', 'Я-Легенда'];
+  let tracked = false;
+  diag.addEventListener('change', () => {
+    const count = {};
+    $$('input:checked', diag).forEach((c) => { count[c.dataset.stage] = (count[c.dataset.stage] || 0) + 1; });
+    const max = Math.max(0, ...Object.values(count));
+    const top = max ? Math.max(...Object.keys(count).filter((k) => count[k] === max).map(Number)) : 0;
+    $$('.zv-diag__row', diag).forEach((r) => r.classList.toggle('is-top', Number(r.dataset.stage) === top));
+    out.hidden = !top;
+    if (top) out.innerHTML = 'Ваша стадия: <em>' + top + '. ' + names[top - 1] + '</em>';
+    if (top && !tracked) { goal('zv_diagnostics'); tracked = true; }
+  });
+}
+
 initAnalytics();
