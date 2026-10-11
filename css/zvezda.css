@@ -178,6 +178,14 @@ body:has(> .zv-root) { margin: 0; background: #F8F7F4; }
 .zv-case__name { font: 900 18px/1.2 var(--display); text-transform: uppercase; }
 .zv-case__role { margin-top: 4px; font-size: 15px; color: var(--grey); }
 .zv-case__result { font: italic 400 clamp(24px, 3.2vw, 38px)/1.25 var(--serif); max-width: 20em; }
+.zv-case + .zv-case { margin-top: 72px; }
+.zv-case__before { font-size: 16px; color: var(--grey); max-width: 34em; }
+.zv-case__stats { display: grid; gap: 0; border-top: 1px solid var(--rule); max-width: 34em; }
+.zv-case__stats li { padding: 14px 0; border-bottom: 1px solid var(--rule); display: grid; gap: 4px; }
+.zv-case__stats b { font: 900 clamp(20px, 2.4vw, 28px)/1.1 var(--display); text-transform: uppercase; }
+.zv-case__stats em { font-style: normal; color: var(--accent); }
+.zv-case__stats span { font-size: 14px; color: var(--grey); }
+.zv-arrow { font: 400 .9em/1 var(--text); font-style: normal; color: var(--grey); }
 .zv-case__proof { max-width: 520px; padding: 12px; background: var(--paper); border: 1px solid var(--rule); border-radius: 4px; }
 .zv-case__proof figcaption { margin-top: 10px; font-size: 13px; color: var(--grey); }
 @media (min-width: 900px) {
