@@ -57,7 +57,8 @@ body:has(> .zv-root) { margin: 0; background: #F8F7F4; }
 .zv-wrap { max-width: 1200px; margin: 0 auto; padding: 0 var(--gutter); }
 .zv-section { padding: var(--space) 0; }
 .zv-section--line { border-top: 1px solid var(--rule); }
-.zv-dark { background: var(--black); color: var(--milk); --grey: var(--grey-dark); --rule: var(--rule-dark); }
+/* Светлый ритм: молочный и белый чередуются, тёмных блоков нет (тёмный регистр — для годового сопровождения) */
+.zv-soft { background: var(--paper); }
 
 /* Типографика бренда: заголовки Montserrat Black капсом, подзаголовки и цитаты PT Serif Italic */
 .zv-title {
@@ -80,7 +81,7 @@ body:has(> .zv-root) { margin: 0; background: #F8F7F4; }
 .zv-btn--light { background: var(--milk); border-color: var(--milk); color: var(--black) !important; }
 .zv-btn--light:hover { background: transparent; color: var(--milk) !important; }
 .zv-btn--accent { background: var(--accent); border-color: var(--accent); color: #fff !important; }
-.zv-btn--accent:hover { background: transparent; color: var(--milk) !important; }
+.zv-btn--accent:hover { background: transparent; color: var(--accent) !important; }
 .zv-link { margin-top: 28px; padding: 0; border: 0; background: none; cursor: pointer; color: var(--black);
   font: 600 13px/1.2 var(--display); text-transform: uppercase; letter-spacing: .12em; border-bottom: 1px solid currentColor; padding-bottom: 4px; }
 .zv-inline { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
@@ -105,7 +106,7 @@ body:has(> .zv-root) { margin: 0; background: #F8F7F4; }
 .zv-facts li:first-child b { color: var(--accent); }
 .zv-facts span { display: block; margin-top: 6px; font-size: 13px; color: var(--grey); max-width: 11em; }
 .zv-hero__photo { position: relative; margin: 0 calc(-1 * var(--gutter)); }
-.zv-hero__photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 20%; filter: grayscale(1) contrast(1.04); }
+.zv-hero__photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 20%; }
 @media (max-width: 899px) {
   .zv-facts { grid-template-columns: repeat(3, 1fr); }
   .zv-facts li { padding-right: 12px; margin-right: 12px; }
@@ -163,7 +164,7 @@ body:has(> .zv-root) { margin: 0; background: #F8F7F4; }
 /* 6. Кому подходит */
 .zv-audience { margin-top: 48px; display: grid; gap: 0; border-top: 1px solid var(--rule); }
 .zv-audience li { padding: 26px 0; border-bottom: 1px solid var(--rule); font-size: clamp(17px, 1.7vw, 20px); line-height: 1.45; color: var(--grey); }
-.zv-audience b { color: var(--milk); font-weight: 500; }
+.zv-audience b { color: var(--black); font-weight: 500; }
 @media (min-width: 900px) {
   .zv-audience { grid-template-columns: 1fr 1fr; column-gap: 64px; border-top: 0; }
   .zv-audience li:nth-child(-n+2) { border-top: 1px solid var(--rule); }
@@ -173,11 +174,11 @@ body:has(> .zv-root) { margin: 0; background: #F8F7F4; }
 .zv-case { margin-top: 48px; display: grid; gap: 32px; padding-top: 32px; border-top: 1px solid var(--black); }
 .zv-case__text { display: grid; gap: 28px; align-content: start; }
 .zv-case__who { display: flex; align-items: center; gap: 18px; }
-.zv-case__who img { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; filter: grayscale(1); }
+.zv-case__who img { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; }
 .zv-case__name { font: 900 18px/1.2 var(--display); text-transform: uppercase; }
 .zv-case__role { margin-top: 4px; font-size: 15px; color: var(--grey); }
 .zv-case__result { font: italic 400 clamp(24px, 3.2vw, 38px)/1.25 var(--serif); max-width: 20em; }
-.zv-case__proof { max-width: 520px; padding: 12px; background: var(--paper); border: 1px solid var(--rule); }
+.zv-case__proof { max-width: 520px; padding: 12px; background: var(--paper); border: 1px solid var(--rule); border-radius: 4px; }
 .zv-case__proof figcaption { margin-top: 10px; font-size: 13px; color: var(--grey); }
 @media (min-width: 900px) {
   .zv-case { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: 64px; align-items: start; }
@@ -185,14 +186,15 @@ body:has(> .zv-root) { margin: 0; background: #F8F7F4; }
 }
 
 /* 5. Стоимость: прямая подача цены, без зачёркиваний и дедлайнов */
-.zv-price { display: grid; gap: 48px; }
-.zv-price__sum { margin: 28px 0 32px; font: 900 clamp(52px, 9vw, 112px)/1 var(--display); letter-spacing: -0.02em; color: var(--accent); white-space: nowrap; }
+.zv-price { display: grid; gap: 48px; padding: clamp(28px, 5vw, 64px); background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--accent); }
+.zv-price__sum { margin: 28px 0 32px; font: 900 clamp(48px, 7vw, 92px)/1 var(--display); letter-spacing: -0.02em; color: var(--accent); white-space: nowrap; }
 .zv-price__label { font: 600 12px/1.2 var(--display); text-transform: uppercase; letter-spacing: .16em; color: var(--grey); }
 .zv-price__label:not(:first-child) { margin-top: 36px; }
 .zv-list { margin-top: 14px; border-top: 1px solid var(--rule); }
 .zv-list li { padding: 16px 0 16px 28px; border-bottom: 1px solid var(--rule); position: relative; font-size: clamp(16px, 1.6vw, 19px); }
 .zv-list li::before { content: ""; position: absolute; left: 0; top: 1.35em; width: 12px; height: 1.5px; background: currentColor; }
 @media (min-width: 900px) { .zv-price { grid-template-columns: 5fr 7fr; gap: 64px; align-items: start; } }
+.zv-price__head { padding-top: 4px; }
 
 /* Подвал */
 .zv-foot { padding: 40px 0 56px; border-top: 1px solid var(--rule); font-size: 14px; color: var(--grey); }
