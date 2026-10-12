@@ -20,16 +20,6 @@
 <body>
 <div class="zv-root">
 
-  <!-- Шапка: логотип слева, академия справа на базовой линии, тонкая линия -->
-  <header class="zv-head">
-    <div class="zv-wrap"><div class="zv-head__row">
-      <a class="zv-head__logo" href="https://reginashtyagina.ru" aria-label="shtyagina, Академия PR и Личного бренда">
-        <img src="assets/logo/shtyagina-black.png" width="561" height="120" alt="shtyagina">
-      </a>
-      <p class="zv-head__academy">Академия PR и&nbsp;Личного бренда</p>
-    </div></div>
-  </header>
-
   <main>
     <!-- 1. Первый экран -->
     <section class="zv-hero" id="top">
@@ -44,7 +34,7 @@
             <li><b>2,5&nbsp;месяца</b><span>онлайн из&nbsp;любой точки мира</span></li>
             <li><b>диплом</b><span>государственного образца</span></li>
           </ul>
-          <div class="zv-hero__ctas"><a class="zv-btn zv-btn--accent" data-zv-consult href="#price">Узнать дату старта</a><a class="zv-btn zv-btn--ghost" href="#path" data-goal="zv_hero_more">Узнать подробнее</a></div>
+          <div class="zv-hero__ctas"><a class="zv-btn zv-btn--accent" data-zv-consult href="#apply">Узнать дату старта</a><a class="zv-btn zv-btn--ghost" href="#path" data-goal="zv_hero_more">Узнать подробнее</a></div>
         </div>
         <figure class="zv-hero__photo">
           <img src="assets/img/regina.webp" width="920" height="1150" alt="Регина Штягина">
@@ -73,32 +63,12 @@
           <p><b>В&nbsp;клубе</b> вы&nbsp;упаковываете себя и&nbsp;становитесь понятны аудитории.</p>
           <p><b>В&nbsp;программе</b> по&nbsp;системе проходите следующие шаги: выходите к&nbsp;новой аудитории, а&nbsp;затем становитесь экспертом, к&nbsp;которому приходят сами.</p>
         </div>
-        <div class="zv-cta-row"><a class="zv-btn zv-btn--accent" data-zv-consult href="#price">Узнать дату старта</a><p>Консультация: расскажем о&nbsp;программе, ближайшем потоке и&nbsp;рассрочке</p></div>
+        <div class="zv-cta-row"><a class="zv-btn zv-btn--accent" data-zv-consult href="#apply">Узнать дату старта</a><p>Короткая анкета, затем консультация: расскажем о&nbsp;программе и&nbsp;дате старта</p></div>
       </div>
     </section>
-
-    <!-- Контекст: почему репутация решает (данные из методики Регины) -->
-    <section class="zv-section zv-soft" id="context">
-      <div class="zv-wrap">
-        <div class="zv-program__head">
-          <h2 class="zv-title">Репутация работает в&nbsp;трёх направлениях</h2>
-          <p class="zv-quote">Что изменилось в&nbsp;продвижении экспертов. Методика строится на&nbsp;этих сдвигах</p>
-        </div>
-        <ul class="zv-stats">
-          <li><b>84%</b><div><p class="zv-label">В&nbsp;ответах нейросетей</p><p>цитирований в&nbsp;ответах ИИ приходится на&nbsp;заработанные публикации: СМИ, исследования, независимые площадки. На&nbsp;платные и&nbsp;рекламные материалы&nbsp;— 0,3%.</p><small>Muck Rack, «What Is AI Reading?», май 2026, более 25&nbsp;млн ссылок</small></div></li>
-          <li><b>70%</b><div><p class="zv-label">В&nbsp;закрытых кругах</p><p>людей неохотно доверяют тем, чьи ценности и&nbsp;взгляды отличаются от&nbsp;их&nbsp;собственных. Доверие смещается к&nbsp;близкому кругу: знакомым, коллегам, сообществам.</p><small>Edelman Trust Barometer 2026, 28 стран, около 34&nbsp;000 респондентов</small></div></li>
-          <li><b>60%</b><div><p class="zv-label">В&nbsp;цене</p><p>руководителей, принимающих решения о&nbsp;закупках, готовы платить больше организациям, которые регулярно публикуют сильные экспертные материалы.</p><small>Edelman и&nbsp;LinkedIn, B2B Thought Leadership Impact Study, 2024</small></div></li>
-        </ul>
-        <p class="zv-conclusion"><span class="zv-label">Вывод</span>Когда о&nbsp;вас говорят другие&nbsp;— СМИ, клиенты, коллеги,&nbsp;— вас находят люди и&nbsp;называют нейросети. И&nbsp;за&nbsp;вашу работу готовы платить больше.</p>
-      </div>
-    </section>
-
-
-
-
 
     <!-- 2. Формат обучения -->
-    <section class="zv-section" id="format">
+    <section class="zv-section zv-soft" id="format">
       <div class="zv-wrap">
         <h2 class="zv-title">Формат обучения</h2>
         <ol class="zv-format">
@@ -114,7 +84,7 @@
     </section>
 
     <!-- 3. Об авторе -->
-    <section class="zv-section zv-soft" id="author">
+    <section class="zv-section" id="author">
       <div class="zv-wrap zv-author">
         <div class="zv-author__head">
           <p class="zv-label">Автор программы</p>
@@ -138,7 +108,7 @@
     </section>
 
     <!-- 4. Программа: 16 модулей -->
-    <section class="zv-section" id="program">
+    <section class="zv-section zv-soft" id="program">
       <div class="zv-wrap">
         <div class="zv-program__head">
           <h2 class="zv-title">Программа</h2>
@@ -211,12 +181,12 @@
           </details>
         </div>
         <button type="button" class="zv-link" data-modules-toggle>Раскрыть все модули</button>
-        <div class="zv-cta-row"><a class="zv-btn zv-btn--accent" data-zv-consult href="#price">Узнать дату старта</a><p>Консультация: расскажем о&nbsp;программе, ближайшем потоке и&nbsp;рассрочке</p></div>
+        <div class="zv-cta-row"><a class="zv-btn zv-btn--accent" data-zv-consult href="#apply">Узнать дату старта</a><p>Короткая анкета, затем консультация: расскажем о&nbsp;программе и&nbsp;дате старта</p></div>
       </div>
     </section>
 
     <!-- 6. Кому подходит (до кейсов и цены: человек узнаёт себя, потом видит доказательства и цену) -->
-    <section class="zv-section zv-soft" id="audience">
+    <section class="zv-section" id="audience">
       <div class="zv-wrap">
         <h2 class="zv-title">Кому подходит программа</h2>
         <ul class="zv-audience">
@@ -229,7 +199,7 @@
     </section>
 
     <!-- 7. Кейсы. Скриншоты — только настоящие. Новый кейс: скопируйте <article class="zv-case"> -->
-    <section class="zv-section" id="cases">
+    <section class="zv-section zv-soft" id="cases">
       <div class="zv-wrap">
         <div class="zv-program__head">
           <h2 class="zv-title">Кейсы</h2>
@@ -353,19 +323,18 @@
             <p class="zv-mini__handle">@disneymama.cruise</p>
           </article>
         </div>
-        <div class="zv-cta-row"><a class="zv-btn zv-btn--accent" data-zv-consult href="#price">Узнать дату старта</a><p>Консультация: расскажем о&nbsp;программе, ближайшем потоке и&nbsp;рассрочке</p></div>
+        <div class="zv-cta-row"><a class="zv-btn zv-btn--accent" data-zv-consult href="#apply">Узнать дату старта</a><p>Короткая анкета, затем консультация: расскажем о&nbsp;программе и&nbsp;дате старта</p></div>
       </div>
     </section>
 
     <!-- 5. Стоимость -->
-    <section class="zv-section zv-soft" id="price">
+    <section class="zv-section" id="price">
       <div class="zv-wrap"><div class="zv-price">
         <div class="zv-price__head">
           <h2 class="zv-title">Стоимость</h2>
           <p class="zv-price__sum"><span data-zv-price>250&nbsp;000&nbsp;₽</span></p>
-          <p class="zv-price__plan">Рассрочка до&nbsp;12 месяцев</p>
-          <a class="zv-btn zv-btn--accent" data-zv-consult href="#price">Узнать дату старта</a>
-          <p class="zv-price__note">Консультация: расскажем о&nbsp;программе, ближайшем потоке и&nbsp;рассрочке</p>
+          <a class="zv-btn zv-btn--accent" data-zv-consult href="#apply">Узнать дату старта</a>
+          <p class="zv-price__note">Короткая анкета, затем консультация: расскажем о&nbsp;программе и&nbsp;дате старта</p>
         </div>
         <div class="zv-price__body">
           <p class="zv-price__label">Что входит</p>
@@ -383,9 +352,44 @@
         </div>
       </div></div>
     </section>
+
+    <!-- 6. Вопросы -->
+    <section class="zv-section zv-soft" id="faq">
+      <div class="zv-wrap">
+        <h2 class="zv-title">Вопросы и&nbsp;ответы</h2>
+        <div class="zv-faq">
+          <details class="zv-faq__item"><summary>Могу ли я вернуть деньги, если программа не подойдёт?</summary><p>Да. Возврат проводится по&nbsp;условиям договора-оферты, мы&nbsp;их&nbsp;полностью соблюдаем.</p></details>
+          <details class="zv-faq__item"><summary>Сколько будет открыт доступ к&nbsp;программе?</summary><p>[уточнить: срок доступа к&nbsp;урокам после окончания потока]</p></details>
+          <details class="zv-faq__item"><summary>Можно ли купить отдельные модули?</summary><p>[уточнить]</p></details>
+          <details class="zv-faq__item"><summary>Что нужно для получения диплома?</summary><p>Пройти модули, выполнить практические задания и&nbsp;сдать итоговый экзамен. [уточнить детали]</p></details>
+          <details class="zv-faq__item"><summary>Можно ли совмещать обучение с&nbsp;работой?</summary><p>Да. Программа полностью онлайн: уроки в&nbsp;личном кабинете, задания выполняются в&nbsp;удобное время, кураторы дают обратную связь на&nbsp;каждом этапе. [уточнить: сколько часов в&nbsp;неделю]</p></details>
+          <details class="zv-faq__item"><summary>Я точно смогу заработать после программы?</summary><p>Результат зависит от&nbsp;того, насколько вы&nbsp;внедряете задания. Программа даёт систему и&nbsp;сопровождение кураторов, а&nbsp;кейсы выпускников выше показывают, к&nbsp;чему она приводит. [уточнить формулировку]</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Как попасть на программу: анкета → консультация → собеседование с Региной -->
+    <section class="zv-section" id="apply">
+      <div class="zv-wrap zv-apply">
+        <div class="zv-apply__head">
+          <h2 class="zv-title">Как попасть на&nbsp;программу</h2>
+          <p class="zv-quote">Набор ограничен: мы&nbsp;берём тех, кому программа даст результат</p>
+          <ol class="zv-apply__steps">
+            <li><b>01</b><span>Заполните анкету</span></li>
+            <li><b>02</b><span>Консультация: расскажем о&nbsp;программе и&nbsp;дате старта</span></li>
+            <li><b>03</b><span>Финальное собеседование с&nbsp;Региной<small>если консультация прошла успешно</small></span></li>
+          </ol>
+        </div>
+        <div class="zv-apply__form" data-zv-form>
+          <p class="zv-price__label">Анкета</p>
+          <!-- АНКЕТА: сюда вставить код виджета GetCourse (<script id=… src="https://reginapr.ru/pl/lite/widget/script?id=…">) и удалить абзац ниже -->
+          <p class="zv-apply__stub">Здесь будет форма GetCourse: имя, телефон, почта, пара вопросов о&nbsp;вашем деле и&nbsp;кнопка «Записаться на&nbsp;консультацию».</p>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <a class="zv-sticky" data-zv-consult href="#price" aria-hidden="true" tabindex="-1"><span>2,5&nbsp;месяца · рассрочка до&nbsp;12 мес.</span><b>Узнать дату старта</b></a>
+  <a class="zv-sticky" data-zv-consult href="#apply" aria-hidden="true" tabindex="-1"><span>16 модулей · 2,5&nbsp;месяца</span><b>Узнать дату старта</b></a>
 
   <footer class="zv-foot">
     <div class="zv-wrap zv-foot__row">

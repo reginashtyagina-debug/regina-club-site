@@ -13,11 +13,13 @@ const cfg = CONFIG.zvezda || {};
 // Цена берётся из config.js, чтобы она совпадала везде
 $$('[data-zv-price]').forEach((el) => { if (cfg.price) el.textContent = money(cfg.price); });
 
-// Кнопки «Узнать дату старта» (консультация) и записи. Пока ссылок нет — Telegram-канал. UTM-метки передаются дальше.
-function wire(selector, url, goalName) {
-  const href = isUrl(url) ? url : CONFIG.links && CONFIG.links.telegram;
-  if (!isUrl(href)) return;
+// Кнопки «Узнать дату старта» ведут к анкете на этой странице (#apply); если в config.js задан consultUrl — по ссылке.
+// Кнопки записи: ссылка url, пока её нет — Telegram-канал. UTM-метки передаются дальше.
+function wire(selector, url, goalName, fallback) {
+  const href = isUrl(url) ? url : fallback;
   $$(selector).forEach((a) => {
+    a.addEventListener('click', () => goal(goalName, { block: (a.closest('section') || {}).id || 'sticky' }));
+    if (!isUrl(href)) return;
     const target = new URL(href);
     new URLSearchParams(location.search).forEach((v, k) => {
       if (k.startsWith('utm_') && !target.searchParams.has(k)) target.searchParams.append(k, v);
@@ -25,21 +27,21 @@ function wire(selector, url, goalName) {
     a.href = target.toString();
     a.target = '_blank';
     a.rel = 'noopener';
-    a.addEventListener('click', () => goal(goalName, { block: (a.closest('section') || {}).id || 'sticky' }));
   });
 }
 wire('[data-zv-consult]', cfg.consultUrl, 'zv_consult');
-wire('[data-zv-cta]', cfg.url, 'zv_signup');
+wire('[data-zv-cta]', cfg.url, 'zv_signup', CONFIG.links && CONFIG.links.telegram);
 
-// Кнопка внизу экрана на телефоне: появляется после первого экрана, прячется у блока стоимости
+// Кнопка внизу экрана на телефоне: появляется после первого экрана, прячется у стоимости и анкеты
 const sticky = $('.zv-sticky');
 if (sticky && 'IntersectionObserver' in window) {
   const hero = $('.zv-hero');
-  const price = $('#price');
-  let pastHero = false, atPrice = false;
-  const sync = () => sticky.classList.toggle('is-on', pastHero && !atPrice);
+  const hidden = new Set();
+  let pastHero = false;
+  const sync = () => sticky.classList.toggle('is-on', pastHero && !hidden.size);
   new IntersectionObserver(([e]) => { pastHero = !e.isIntersecting; sync(); }).observe(hero);
-  new IntersectionObserver(([e]) => { atPrice = e.isIntersecting; sync(); }).observe(price);
+  const io = new IntersectionObserver((es) => { es.forEach((e) => (e.isIntersecting ? hidden.add(e.target) : hidden.delete(e.target))); sync(); });
+  ['#price', '#apply'].forEach((id) => { const el = $(id); if (el) io.observe(el); });
 }
 
 // «Раскрыть все модули» / «Свернуть»
