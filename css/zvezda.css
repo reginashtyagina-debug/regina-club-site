@@ -402,6 +402,14 @@ body:has(> .zv-root) { margin: 0; background: #F8F7F4; }
 .zv-case__more + .zv-mini__handle { margin-top: 14px; }
 .zv-mini__handle { margin-top: auto; font: 600 13px/1 var(--display); color: var(--grey); }
 
+/* Лицензия в блоке «Формат» */
+.zv-license { margin: 40px 0; display: grid; gap: 20px; align-items: start; max-width: 760px; padding: 24px; background: var(--milk); border: 1px solid var(--rule); }
+.zv-license > div { min-width: 0; }
+.zv-license__doc { display: block; width: 140px; border: 1px solid var(--rule); background: #fff; }
+.zv-license__num { margin: 10px 0 8px; font: 900 clamp(16px, 2vw, 20px)/1.25 var(--display); }
+.zv-license p:last-child { font-size: 15px; color: var(--grey); }
+@media (min-width: 640px) { .zv-license { grid-template-columns: 160px 1fr; gap: 32px; } .zv-license__doc { width: auto; } }
+
 /* 6. Вопросы */
 .zv-faq { max-width: 860px; margin-top: 40px; border-top: 1px solid var(--black); }
 .zv-faq__item { border-bottom: 1px solid var(--rule); }
