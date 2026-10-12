@@ -30,6 +30,7 @@ function wire(selector, url, goalName, fallback) {
   });
 }
 wire('[data-zv-consult]', cfg.consultUrl, 'zv_consult');
+if (!isUrl(cfg.consultUrl)) setupConsultDialog();
 wire('[data-zv-cta]', cfg.url, 'zv_signup', CONFIG.links && CONFIG.links.telegram);
 
 // Кнопка внизу экрана на телефоне: появляется после первого экрана, прячется у стоимости и анкеты
@@ -91,9 +92,26 @@ if (diag && out) {
 
 initAnalytics();
 
-// Анкета: если виджет GetCourse не появился за 8 секунд, показываем запасную ссылку на Telegram
-const form = $('[data-zv-form]');
-const fallback = $('[data-zv-fallback]');
-if (form && fallback) {
-  setTimeout(() => { if (!form.querySelector('iframe, form')) fallback.hidden = false; }, 8000);
+
+// Анкета GetCourse в окне: виджет грузится заранее за краем экрана (так он надёжно отрисовывается),
+// по кнопке «Узнать дату старта» переносится в окно и возвращается обратно при закрытии.
+// Без поддержки <dialog> кнопка просто прокручивает к блоку «Как попасть на программу».
+function setupConsultDialog() {
+  const dlg = $('[data-zv-dlg]');
+  const box = $('[data-zv-form]');
+  if (!dlg || !box || typeof dlg.showModal !== 'function') return;
+  const body = $('[data-zv-dlg-body]', dlg);
+  const note = $('[data-zv-fallback]', dlg);
+  const home = box.parentNode;
+  const ready = () => !!box.querySelector('iframe, form');
+  $$('[data-zv-consult]').forEach((a) => a.addEventListener('click', (e) => {
+    e.preventDefault();
+    body.appendChild(box);
+    note.hidden = true;
+    dlg.showModal();
+    if (!ready()) setTimeout(() => { note.hidden = ready(); }, 6000);
+  }));
+  dlg.addEventListener('close', () => home.appendChild(box));
+  $('[data-zv-close]', dlg).addEventListener('click', () => dlg.close());
+  dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
 }
