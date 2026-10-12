@@ -1,0 +1,145 @@
+<!-- «Тренды продвижения 2027»: код для блока T123 на Тильде.
+     Собран tools/build-trends.py. Шрифты, логотип и фото встроены в код: внешних загрузок нет. -->
+<style>
+@font-face { font-family: "TR Montserrat"; font-weight: 600; font-display: swap; src: url(data:font/woff2;base64,{{F_M600C}}) format("woff2"); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: "TR Montserrat"; font-weight: 600; font-display: swap; src: url(data:font/woff2;base64,{{F_M600L}}) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+20BD, U+2122, U+2212; }
+@font-face { font-family: "TR Montserrat"; font-weight: 900; font-display: swap; src: url(data:font/woff2;base64,{{F_M900C}}) format("woff2"); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: "TR Montserrat"; font-weight: 900; font-display: swap; src: url(data:font/woff2;base64,{{F_M900L}}) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+20BD, U+2122, U+2212; }
+@font-face { font-family: "TR Serif"; font-style: italic; font-weight: 400; font-display: swap; src: url(data:font/woff2;base64,{{F_PTC}}) format("woff2"); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: "TR Serif"; font-style: italic; font-weight: 400; font-display: swap; src: url(data:font/woff2;base64,{{F_PTL}}) format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+20BD; }
+
+.t123 .t-container_100, .t123 .t-width, .t123 .t-container { max-width: none; width: 100%; padding: 0; margin: 0; }
+.tr27 { --black: #0B0B0B; --milk: #F8F7F4; --blue: #8FD0E3; --red: #FF1D3D; --grey: #5E5E5E;
+  --d: "TR Montserrat", "Montserrat", "Helvetica Neue", Arial, sans-serif; --s: "TR Serif", "PT Serif", Georgia, serif;
+  background: var(--milk); color: var(--black); font: 600 16px/1.5 var(--d); text-align: left; -webkit-font-smoothing: antialiased; }
+.tr27 *, .tr27 *::before, .tr27 *::after { box-sizing: border-box; }
+.tr27 :where(h1, h2, h3, p, ul, ol, figure) { margin: 0; padding: 0; }
+.tr27 :where(ul, ol) { list-style: none; }
+.tr27 img { display: block; max-width: 100%; height: auto; }
+.tr27 a { color: inherit; }
+.tr27 :focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+.tr27__wrap { max-width: 1120px; margin: 0 auto; padding: 0 clamp(16px, 5vw, 48px); }
+
+/* Шапка */
+.tr27__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; padding: 24px 0 16px; border-bottom: 1.5px solid var(--black); }
+.tr27__head img { width: clamp(84px, 11vw, 140px); }
+.tr27__head p { font: 600 clamp(7px, 1vw, 11px)/1 var(--d); text-transform: uppercase; letter-spacing: .16em; text-align: right; padding-bottom: 2px; }
+
+/* Первый экран */
+.tr27__hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: end; gap: 0 clamp(8px, 3vw, 40px); padding-top: clamp(24px, 4vw, 48px); }
+.tr27__eyebrow { font: 600 clamp(8px, 1.15vw, 13px)/1.3 var(--d); text-transform: uppercase; letter-spacing: .14em; }
+.tr27__title { margin-top: clamp(10px, 1.6vw, 18px); font: 900 clamp(28px, 5.6vw, 64px)/.95 var(--d); text-transform: uppercase; letter-spacing: -0.01em; }
+.tr27__year { display: block; margin-top: .06em; margin-left: -0.04em; font-size: 2.35em; line-height: .9; color: var(--red); letter-spacing: -0.03em; }
+.tr27__host { margin: clamp(10px, 2vw, 22px) 0 clamp(18px, 4vw, 70px); font: italic 400 clamp(12px, 1.9vw, 22px)/1.3 var(--s); }
+.tr27__photo { position: relative; align-self: stretch; display: flex; align-items: flex-end; justify-content: flex-end; }
+.tr27__photo img { width: 100%; max-width: 470px; }
+.tr27__star { position: absolute; left: -6%; top: 2%; width: clamp(24px, 6vw, 64px); }
+.tr27__ball { position: absolute; left: 0; top: 66%; width: clamp(12px, 3.4vw, 40px); }
+
+/* Плашка с датой */
+.tr27__bar { background: var(--black); color: var(--milk); }
+.tr27__bar p { padding: clamp(14px, 2.4vw, 24px) 0; font: 900 clamp(11px, 1.7vw, 19px)/1.35 var(--d); text-transform: uppercase; letter-spacing: .04em; text-align: center; }
+.tr27__bar b { color: var(--red); font-weight: 900; }
+
+/* Что разберём */
+.tr27__about { padding: clamp(48px, 7vw, 80px) 0 clamp(40px, 6vw, 64px); text-align: center; }
+.tr27__h2 { font: 900 clamp(26px, 4.6vw, 52px)/1.06 var(--d); text-transform: uppercase; letter-spacing: -0.01em; text-wrap: balance; }
+.tr27__h2 em { font-style: normal; color: var(--red); }
+.tr27__sub { margin-top: 18px; font: italic 400 clamp(17px, 2vw, 24px)/1.4 var(--s); }
+.tr27__topics { max-width: 760px; margin: clamp(36px, 5vw, 56px) auto 0; text-align: left; }
+.tr27__label { font: 600 12px/1.2 var(--d); text-transform: uppercase; letter-spacing: .16em; padding-bottom: 12px; border-bottom: 1.5px solid var(--black); }
+.tr27__topics ol { counter-reset: tr; }
+.tr27__topics li { counter-increment: tr; display: grid; grid-template-columns: 44px 1fr; gap: 12px; padding: 20px 0; border-bottom: 1.5px solid var(--black); font: 900 clamp(16px, 1.8vw, 21px)/1.3 var(--d); }
+.tr27__topics li::before { content: counter(tr); color: var(--red); font: 900 clamp(26px, 2.8vw, 32px)/1 var(--d); }
+
+/* Билеты */
+.tr27__tickets { display: grid; gap: 20px; }
+@media (min-width: 900px) { .tr27__tickets { grid-template-columns: repeat(3, 1fr); } }
+.tr27__ticket { display: flex; flex-direction: column; gap: 14px; padding: clamp(24px, 3vw, 32px); border: 2.5px solid var(--black); background: var(--milk); }
+.tr27__ticket--club { background: var(--black); color: var(--milk); }
+.tr27__ticket h3 { font: 900 13px/1.2 var(--d); text-transform: uppercase; letter-spacing: .14em; }
+.tr27__price { font: 900 clamp(34px, 3.4vw, 40px)/1 var(--d); letter-spacing: -0.01em; }
+.tr27__ticket--club .tr27__price { color: var(--red); }
+.tr27__price small { font-size: .45em; font-weight: 900; }
+.tr27__ticket > p:not(.tr27__price) { font: 600 16px/1.45 var(--d); }
+.tr27__btn { margin-top: auto; display: flex; align-items: center; justify-content: center; min-height: 58px; padding: 0 18px; background: var(--red); color: #fff !important;
+  font: 900 14px/1 var(--d); text-transform: uppercase; letter-spacing: .06em; text-decoration: none; text-align: center; transition: background .2s; }
+.tr27__btn:hover { background: #D90F2C; }
+.tr27__note { margin: 32px 0 0; font: italic 400 clamp(16px, 1.8vw, 20px)/1.4 var(--s); text-align: center; }
+
+/* Подвал */
+.tr27__foot { margin-top: clamp(40px, 6vw, 64px); padding: 24px 0 36px; border-top: 1.5px solid var(--black); font: 600 13px/1.6 var(--d); color: var(--grey); text-align: center; }
+.tr27__foot a { text-decoration: none; }
+.tr27__foot a:hover { text-decoration: underline; }
+
+@media (max-width: 599px) {
+  .tr27__hero { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); }
+  .tr27__title { font-size: clamp(16px, 5vw, 26px); }
+  .tr27__eyebrow { letter-spacing: .08em; }
+}
+</style>
+
+<div class="tr27">
+  <div class="tr27__wrap">
+    <header class="tr27__head">
+      <img src="data:image/png;base64,{{LOGO}}" width="561" height="120" alt="shtyagina">
+      <p>Академия PR и&nbsp;Личного бренда</p>
+    </header>
+    <section class="tr27__hero">
+      <div>
+        <p class="tr27__eyebrow">Ежегодное мероприятие Делового клуба</p>
+        <h1 class="tr27__title">Тренды продвижения <span class="tr27__year">2027</span></h1>
+        <p class="tr27__host">Ведёт Регина Штягина</p>
+      </div>
+      <figure class="tr27__photo">
+        <img src="{{PHOTO}}" width="461" height="505" alt="Регина Штягина">
+        <svg class="tr27__star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0 C54 36 64 46 100 50 C64 54 54 64 50 100 C46 64 36 54 0 50 C36 46 46 36 50 0Z" fill="#0B0B0B"/></svg>
+        <svg class="tr27__ball" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#D7F542"/><path d="M6 8c8 6 8 18 0 24M34 8c-8 6-8 18 0 24" fill="none" stroke="#fff" stroke-width="2"/></svg>
+      </figure>
+    </section>
+  </div>
+
+  <div class="tr27__bar"><div class="tr27__wrap"><p>30 октября, пятница · 10:00 по&nbsp;уфимскому времени · Уфа · <b>Мест: 30</b></p></div></div>
+
+  <div class="tr27__wrap">
+    <section class="tr27__about">
+      <h2 class="tr27__h2">Что будет работать в&nbsp;продвижении в&nbsp;<em>2027</em> году</h2>
+      <p class="tr27__sub">Единственное очное мероприятие года в&nbsp;Уфе.<br>Площадка будет объявлена отдельно.</p>
+      <div class="tr27__topics">
+        <p class="tr27__label">Что разберём</p>
+        <ol>
+          <li>Как нейросети выбирают экспертов, которых называют в&nbsp;ответах</li>
+          <li>Где вести аудиторию в&nbsp;2027 году: Telegram, MAX, ВКонтакте</li>
+          <li>Как собрать свою базу, которую не&nbsp;отключат: рассылки, боты, закрытые сообщества</li>
+          <li>Что отдать ИИ в&nbsp;работе эксперта и&nbsp;что оставить за&nbsp;собой</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="tr27__tickets" aria-label="Участие">
+      <article class="tr27__ticket">
+        <h3>Билет гостя</h3>
+        <p class="tr27__price">5&nbsp;000&nbsp;₽</p>
+        <p>Участие в&nbsp;мероприятии 30&nbsp;октября.</p>
+        <a class="tr27__btn" href="{{LINK_GUEST}}" target="_blank" rel="noopener">Купить билет</a>
+      </article>
+      <article class="tr27__ticket tr27__ticket--club">
+        <h3>Вступить в&nbsp;клуб</h3>
+        <p class="tr27__price">5&nbsp;490&nbsp;₽<small> / мес</small></p>
+        <p>Участие включено. 4 встречи с&nbsp;экспертами в&nbsp;месяц, библиотека уроков, эфиры Регины.</p>
+        <a class="tr27__btn" href="{{LINK_CLUB}}" target="_blank" rel="noopener">Вступить в&nbsp;клуб</a>
+      </article>
+      <article class="tr27__ticket">
+        <h3>Я участник клуба</h3>
+        <p class="tr27__price">Включено</p>
+        <p>Участие входит в&nbsp;подписку. Нужна только регистрация.</p>
+        <a class="tr27__btn" href="{{LINK_MEMBER}}" target="_blank" rel="noopener">Зарегистрироваться</a>
+      </article>
+    </section>
+    <p class="tr27__note">Участникам клуба участие включено в&nbsp;подписку.</p>
+
+    <footer class="tr27__foot">
+      <a href="{{LINK_OFFER}}" target="_blank" rel="noopener">Оферта</a> · <a href="{{LINK_PRIVACY}}" target="_blank" rel="noopener">Политика конфиденциальности</a> · Вопросы: <a href="https://t.me/regina_pro_pr" target="_blank" rel="noopener">@regina_pro_pr</a>
+    </footer>
+  </div>
+</div>
