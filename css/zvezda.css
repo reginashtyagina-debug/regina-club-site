@@ -89,13 +89,6 @@ body:has(> .zv-root) { margin: 0; background: #F8F7F4; }
   font: 600 13px/1.2 var(--display); text-transform: uppercase; letter-spacing: .12em; border-bottom: 1px solid currentColor; padding-bottom: 4px; }
 .zv-inline { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 
-/* Шапка: логотип ~16% ширины слева, академия мелким капсом справа на базовой линии, тонкая линия */
-.zv-head { background: var(--milk); }
-.zv-head__row { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; padding-top: 22px; padding-bottom: 16px; border-bottom: 1px solid var(--black); }
-.zv-head__logo { display: block; width: clamp(110px, 16%, 190px); line-height: 0; }
-.zv-head__academy { font: 600 10px/1 var(--display); text-transform: uppercase; letter-spacing: .18em; text-align: right; padding-bottom: 2px; }
-@media (min-width: 640px) { .zv-head__academy { font-size: 11px; } }
-
 /* 1. Первый экран */
 .zv-hero { padding: clamp(40px, 7vw, 96px) 0 0; }
 .zv-hero__grid { display: grid; gap: 40px; }
@@ -408,3 +401,26 @@ body:has(> .zv-root) { margin: 0; background: #F8F7F4; }
 .zv-case__more { margin-top: 20px; max-width: 34em; }
 .zv-case__more + .zv-mini__handle { margin-top: 14px; }
 .zv-mini__handle { margin-top: auto; font: 600 13px/1 var(--display); color: var(--grey); }
+
+/* 6. Вопросы */
+.zv-faq { max-width: 860px; margin-top: 40px; border-top: 1px solid var(--black); }
+.zv-faq__item { border-bottom: 1px solid var(--rule); }
+.zv-faq__item summary { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 22px 0; cursor: pointer; list-style: none; font: 600 clamp(16px, 1.8vw, 20px)/1.3 var(--display); }
+.zv-faq__item summary::-webkit-details-marker { display: none; }
+.zv-faq__item summary::after { content: ""; flex: none; width: 14px; height: 14px;
+  background: linear-gradient(currentColor, currentColor) center / 14px 1.5px no-repeat, linear-gradient(currentColor, currentColor) center / 1.5px 14px no-repeat; transition: transform .2s; }
+.zv-faq__item[open] summary::after { transform: rotate(45deg); }
+.zv-faq__item p { max-width: 46em; padding-bottom: 24px; font-size: 16px; }
+
+/* 7. Как попасть на программу */
+.zv-apply { display: grid; gap: 40px; }
+.zv-apply__head { display: grid; gap: 18px; align-content: start; }
+.zv-apply__steps { margin-top: 18px; display: grid; gap: 0; border-top: 1px solid var(--black); }
+.zv-apply__steps li { display: grid; grid-template-columns: 56px 1fr; gap: 12px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid var(--rule); }
+.zv-apply__steps b { font: 900 22px/1 var(--display); color: var(--accent); }
+.zv-apply__steps span { font: 600 17px/1.35 var(--display); }
+.zv-apply__steps small { display: block; margin-top: 4px; font: 400 14px/1.4 var(--text); color: var(--grey); }
+.zv-apply__form { min-width: 0; padding: clamp(22px, 4vw, 44px); background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--accent); }
+.zv-apply__stub { margin-top: 16px; padding: 28px; border: 1.5px dashed #C9C6C0; color: var(--grey); font-size: 15px; }
+@media (min-width: 900px) { .zv-apply { grid-template-columns: 5fr 7fr; gap: 64px; } }
+html:has(.zv-root) { scroll-behavior: smooth; }
