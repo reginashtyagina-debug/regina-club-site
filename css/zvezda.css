@@ -140,8 +140,8 @@ body:has(> .zv-root) { margin: 0; background: #F8F7F4; }
 .zv-logo--icg img { height: 46px; }
 .zv-logo--gazprom img { height: 40px; }
 .zv-logo--porsche img { height: 11px; }
-.zv-logo--promsvyaz img { height: 40px; }
-@media (max-width: 639px) { .zv-logos li { height: 72px; padding: 0 10px; } .zv-logos img { height: 18px; } .zv-logo--swarovski img { height: 30px; } .zv-logo--icg img { height: 40px; } .zv-logo--promsvyaz img { height: 27px; } .zv-logo--gazprom img { height: 28px; } .zv-logo--porsche img { height: 8px; } }
+.zv-logo--rostelecom img { height: 52px; }
+@media (max-width: 639px) { .zv-logos li { height: 72px; padding: 0 10px; } .zv-logos img { height: 18px; } .zv-logo--swarovski img { height: 30px; } .zv-logo--icg img { height: 40px; } .zv-logo--rostelecom img { height: 40px; } .zv-logo--gazprom img { height: 28px; } .zv-logo--porsche img { height: 8px; } }
 @media (min-width: 900px) { .zv-author { grid-template-columns: 5fr 7fr; gap: 64px; } }
 
 /* 4. Программа */
