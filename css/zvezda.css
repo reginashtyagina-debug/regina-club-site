@@ -403,12 +403,12 @@ body:has(> .zv-root) { margin: 0; background: #F8F7F4; }
 .zv-mini__handle { margin-top: auto; font: 600 13px/1 var(--display); color: var(--grey); }
 
 /* Лицензия в блоке «Формат» */
-.zv-license { margin: 40px 0; display: grid; gap: 20px; align-items: start; max-width: 760px; padding: 24px; background: var(--milk); border: 1px solid var(--rule); }
+.zv-license { margin-top: 40px; display: grid; gap: 20px; align-items: center; padding: 24px; background: var(--milk); border: 1px solid var(--rule); }
 .zv-license > div { min-width: 0; }
-.zv-license__doc { display: block; width: 140px; border: 1px solid var(--rule); background: #fff; }
+.zv-license__doc { display: block; width: 200px; border: 1px solid var(--rule); background: #fff; }
 .zv-license__num { margin: 10px 0 8px; font: 900 clamp(16px, 2vw, 20px)/1.25 var(--display); }
 .zv-license p:last-child { font-size: 15px; color: var(--grey); }
-@media (min-width: 640px) { .zv-license { grid-template-columns: 160px 1fr; gap: 32px; } .zv-license__doc { width: auto; } }
+@media (min-width: 640px) { .zv-license { grid-template-columns: 240px 1fr; gap: 40px; padding: 28px 32px; } .zv-license__doc { width: auto; } .zv-license p:last-child { max-width: 44em; } }
 
 /* 6. Вопросы */
 .zv-faq { max-width: 860px; margin-top: 40px; border-top: 1px solid var(--black); }
@@ -432,3 +432,35 @@ body:has(> .zv-root) { margin: 0; background: #F8F7F4; }
 .zv-apply__stub { margin-top: 16px; padding: 28px; border: 1.5px dashed #C9C6C0; color: var(--grey); font-size: 15px; }
 @media (min-width: 900px) { .zv-apply { grid-template-columns: 5fr 7fr; gap: 64px; } }
 html:has(.zv-root) { scroll-behavior: smooth; }
+
+/* Строка доверия под кнопками первого экрана */
+.zv-hero__trust { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px 0; font: 600 11px/1.3 var(--display); text-transform: uppercase; letter-spacing: .12em; color: var(--grey); }
+.zv-hero__trust span:not(:last-child)::after { content: "·"; margin: 0 12px; color: var(--accent); }
+
+/* Цифры автора */
+.zv-author__nums { margin-top: 36px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--black); }
+.zv-author__nums li { padding: 18px 16px 0 0; }
+.zv-author__nums li + li { padding-left: 16px; border-left: 1px solid var(--rule); }
+.zv-author__nums b { display: block; font: 900 clamp(26px, 2.8vw, 38px)/1 var(--display); white-space: nowrap; color: var(--accent); }
+.zv-author__nums span { display: block; margin-top: 8px; font-size: 13px; line-height: 1.35; color: var(--grey); }
+
+/* Доверие рядом с ценой */
+.zv-price__trust { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--rule); display: grid; gap: 10px; }
+.zv-price__trust li { position: relative; padding-left: 26px; font: 600 14px/1.4 var(--display); }
+.zv-price__trust li::before { content: ""; position: absolute; left: 2px; top: .3em; width: 11px; height: 6px; border-left: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg); }
+
+/* Вопросы: заголовок слева, вопросы справа */
+.zv-faq-wrap { display: grid; gap: 8px; }
+.zv-faq-wrap__head { display: grid; gap: 18px; align-content: start; }
+@media (min-width: 900px) {
+  .zv-faq-wrap { grid-template-columns: 5fr 7fr; gap: 64px; }
+  .zv-faq-wrap .zv-faq { margin-top: 0; max-width: none; }
+}
+.zv-audience + .zv-conclusion { margin-top: 40px; max-width: 46em; }
+@media (max-width: 639px) {
+  .zv-facts li { padding-right: 12px; margin-right: 12px; }
+  .zv-facts b { font-size: 19px; }
+  .zv-hero__trust { display: grid; gap: 8px; }
+  .zv-hero__trust span::after { content: none !important; }
+  .zv-hero__trust span::before { content: ""; display: inline-block; width: 6px; height: 6px; margin: 0 10px 2px 0; border-radius: 50%; background: var(--accent); }
+}
