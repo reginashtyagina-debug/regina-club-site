@@ -1,0 +1,109 @@
+<!-- Страница «Заявка принята» (после анкеты на «От Анонима до Звезды» и годовое сопровождение). Собирается tools/build-thanks.py -->
+<style>
+.zy { --ink: #0B0B0B; --milk: #F8F7F4; --blue: #8FD0E3; --red: #FF1D3D; --green: #7FAE7D; --grey: #4A4A4A;
+  --d: "Montserrat", "Helvetica Neue", Arial, sans-serif; --s: "PT Serif", Georgia, serif;
+  background: var(--milk); color: var(--ink); font: 500 17px/1.55 var(--d); -webkit-font-smoothing: antialiased; }
+.zy *, .zy *::before, .zy *::after { box-sizing: border-box; }
+.zy :where(h1, p, ol, ul) { margin: 0; padding: 0; }
+.zy :where(ol, ul) { list-style: none; }
+.zy img { display: block; max-width: 100%; height: auto; }
+.zy a { color: inherit; }
+.zy :focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+.zy__wrap { max-width: 760px; margin: 0 auto; padding: 32px 20px 64px; }
+
+.zy__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; padding-bottom: 16px; border-bottom: 2px solid var(--ink); }
+.zy__head img { width: 140px; }
+.zy__label { font: 700 11px/1 var(--d); text-transform: uppercase; letter-spacing: .16em; }
+
+.zy__ok { margin-top: 44px; display: flex; align-items: center; gap: 10px; }
+.zy__ok i { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--green); }
+.zy__ok i::after { content: ""; width: 10px; height: 5px; margin-top: -3px; border-left: 2.5px solid var(--ink); border-bottom: 2.5px solid var(--ink); transform: rotate(-45deg); }
+.zy__ok span { font: 800 13px/1 var(--d); text-transform: uppercase; letter-spacing: .14em; }
+
+.zy__title { margin-top: 26px; font: 900 64px/1.02 var(--d); text-transform: uppercase; letter-spacing: -.01em; }
+.zy__title em { font-style: normal; color: var(--red); }
+.zy__sub { margin-top: 22px; font: italic 400 26px/1.3 var(--s); }
+
+.zy__curator { margin-top: 36px; display: flex; align-items: center; gap: 22px; padding: 22px 24px; background: var(--blue); }
+.zy__curator img { flex: none; width: 88px; height: 88px; border-radius: 50%; object-fit: cover; }
+.zy__curator b { display: block; font: 900 24px/1.1 var(--d); text-transform: uppercase; }
+.zy__curator span { display: block; margin-top: 6px; font-size: 15px; font-weight: 600; }
+
+.zy__h { margin-top: 56px; padding-bottom: 12px; border-bottom: 2px solid var(--ink); font: 800 14px/1 var(--d); text-transform: uppercase; letter-spacing: .16em; }
+.zy__steps li { display: grid; grid-template-columns: 56px 1fr; align-items: baseline; padding: 22px 0; border-bottom: 2px solid var(--ink); font: 700 20px/1.3 var(--d); }
+.zy__steps b { font: 900 30px/1 var(--d); color: var(--red); }
+.zy__note { margin-top: 26px; font-size: 18px; }
+
+.zy__contacts { margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.zy__contacts a { display: grid; place-content: center; min-height: 62px; padding: 12px; border: 3px solid var(--ink); text-align: center; text-decoration: none;
+  font: 800 16px/1.2 var(--d); text-transform: uppercase; letter-spacing: .06em; transition: background .2s, color .2s; }
+.zy__contacts a small { margin-top: 4px; font: 600 13px/1 var(--d); text-transform: none; letter-spacing: .02em; }
+.zy__contacts a:hover { background: var(--ink); color: var(--milk); }
+
+.zy__wait { margin-top: 56px; padding: 40px 32px; background: var(--ink); color: var(--milk); text-align: center; }
+.zy__wait p:first-child { font: 900 30px/1.1 var(--d); text-transform: uppercase; }
+.zy__wait p + p { margin: 14px auto 0; max-width: 30em; font-size: 17px; opacity: .85; }
+.zy__wait a { display: inline-block; margin-top: 24px; padding: 16px 28px; background: var(--red); color: #fff; text-decoration: none;
+  font: 800 15px/1 var(--d); text-transform: uppercase; letter-spacing: .06em; transition: background .2s, color .2s; }
+.zy__wait a:hover { background: var(--milk); color: var(--ink); }
+
+.zy__bye { margin-top: 48px; text-align: center; font: italic 400 24px/1.4 var(--s); }
+
+@media (max-width: 600px) {
+  .zy__wrap { padding-top: 24px; }
+  .zy__head .zy__label { display: none; }
+  .zy__ok { margin-top: 32px; }
+  .zy__title { font-size: min(46px, 11vw); }
+  .zy__sub { font-size: 22px; }
+  .zy__curator { gap: 16px; padding: 18px; }
+  .zy__curator img { width: 72px; height: 72px; }
+  .zy__curator b { font-size: 21px; }
+  .zy__steps li { grid-template-columns: 44px 1fr; font-size: 18px; }
+  .zy__contacts { grid-template-columns: 1fr; }
+  .zy__wait { padding: 32px 22px; }
+  .zy__wait p:first-child { font-size: 26px; }
+  .zy__bye { font-size: 21px; }
+}
+</style>
+
+<div class="zy">
+  <div class="zy__wrap">
+    <header class="zy__head">
+      <img src="{{LOGO}}" width="300" height="64" alt="shtyagina">
+      <p class="zy__label">Академия PR и&nbsp;личного бренда</p>
+    </header>
+
+    <p class="zy__ok"><i aria-hidden="true"></i><span>Заявка принята</span></p>
+    <h1 class="zy__title">Спасибо.<br> <em>Мы свяжемся</em> в&nbsp;течение 24&nbsp;часов</h1>
+    <p class="zy__sub">Включая выходные.</p>
+
+    <div class="zy__curator">
+      <img src="{{YULIA}}" width="176" height="176" alt="Юлия Соло">
+      <p><b>Юлия Соло</b><span>Куратор Академии PR и&nbsp;личного бренда</span></p>
+    </div>
+
+    <p class="zy__h">Что будет дальше</p>
+    <ol class="zy__steps">
+      <li><b>1</b>Мы изучим вашу заявку и&nbsp;цель</li>
+      <li><b>2</b>Свяжемся с&nbsp;вами по&nbsp;телефону или в&nbsp;мессенджере</li>
+      <li><b>3</b>Назначим время разговора</li>
+    </ol>
+    <p class="zy__note">На&nbsp;разговоре разберём ваш проект и&nbsp;покажем, в&nbsp;каком направлении двигаться в&nbsp;продвижении.</p>
+
+    <p class="zy__h">Связаться раньше</p>
+    <div class="zy__contacts">
+      <a href="https://t.me/yulya_solo_pr" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://wa.me/79160447419" target="_blank" rel="noopener">WhatsApp</a>
+      <!--IF MAX_LINK--><a href="{{MAX_LINK}}" target="_blank" rel="noopener">MAX<small>+7&nbsp;916&nbsp;044&nbsp;7419</small></a><!--END-->
+      <a href="tel:+79160447419">Позвонить<small>+7&nbsp;916&nbsp;044&nbsp;7419</small></a>
+    </div>
+
+    <!--IF TEST_LINK--><div class="zy__wait">
+      <p>Пока вы ждёте</p>
+      <p>Узнайте, на&nbsp;какой стадии находится ваш личный бренд. Тест занимает несколько минут.</p>
+      <a href="{{TEST_LINK}}" target="_blank" rel="noopener">Пройти тест</a>
+    </div><!--END-->
+
+    <p class="zy__bye">Будем рады познакомиться с&nbsp;вами и&nbsp;с&nbsp;вашим проектом.</p>
+  </div>
+</div>
