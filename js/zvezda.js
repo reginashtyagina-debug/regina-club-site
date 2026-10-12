@@ -90,3 +90,10 @@ if (diag && out) {
 }
 
 initAnalytics();
+
+// Анкета: если виджет GetCourse не появился за 8 секунд, показываем запасную ссылку на Telegram
+const form = $('[data-zv-form]');
+const fallback = $('[data-zv-fallback]');
+if (form && fallback) {
+  setTimeout(() => { if (!form.querySelector('iframe, form')) fallback.hidden = false; }, 8000);
+}

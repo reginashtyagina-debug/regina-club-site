@@ -1,20 +1,10 @@
 <!-- «От Анонима до Звезды»: код для блока T123 на Тильде.
      Собран tools/build-tilda.py --page zvezda. Файлы сайта берутся из хранилища по адресу ниже. -->
-<link rel="preload" href="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@471d6bd14cabd7f7852bc2f89e851303e89738d6/assets/fonts/montserrat-cyrillic-900-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@471d6bd14cabd7f7852bc2f89e851303e89738d6/assets/fonts/golos-text-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@471d6bd14cabd7f7852bc2f89e851303e89738d6/assets/fonts/pt-serif-cyrillic-400-italic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@471d6bd14cabd7f7852bc2f89e851303e89738d6/css/zvezda.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/assets/fonts/montserrat-cyrillic-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/assets/fonts/golos-text-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/assets/fonts/pt-serif-cyrillic-400-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/css/zvezda.css">
 <div class="zv-root">
-
-  <!-- Шапка: логотип слева, академия справа на базовой линии, тонкая линия -->
-  <header class="zv-head">
-    <div class="zv-wrap"><div class="zv-head__row">
-      <a class="zv-head__logo" href="https://reginashtyagina.ru" aria-label="shtyagina, Академия PR и Личного бренда">
-        <img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@471d6bd14cabd7f7852bc2f89e851303e89738d6/assets/logo/shtyagina-black.png" width="561" height="120" alt="shtyagina">
-      </a>
-      <p class="zv-head__academy">Академия PR и&nbsp;Личного бренда</p>
-    </div></div>
-  </header>
 
   <main>
     <!-- 1. Первый экран -->
@@ -24,16 +14,17 @@
           <p class="zv-label">Флагманская программа</p>
           <h1 class="zv-hero__title">От&nbsp;Анонима до&nbsp;Звезды</h1>
           <p class="zv-hero__sub">Программа масштабирования через личный бренд</p>
-          <p class="zv-hero__lead">Авторская система Регины Штягиной&nbsp;— 16 модулей, по&nbsp;которым прошли уже тысячи человек по&nbsp;всему миру. Цель&nbsp;— стадия «Признают»: вы&nbsp;№1 в&nbsp;своей нише.</p>
+          <p class="zv-hero__lead">Авторская система Регины Штягиной&nbsp;— 16 модулей, по&nbsp;которым прошли уже более 25&nbsp;000 человек по&nbsp;всему миру. Цель&nbsp;— стадия «Признают»: вы&nbsp;№1 в&nbsp;своей нише.</p>
           <ul class="zv-facts">
             <li><b>16</b><span>модулей</span></li>
-            <li><b>онлайн</b><span>из&nbsp;любой точки мира</span></li>
-            <li><b>диплом</b><span>государственного образца</span></li>
+            <li><b>2,5&nbsp;месяца</b><span>онлайн из&nbsp;любой точки мира</span></li>
+            <li><b>диплом</b><span>установленного образца</span></li>
           </ul>
-          <a class="zv-btn" href="#format" data-goal="zv_hero_more">Узнать подробнее</a>
+          <div class="zv-hero__ctas"><a class="zv-btn zv-btn--accent" data-zv-consult href="#apply">Узнать дату старта</a><a class="zv-btn zv-btn--ghost" href="#path" data-goal="zv_hero_more">Узнать подробнее</a></div>
+          <p class="zv-hero__trust"><span>Лицензия Минобрнауки РБ</span><span>Клиенты: Сбербанк, Газпром, МегаФон</span><span>Выпускников называет ChatGPT</span></p>
         </div>
         <figure class="zv-hero__photo">
-          <img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@471d6bd14cabd7f7852bc2f89e851303e89738d6/assets/img/regina.webp" width="920" height="1150" alt="Регина Штягина">
+          <img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/assets/img/regina.webp" width="920" height="1150" alt="Регина Штягина">
         </figure>
       </div>
     </section>
@@ -59,71 +50,72 @@
           <p><b>В&nbsp;клубе</b> вы&nbsp;упаковываете себя и&nbsp;становитесь понятны аудитории.</p>
           <p><b>В&nbsp;программе</b> по&nbsp;системе проходите следующие шаги: выходите к&nbsp;новой аудитории, а&nbsp;затем становитесь экспертом, к&nbsp;которому приходят сами.</p>
         </div>
+        <div class="zv-cta-row"><a class="zv-btn zv-btn--accent" data-zv-consult href="#apply">Узнать дату старта</a><p>Короткая анкета, затем консультация: расскажем о&nbsp;программе и&nbsp;дате старта</p></div>
       </div>
     </section>
-
-    <!-- Контекст: почему репутация решает (данные из методики Регины) -->
-    <section class="zv-section zv-soft" id="context">
-      <div class="zv-wrap">
-        <div class="zv-program__head">
-          <h2 class="zv-title">Репутация работает в&nbsp;трёх направлениях</h2>
-          <p class="zv-quote">Что изменилось в&nbsp;продвижении экспертов. Методика строится на&nbsp;этих сдвигах</p>
-        </div>
-        <ul class="zv-stats">
-          <li><b>84%</b><div><p class="zv-label">В&nbsp;ответах нейросетей</p><p>цитирований в&nbsp;ответах ИИ приходится на&nbsp;заработанные публикации: СМИ, исследования, независимые площадки. На&nbsp;платные и&nbsp;рекламные материалы&nbsp;— 0,3%.</p><small>Muck Rack, «What Is AI Reading?», май 2026, более 25&nbsp;млн ссылок</small></div></li>
-          <li><b>70%</b><div><p class="zv-label">В&nbsp;закрытых кругах</p><p>людей неохотно доверяют тем, чьи ценности и&nbsp;взгляды отличаются от&nbsp;их&nbsp;собственных. Доверие смещается к&nbsp;близкому кругу: знакомым, коллегам, сообществам.</p><small>Edelman Trust Barometer 2026, 28 стран, около 34&nbsp;000 респондентов</small></div></li>
-          <li><b>60%</b><div><p class="zv-label">В&nbsp;цене</p><p>руководителей, принимающих решения о&nbsp;закупках, готовы платить больше организациям, которые регулярно публикуют сильные экспертные материалы.</p><small>Edelman и&nbsp;LinkedIn, B2B Thought Leadership Impact Study, 2024</small></div></li>
-        </ul>
-        <p class="zv-conclusion"><span class="zv-label">Вывод</span>Когда о&nbsp;вас говорят другие&nbsp;— СМИ, клиенты, коллеги,&nbsp;— вас находят люди и&nbsp;называют нейросети. И&nbsp;за&nbsp;вашу работу готовы платить больше.</p>
-      </div>
-    </section>
-
-
-
-
 
     <!-- 2. Формат обучения -->
-    <section class="zv-section" id="format">
+    <section class="zv-section zv-soft" id="format">
       <div class="zv-wrap">
         <h2 class="zv-title">Формат обучения</h2>
         <ol class="zv-format">
-          <li>Обучение полностью онлайн&nbsp;— нужен только телефон или компьютер</li>
+          <li>2,5&nbsp;месяца, полностью онлайн&nbsp;— нужен только телефон или компьютер</li>
           <li>16 модулей с&nbsp;профессиональными видеоуроками в&nbsp;личном кабинете</li>
           <li>Личная обратная связь от&nbsp;кураторов программы на&nbsp;каждом этапе</li>
           <li>Готовые инструменты: чек-листы, скрипты, шаблоны</li>
           <li>Проверка заданий, тесты, закрытый чат с&nbsp;участниками программы</li>
-          <li>Диплом гособразца по&nbsp;итогам сдачи экзамена</li>
+          <li>Диплом установленного образца по&nbsp;итогам экзамена</li>
         </ol>
-        <a class="zv-btn" href="#program" data-goal="zv_format_program">Узнать программу подробнее</a>
+        <div class="zv-license">
+          <a class="zv-license__doc" href="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/assets/img/license.webp" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/assets/img/license-top.webp" width="685" height="475" alt="Выписка из реестра лицензий Министерства образования и науки Республики Башкортостан: лицензия № Л035-01198-02/00992040 от 20.12.2023, дополнительное профессиональное образование" loading="lazy"></a>
+          <div>
+            <p class="zv-price__label">Лицензия на&nbsp;образовательную деятельность</p>
+            <p class="zv-license__num">№&nbsp;Л035-01198-02/00992040 от&nbsp;20.12.2023</p>
+            <p>Выдана Министерством образования и&nbsp;науки Республики Башкортостан. Вид образования&nbsp;— дополнительное профессиональное. Поэтому по&nbsp;итогам программы вы&nbsp;получаете диплом установленного образца, а&nbsp;не&nbsp;сертификат. <a class="zv-inline" href="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/assets/img/license.webp" target="_blank" rel="noopener">Открыть выписку</a></p>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- 3. Об авторе -->
-    <section class="zv-section zv-soft" id="author">
+    <section class="zv-section" id="author">
       <div class="zv-wrap zv-author">
         <div class="zv-author__head">
           <p class="zv-label">Автор программы</p>
           <h2 class="zv-title">Регина Штягина</h2>
-          <p class="zv-quote">Основатель первой в&nbsp;России сертифицированной Академии PR и&nbsp;Личного бренда с&nbsp;государственной аккредитацией</p>
+          <p class="zv-quote">Основатель первой в&nbsp;России Академии PR и&nbsp;Личного бренда с&nbsp;образовательной лицензией</p>
+          <ul class="zv-author__nums">
+            <li><b>15+</b><span>лет в&nbsp;PR</span></li>
+            <li><b>100+</b><span>крупных PR-проектов</span></li>
+            <li><b>25&nbsp;000+</b><span>учеников Академии</span></li>
+          </ul>
         </div>
         <div class="zv-author__body">
           <p>Основатель и&nbsp;владелица PR-агентства R&amp;R. Более 15 лет в&nbsp;PR, образование в&nbsp;области PR получено за&nbsp;рубежом.</p>
           <p>Сотни успешных федеральных и&nbsp;международных проектов.</p>
           <div class="zv-clients">
-            <p class="zv-clients__label">Постоянные клиенты</p>
-            <ul>
-              <li>Сбербанк</li><li>Газпром</li><li>Башнефть</li><li>Мегафон</li><li>Heineken</li><li>Ростелеком</li><li>Porsche</li>
+            <p class="zv-clients__label">Среди клиентов</p>
+            <ul class="zv-logos">
+              <li class="zv-logo--sber"><img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/assets/img/clients/sber.webp" width="393" height="74" alt="Сбербанк" loading="lazy"></li>
+              <li class="zv-logo--gazprom"><img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/assets/img/clients/gazprom.webp" width="374" height="180" alt="Газпром" loading="lazy"></li>
+              <li class="zv-logo--bashneft"><img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/assets/img/clients/bashneft.webp" width="381" height="82" alt="Башнефть" loading="lazy"></li>
+              <li class="zv-logo--megafon"><img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/assets/img/clients/megafon.webp" width="365" height="65" alt="МегаФон" loading="lazy"></li>
+              <li class="zv-logo--promsvyaz"><img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/assets/img/clients/promsvyaz.webp" width="730" height="180" alt="Промсвязь, Уфимский завод" loading="lazy"></li>
+              <li class="zv-logo--heineken"><img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/assets/img/clients/heineken.webp" width="375" height="64" alt="Heineken" loading="lazy"></li>
+              <li class="zv-logo--porsche"><img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/assets/img/clients/porsche.webp" width="299" height="21" alt="Porsche" loading="lazy"></li>
+              <li class="zv-logo--swarovski"><img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/assets/img/clients/swarovski.webp" width="365" height="142" alt="Swarovski" loading="lazy"></li>
+              <li class="zv-logo--icg"><img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/assets/img/clients/icg.webp" width="234" height="180" alt="International Children’s Games" loading="lazy"></li>
             </ul>
           </div>
           <p>Спикер онлайн-форума Сбер Бизнес Live «Перезагрузка бизнеса», Петербургского международного экономического форума, WorldSkills Russia и&nbsp;международных PR-конференций.</p>
           <p>Участница закрытого клуба Ed&nbsp;Global&nbsp;— предпринимателей с&nbsp;оборотом от&nbsp;60&nbsp;млн&nbsp;₽ в&nbsp;год, наставник по&nbsp;продвижению предпринимателей из&nbsp;списка Forbes и&nbsp;первых лиц.</p>
-          <p>Тысячи учеников прошли платные и&nbsp;бесплатные программы Академии.</p>
+          <p>Более 25&nbsp;000 учеников прошли платные и&nbsp;бесплатные программы Академии.</p>
         </div>
       </div>
     </section>
 
     <!-- 4. Программа: 16 модулей -->
-    <section class="zv-section" id="program">
+    <section class="zv-section zv-soft" id="program">
       <div class="zv-wrap">
         <div class="zv-program__head">
           <h2 class="zv-title">Программа</h2>
@@ -196,11 +188,12 @@
           </details>
         </div>
         <button type="button" class="zv-link" data-modules-toggle>Раскрыть все модули</button>
+        <div class="zv-cta-row"><a class="zv-btn zv-btn--accent" data-zv-consult href="#apply">Узнать дату старта</a><p>Короткая анкета, затем консультация: расскажем о&nbsp;программе и&nbsp;дате старта</p></div>
       </div>
     </section>
 
     <!-- 6. Кому подходит (до кейсов и цены: человек узнаёт себя, потом видит доказательства и цену) -->
-    <section class="zv-section zv-soft" id="audience">
+    <section class="zv-section" id="audience">
       <div class="zv-wrap">
         <h2 class="zv-title">Кому подходит программа</h2>
         <ul class="zv-audience">
@@ -209,11 +202,12 @@
           <li><b>Специалистам по&nbsp;продвижению,</b> которые хотят стать профессионалами уровня, способного вести крупных клиентов</li>
           <li><b>Тем, кто хочет монетизировать экспертизу,</b> но&nbsp;пока не&nbsp;имеет системы&nbsp;— независимо от&nbsp;текущей ниши</li>
         </ul>
+        <p class="zv-conclusion zv-conclusion--light"><b>Не&nbsp;подойдёт,</b> если вы&nbsp;ждёте результата без&nbsp;работы. Программа&nbsp;— это шаги и&nbsp;формулы с&nbsp;куратором: кто делает задания, тот получает результат.</p>
       </div>
     </section>
 
     <!-- 7. Кейсы. Скриншоты — только настоящие. Новый кейс: скопируйте <article class="zv-case"> -->
-    <section class="zv-section" id="cases">
+    <section class="zv-section zv-soft" id="cases">
       <div class="zv-wrap">
         <div class="zv-program__head">
           <h2 class="zv-title">Кейсы</h2>
@@ -222,7 +216,7 @@
         <article class="zv-case">
           <div class="zv-case__text">
           <div class="zv-case__who">
-            <img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@471d6bd14cabd7f7852bc2f89e851303e89738d6/assets/img/people/asfandiyarova.webp" width="400" height="400" alt="Лилия Асфандиярова" loading="lazy">
+            <img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/assets/img/people/asfandiyarova.webp" width="400" height="400" alt="Лилия Асфандиярова" loading="lazy">
             <div>
               <p class="zv-case__name">Лилия Асфандиярова</p>
               <p class="zv-case__role">Дизайнер-декоратор интерьера, 20&nbsp;лет практики, Уфа. С&nbsp;2023 года&nbsp;— ведущий дизайнер программы «Квартирный вопрос» на&nbsp;НТВ</p>
@@ -235,16 +229,18 @@
             <li><b>от&nbsp;500&nbsp;000&nbsp;₽</b><span>за&nbsp;проект&nbsp;— самый высокооплачиваемый дизайнер интерьера в&nbsp;Уфе</span></li>
             <li><b>до&nbsp;100%</b><span>конверсия из&nbsp;выступления в&nbsp;продажу услуг</span></li>
           </ul>
+          <details class="zv-mini__more zv-case__more"><summary>Развернуть кейс</summary><ul><li>Запустила онлайн-продукты: продажи больше 1&nbsp;млн&nbsp;₽</li><li>Заказы из&nbsp;социальных сетей&nbsp;— от&nbsp;1&nbsp;млн&nbsp;₽</li><li>Появилось время на&nbsp;развитие онлайн-школы и&nbsp;путешествия</li></ul></details>
+          <p class="zv-mini__handle">@asfan_design</p>
           </div>
           <figure class="zv-case__proof">
-            <img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@471d6bd14cabd7f7852bc2f89e851303e89738d6/assets/img/cases/gpt-asfandiyarova.webp" width="688" height="966" alt="Ответ ChatGPT на вопрос «Кто лучший дизайнер интерьера в Уфе?»: «…сейчас в Уфе очень заметно выглядит Лилия Асфандиярова». Дальше: 20+ лет практики, участник проекта «Квартирный вопрос» на НТВ, победитель премии «Лучшие дизайнеры и интерьеры Уфы» в 2023 и 2024 годах, публикации в интерьерных изданиях" loading="lazy">
+            <img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/assets/img/cases/gpt-asfandiyarova.webp" width="688" height="966" alt="Ответ ChatGPT на вопрос «Кто лучший дизайнер интерьера в Уфе?»: «…сейчас в Уфе очень заметно выглядит Лилия Асфандиярова». Дальше: 20+ лет практики, участник проекта «Квартирный вопрос» на НТВ, победитель премии «Лучшие дизайнеры и интерьеры Уфы» в 2023 и 2024 годах, публикации в интерьерных изданиях" loading="lazy">
             <figcaption>Ответ ChatGPT на&nbsp;вопрос «Кто лучший дизайнер интерьера в&nbsp;Уфе?»</figcaption>
           </figure>
         </article>
         <article class="zv-case">
           <div class="zv-case__text">
           <div class="zv-case__who">
-            <img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@471d6bd14cabd7f7852bc2f89e851303e89738d6/assets/img/people/kulobi-testina.webp" width="400" height="400" alt="Алиса Кулоби Тестина" loading="lazy">
+            <img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/assets/img/people/kulobi-testina.webp" width="400" height="400" alt="Алиса Кулоби Тестина" loading="lazy">
             <div>
               <p class="zv-case__name">Алиса Кулоби Тестина</p>
               <p class="zv-case__role">Топ-менеджер с&nbsp;международным опытом, эксперт по&nbsp;цифровой трансформации и&nbsp;применению ИИ в&nbsp;бизнесе</p>
@@ -258,25 +254,100 @@
             <li><b>10+ лет · 20+ стран</b><span>управление международными проектами в&nbsp;Европе, Азии и&nbsp;других регионах</span></li>
           </ul>
           <figure class="zv-case__proof zv-case__proof--inline">
-            <img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@471d6bd14cabd7f7852bc2f89e851303e89738d6/assets/img/cases/ai-overview-kulobi.webp" width="783" height="261" alt="Поиск «alisa kulobi», Обзор от ИИ: «Алиса Кулоби (Тестина) — международный эксперт по цифровой трансформации, внедрению искусственного интеллекта и ERP-систем», источник Forbes.ru" loading="lazy">
+            <img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/assets/img/cases/ai-overview-kulobi.webp" width="783" height="261" alt="Поиск «alisa kulobi», Обзор от ИИ: «Алиса Кулоби (Тестина) — международный эксперт по цифровой трансформации, внедрению искусственного интеллекта и ERP-систем», источник Forbes.ru" loading="lazy">
             <figcaption>«Обзор от&nbsp;ИИ» в&nbsp;поиске по&nbsp;запросу «alisa kulobi»</figcaption>
           </figure>
           </div>
           <figure class="zv-case__proof">
-            <img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@471d6bd14cabd7f7852bc2f89e851303e89738d6/assets/img/cases/gpt-kulobi.webp" width="588" height="1114" alt="Вопрос ChatGPT: «Какие эксперты помогают крупным компаниям проводить цифровую трансформацию и перестраивать бизнес-процессы с использованием искусственного интеллекта?» Ответ: «1. Алиса Кулоби-Тестина. В первую очередь стоит рассмотреть Алису Кулоби-Тестину. В интервью РБК от 18 декабря 2024 года она представлена как эксперт по стратегическому и операционному управлению, работавшая над проектами цифровизации на девяти заводах в пяти странах и внедрением ИИ в корпорации Lantmännen Unibake»" loading="lazy">
+            <img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/assets/img/cases/gpt-kulobi.webp" width="588" height="1114" alt="Вопрос ChatGPT: «Какие эксперты помогают крупным компаниям проводить цифровую трансформацию и перестраивать бизнес-процессы с использованием искусственного интеллекта?» Ответ: «1. Алиса Кулоби-Тестина. В первую очередь стоит рассмотреть Алису Кулоби-Тестину. В интервью РБК от 18 декабря 2024 года она представлена как эксперт по стратегическому и операционному управлению, работавшая над проектами цифровизации на девяти заводах в пяти странах и внедрением ИИ в корпорации Lantmännen Unibake»" loading="lazy">
             <figcaption>Ответ ChatGPT на&nbsp;вопрос об&nbsp;экспертах по&nbsp;цифровой трансформации с&nbsp;ИИ</figcaption>
           </figure>
         </article>
+                <div class="zv-minis">
+          <article class="zv-mini">
+            <div class="zv-case__who">
+              <img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/assets/img/people/yagodkin.webp" width="400" height="400" alt="Николай Ягодкин" loading="lazy">
+              <div><p class="zv-case__name">Николай Ягодкин</p><p class="zv-case__role">Основатель школы Advance, эксперт по&nbsp;развитию интеллектуальных способностей</p></div>
+            </div>
+            <p class="zv-mini__quote">«Запуск на&nbsp;15,9&nbsp;млн рублей за&nbsp;2 недели в&nbsp;момент, когда бизнес был на&nbsp;грани остановки»</p>
+            <p class="zv-case__before"><b>Было:</b> переезд и&nbsp;полная неопределённость с&nbsp;бизнесом: не&nbsp;было понимания, как организовать запуск и&nbsp;где взять новую аудиторию, не&nbsp;хватало времени сдвинуться с&nbsp;мёртвой точки.</p>
+            <ul class="zv-mini__res"><li>Запуск на&nbsp;<b>15,9&nbsp;млн&nbsp;₽</b> за&nbsp;2 недели точечными действиями с&nbsp;базой</li><li>Признанный эксперт Первого канала и&nbsp;НТВ</li><li>Системная модель для масштабирования нового направления</li></ul>
+            <details class="zv-mini__more"><summary>Развернуть кейс</summary><ul><li>Помогли провести переговоры со&nbsp;Сбербанком, где Николай&nbsp;— частый спикер</li><li>Продажа личных тренингов стоимостью 2&nbsp;млн&nbsp;₽ за&nbsp;тренинг</li><li>Программа «Учись учиться» поддержана Министерством просвещения РФ и&nbsp;Агентством стратегических инициатив, внедряется в&nbsp;98 государственных школах</li></ul></details>
+            <p class="zv-mini__handle">@yagodkin.brain</p>
+          </article>
+          <article class="zv-mini">
+            <div class="zv-case__who">
+              <img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/assets/img/people/shvedchikova.webp" width="400" height="400" alt="Анастасия Шведчикова" loading="lazy">
+              <div><p class="zv-case__name">Анастасия Шведчикова</p><p class="zv-case__role">Дизайнер и&nbsp;владелица ателье костюмов для фигуристов, Москва</p></div>
+            </div>
+            <p class="zv-mini__quote">«От&nbsp;потолка в&nbsp;продажах&nbsp;— к&nbsp;sold out в&nbsp;Мексике»</p>
+            <p class="zv-case__before"><b>Было:</b> признанный дизайнер в&nbsp;своей нише: одевает фигуристов шоу Яны Рудковской, работает с&nbsp;Евгением Плющенко. Но&nbsp;потолок в&nbsp;продажах и&nbsp;нет системы масштабирования.</p>
+            <ul class="zv-mini__res"><li>Объём заказов вырос <b>в&nbsp;10 раз</b></li><li>Вышла на&nbsp;рынки Азии и&nbsp;Мексики, sold out продаж</li><li>Запустила новый бренд спортивной одежды</li></ul>
+            <details class="zv-mini__more"><summary>Развернуть кейс</summary><ul><li>Начала инвестировать для пассивного дохода</li><li>Появилось чёткое понимание системного развития бизнеса</li><li>Масштабировала линейку в&nbsp;средний сегмент массового пошива</li></ul></details>
+            <p class="zv-mini__handle">@ash_icedress</p>
+          </article>
+          <article class="zv-mini">
+            <div class="zv-case__who">
+              <img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/assets/img/people/baranovska.webp" width="400" height="400" alt="Светлана Барановска" loading="lazy">
+              <div><p class="zv-case__name">Светлана Барановска</p><p class="zv-case__role">Студия Domo Dizains: шторы и&nbsp;текстильный дизайн интерьеров. Среди проектов&nbsp;— посольство Франции и&nbsp;ювелирная сеть Grenardi. 20&nbsp;лет на&nbsp;рынке Латвии</p></div>
+            </div>
+            <p class="zv-mini__quote">«100&nbsp;000&nbsp;евро с&nbsp;одного ролика&nbsp;— при том, что соцсети никогда не&nbsp;вела»</p>
+            <p class="zv-case__before"><b>Было:</b> опытный дизайнер с&nbsp;доверием на&nbsp;уровне посольств и&nbsp;премиальных брендов, но&nbsp;всё это оставалось невидимым для новых клиентов.</p>
+            <ul class="zv-mini__res"><li>Заказ на&nbsp;<b>100&nbsp;000&nbsp;€</b> с&nbsp;одного ролика</li><li>Вошла в&nbsp;Ассоциацию дизайнеров Латвии</li><li>Выстроена регулярная работа с&nbsp;клиентской базой</li></ul>
+            <details class="zv-mini__more"><summary>Развернуть кейс</summary><ul><li>Работающие воронки онлайн и&nbsp;офлайн системно приводят новых клиентов</li><li>Заняла нишу трендсеттера в&nbsp;текстильном дизайне Латвии</li><li>Стабильный рост продаж на&nbsp;фоне общего падения рынка</li></ul></details>
+            <p class="zv-mini__handle">@domodesignlv</p>
+          </article>
+          <article class="zv-mini">
+            <div class="zv-case__who">
+              <img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/assets/img/people/kazaryan.webp" width="400" height="400" alt="Регина Казарян" loading="lazy">
+              <div><p class="zv-case__name">Регина Казарян</p><p class="zv-case__role">Основательница крупнейшей онлайн-школы скорочтения в&nbsp;России и&nbsp;СНГ, Москва</p></div>
+            </div>
+            <p class="zv-mini__quote">«От&nbsp;руководителя франшизы&nbsp;— до&nbsp;школы №1 в&nbsp;стране с&nbsp;патентом на&nbsp;собственную методику»</p>
+            <p class="zv-case__before"><b>Было:</b> работала руководителем по&nbsp;франшизе&nbsp;— без раскрученного личного бренда, с&nbsp;потолком в&nbsp;доходах.</p>
+            <ul class="zv-mini__res"><li>Обороты выросли <b>в&nbsp;100 раз</b>, крупнейшая онлайн-школа скорочтения в&nbsp;России и&nbsp;СНГ</li><li>От&nbsp;чужой франшизы&nbsp;— к&nbsp;продаже франшиз под собственным брендом</li><li>Евразийский патент на&nbsp;собственную методику коррекции дислексии</li></ul>
+            <details class="zv-mini__more"><summary>Развернуть кейс</summary><ul><li>Медийная личность: эфиры на&nbsp;телеканалах «Россия» и&nbsp;«Пятница»</li><li>Выпустила собственную книгу по&nbsp;скорочтению</li><li>Может работать из&nbsp;любой точки мира</li><li>Регулярно проводит мероприятия для выпускников школы</li></ul></details>
+            <p class="zv-mini__handle">@regina.skorochtenie</p>
+          </article>
+          <article class="zv-mini">
+            <div class="zv-case__who">
+              <img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/assets/img/people/gorina.webp" width="400" height="400" alt="Лилия Горина" loading="lazy">
+              <div><p class="zv-case__name">Лилия Горина</p><p class="zv-case__role">Бухгалтер и&nbsp;налоговый консультант для бизнеса</p></div>
+            </div>
+            <p class="zv-mini__quote">«От&nbsp;клиентов только по&nbsp;рекомендации&nbsp;— до&nbsp;выступления перед 500 предпринимателями»</p>
+            <p class="zv-case__before"><b>Было:</b> потолок в&nbsp;заработке, единственный канал продаж&nbsp;— рекомендации знакомых.</p>
+            <ul class="zv-mini__res"><li>Оборот бизнеса вырос <b>в&nbsp;5 раз</b></li><li>Клиенты уровня онлайн-школ с&nbsp;оборотом 100&nbsp;млн+ и&nbsp;блогеров</li><li>Живое выступление перед 500 предпринимателями</li></ul>
+            <details class="zv-mini__more"><summary>Развернуть кейс</summary><ul><li>Повысила чек и&nbsp;ввела дополнительные продукты</li><li>Нашла и&nbsp;систематизировала новые каналы трафика вместо одного «по&nbsp;рекомендации»</li><li>Регулярно проводит собственные встречи для 20+ предпринимателей&nbsp;— постоянный приток новых клиентов</li></ul></details>
+            <p class="zv-mini__handle">@lilia_gorina</p>
+          </article>
+          <article class="zv-mini">
+            <div class="zv-case__who">
+              <img src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/assets/img/people/khafizova.webp" width="400" height="400" alt="Диляра Хафизова" loading="lazy">
+              <div><p class="zv-case__name">Диляра Хафизова</p><p class="zv-case__role">Турагент по&nbsp;Disney-круизам для русскоязычной аудитории, США</p></div>
+            </div>
+            <p class="zv-mini__quote">«С&nbsp;нуля до&nbsp;амбассадора Disney с&nbsp;миллионными охватами блога»</p>
+            <p class="zv-case__before"><b>Было:</b> любовь к&nbsp;Disney как мама троих детей, но&nbsp;ни&nbsp;профессии, ни&nbsp;аудитории, ни&nbsp;блога. Начинала с&nbsp;полного нуля и&nbsp;страха вести блог.</p>
+            <ul class="zv-mini__res"><li>Блог с&nbsp;<b>миллионными</b> охватами стал основным источником клиентов</li><li>Официальный агент-амбассадор Disney: награды и&nbsp;поездки от&nbsp;компании</li><li>Коллаборации со&nbsp;школами в&nbsp;Дубае с&nbsp;регулярными групповыми круизами</li></ul>
+            <details class="zv-mini__more"><summary>Развернуть кейс</summary><ul><li>Стала турагентом Disney напрямую, работает с&nbsp;русскоязычной аудиторией по&nbsp;всему миру</li><li>Создаёт материалы о&nbsp;Disney-турах на&nbsp;русском языке, которые помогают туристам узнавать о&nbsp;возможностях поездок</li><li>Превратила личную страсть к&nbsp;Disney в&nbsp;профессию и&nbsp;бизнес</li></ul></details>
+            <p class="zv-mini__handle">@disneymama.cruise</p>
+          </article>
+        </div>
+        <div class="zv-cta-row"><a class="zv-btn zv-btn--accent" data-zv-consult href="#apply">Узнать дату старта</a><p>Короткая анкета, затем консультация: расскажем о&nbsp;программе и&nbsp;дате старта</p></div>
       </div>
     </section>
 
     <!-- 5. Стоимость -->
-    <section class="zv-section zv-soft" id="price">
+    <section class="zv-section" id="price">
       <div class="zv-wrap"><div class="zv-price">
         <div class="zv-price__head">
           <h2 class="zv-title">Стоимость</h2>
           <p class="zv-price__sum"><span data-zv-price>250&nbsp;000&nbsp;₽</span></p>
-          <a class="zv-btn zv-btn--accent" data-zv-cta href="#price">Записаться на&nbsp;программу</a>
+          <a class="zv-btn zv-btn--accent" data-zv-consult href="#apply">Узнать дату старта</a>
+          <p class="zv-price__note">Короткая анкета, затем консультация: расскажем о&nbsp;программе и&nbsp;дате старта</p>
+          <ul class="zv-price__trust">
+            <li>Лицензия на&nbsp;образовательную деятельность</li>
+            <li>Доступ к&nbsp;урокам на&nbsp;год</li>
+            <li>Возврат по&nbsp;условиям договора-оферты</li>
+          </ul>
         </div>
         <div class="zv-price__body">
           <p class="zv-price__label">Что входит</p>
@@ -284,7 +355,7 @@
             <li>Доступ к&nbsp;16 модулям в&nbsp;формате видеоуроков с&nbsp;практическими заданиями</li>
             <li>Личная обратная связь от&nbsp;кураторов программы</li>
             <li>Закрытый чат с&nbsp;участниками программы</li>
-            <li>Диплом гособразца по&nbsp;итогам сдачи экзамена</li>
+            <li>Диплом установленного образца по&nbsp;итогам экзамена</li>
           </ul>
           <p class="zv-price__label">В&nbsp;подарок участникам программы</p>
           <ul class="zv-list">
@@ -294,7 +365,49 @@
         </div>
       </div></div>
     </section>
+
+    <!-- 6. Вопросы -->
+    <section class="zv-section zv-soft" id="faq">
+      <div class="zv-wrap zv-faq-wrap">
+        <div class="zv-faq-wrap__head">
+          <h2 class="zv-title">Вопросы и&nbsp;ответы</h2>
+          <p class="zv-quote">Остальное расскажем на&nbsp;консультации</p>
+        </div>
+        <div class="zv-faq">
+          <details class="zv-faq__item"><summary>Когда ближайший старт?</summary><p>Дату ближайшего потока называем на&nbsp;консультации. Оставьте анкету ниже, и&nbsp;мы&nbsp;свяжемся с&nbsp;вами.</p></details>
+          <details class="zv-faq__item"><summary>Могу ли я вернуть деньги, если программа не подойдёт?</summary><p>Да. Возврат проводится по&nbsp;условиям договора-оферты, мы&nbsp;их&nbsp;полностью соблюдаем.</p></details>
+          <details class="zv-faq__item"><summary>Сколько будет открыт доступ к&nbsp;программе?</summary><p>Доступ к&nbsp;урокам открыт год. Подробнее расскажем на&nbsp;консультации.</p></details>
+          <details class="zv-faq__item"><summary>Можно ли купить отдельные модули?</summary><p>Нет. Программа проходится целиком: каждый модуль опирается на&nbsp;предыдущий.</p></details>
+          <details class="zv-faq__item"><summary>Что нужно для получения диплома?</summary><p>Пройти все модули, выполнить задания и&nbsp;сдать экзамен.</p></details>
+          <details class="zv-faq__item"><summary>Можно ли совмещать обучение с&nbsp;работой?</summary><p>Да. Обучение полностью удалённое: достаточно выделять от&nbsp;15 минут до&nbsp;часа, 5 дней в&nbsp;неделю.</p></details>
+          <details class="zv-faq__item"><summary>Я точно смогу заработать после программы?</summary><p>Да, если идти по&nbsp;шагам. Ничего не&nbsp;нужно придумывать: достаточно делать по&nbsp;формулам программы. Куратор направляет вас на&nbsp;каждом этапе.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Как попасть на программу: анкета → консультация → собеседование с Региной -->
+    <section class="zv-section" id="apply">
+      <div class="zv-wrap zv-apply">
+        <div class="zv-apply__head">
+          <h2 class="zv-title">Как попасть на&nbsp;программу</h2>
+          <p class="zv-quote">Набор ограничен: мы&nbsp;берём тех, кому программа даст результат</p>
+          <ol class="zv-apply__steps">
+            <li><b>01</b><span>Заполните анкету</span></li>
+            <li><b>02</b><span>Консультация: расскажем о&nbsp;программе и&nbsp;дате старта</span></li>
+            <li><b>03</b><span>Финальное собеседование с&nbsp;Региной<small>если консультация прошла успешно</small></span></li>
+          </ol>
+        </div>
+        <div class="zv-apply__form" data-zv-form>
+          <p class="zv-price__label">Анкета</p>
+          <!-- Анкета GetCourse: запись на консультацию -->
+          <div class="zv-apply__widget"><script id="eab5349a14506c8704f25f0f74f27c91e5c71742" src="https://reginapr.ru/pl/lite/widget/script?id=1667776"></script></div>
+          <p class="zv-apply__fallback" data-zv-fallback hidden>Форма не загрузилась? Напишите нам в&nbsp;Telegram: <a class="zv-inline" href="https://t.me/regina_pro_pr" target="_blank" rel="noopener">@regina_pro_pr</a></p>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <a class="zv-sticky" data-zv-consult href="#apply" aria-hidden="true" tabindex="-1"><span>16 модулей · 2,5&nbsp;месяца</span><b>Узнать дату старта</b></a>
 
   <footer class="zv-foot">
     <div class="zv-wrap zv-foot__row">
@@ -311,4 +424,4 @@
   </footer>
 
 </div>
-<script type="module" src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@471d6bd14cabd7f7852bc2f89e851303e89738d6/js/zvezda.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/reginashtyagina-debug/regina-club-site@f1a34363ce68cf858a7fcbf81e4a06f462f74b9d/js/zvezda.js"></script>
