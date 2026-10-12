@@ -442,7 +442,7 @@ html:has(.zv-root) { scroll-behavior: smooth; }
 .zv-author__nums li { padding: 18px 16px 0 0; }
 .zv-author__nums li + li { padding-left: 16px; border-left: 1px solid var(--rule); }
 .zv-author__nums b { display: block; font: 900 clamp(24px, 2.6vw, 36px)/1 var(--display); white-space: nowrap; color: var(--accent); }
-.zv-author__nums span { display: block; margin-top: 8px; font-size: 13px; line-height: 1.35; color: var(--grey); }
+.zv-author__nums span { display: block; hyphens: auto; overflow-wrap: break-word; margin-top: 8px; font-size: 13px; line-height: 1.35; color: var(--grey); }
 
 /* Доверие рядом с ценой */
 .zv-price__trust { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--rule); display: grid; gap: 10px; }
