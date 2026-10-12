@@ -437,6 +437,8 @@ body:has(> .zv-root) { margin: 0; background: #F8F7F4; }
 .zv-apply__steps span { font: 600 17px/1.35 var(--display); }
 .zv-apply__steps small { display: block; margin-top: 4px; font: 400 14px/1.4 var(--text); color: var(--grey); }
 .zv-apply__form { min-width: 0; padding: clamp(22px, 4vw, 44px); background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--accent); }
+.zv-apply__widget { margin-top: 12px; min-height: 120px; }
+.zv-apply__fallback { margin-top: 16px; font-size: 15px; color: var(--grey); }
 .zv-apply__stub { margin-top: 16px; padding: 28px; border: 1.5px dashed #C9C6C0; color: var(--grey); font-size: 15px; }
 @media (min-width: 900px) { .zv-apply { grid-template-columns: 5fr 7fr; gap: 64px; } }
 html:has(.zv-root) { scroll-behavior: smooth; }
