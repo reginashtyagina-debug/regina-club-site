@@ -14,7 +14,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 LINKS = {
     # Оплата билета, клуба и регистрация участника — виджеты GetCourse в trends.src.html.
     "LINK_CLUB": "https://reginapr.getcourse.ru/regina_club_06",   # запасная ссылка «Вступить в клуб» для старых браузеров
-    "LINK_OFFER": "",                                              # оферта мероприятия
+    "LINK_OFFER": "https://reginapr.getcourse.ru/oferta_club",     # оферта (клубная, подтверждено Региной)
     "LINK_PRIVACY": "https://reginapr.getcourse.ru/confidetial",   # политика конфиденциальности
 }
 # Фото: ссылка на картинку, загруженную в Тильду; пока пусто — встраивается trends/assets/regina-trends.webp
