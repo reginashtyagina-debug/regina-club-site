@@ -72,6 +72,19 @@
 .tr27__foot a { text-decoration: none; }
 .tr27__foot a:hover { text-decoration: underline; }
 
+
+/* Формы оплаты: загружаются за пределами экрана, открываются окном */
+.tr27__forms { position: absolute; left: -10000px; top: 0; width: 560px; pointer-events: none; }
+.tr27__dlg { width: min(560px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); padding: 0; border: 0; background: var(--milk); color: var(--black); box-shadow: 0 30px 80px rgba(0,0,0,.35); overflow: auto; }
+.tr27__dlg::backdrop { background: rgba(11, 11, 11, .72); }
+.tr27__dlg-head { position: sticky; top: 0; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 20px 14px 24px; background: var(--milk); border-bottom: 1.5px solid var(--black); }
+.tr27__dlg-head p { font: 900 18px/1.2 var(--d); text-transform: uppercase; }
+.tr27__dlg-head button { flex: none; width: 40px; height: 40px; border: 1.5px solid var(--black); background: transparent; display: grid; place-items: center; cursor: pointer; color: var(--black); }
+.tr27__dlg-head svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; }
+.tr27__dlg-body { min-height: 200px; padding: 12px 16px; }
+.tr27__dlg-body iframe { width: 100% !important; border: 0; }
+.tr27__dlg-note { padding: 0 24px 20px; font: 600 14px/1.5 var(--d); }
+
 @media (max-width: 599px) {
   .tr27__hero { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); }
   .tr27__title { font-size: clamp(16px, 5vw, 26px); }
@@ -121,19 +134,19 @@
         <h3>Билет гостя</h3>
         <p class="tr27__price">5&nbsp;000&nbsp;₽</p>
         <p>Участие в&nbsp;мероприятии 30&nbsp;октября.</p>
-        <a class="tr27__btn" href="{{LINK_GUEST}}" target="_blank" rel="noopener">Купить билет</a>
+        <a class="tr27__btn" href="#tr27-pay-guest" data-tr-pay="guest">Купить билет</a>
       </article>
       <article class="tr27__ticket tr27__ticket--club">
         <h3>Вступить в&nbsp;клуб</h3>
         <p class="tr27__price">5&nbsp;490&nbsp;₽<small> / мес</small></p>
         <p>Участие включено. 4 встречи с&nbsp;экспертами в&nbsp;месяц, библиотека уроков, эфиры Регины.</p>
-        <a class="tr27__btn" href="{{LINK_CLUB}}" target="_blank" rel="noopener">Вступить в&nbsp;клуб</a>
+        <a class="tr27__btn" href="{{LINK_CLUB}}" data-tr-pay="club">Вступить в&nbsp;клуб</a>
       </article>
       <article class="tr27__ticket">
         <h3>Я участник клуба</h3>
         <p class="tr27__price">Включено</p>
         <p>Участие входит в&nbsp;подписку. Нужна только регистрация.</p>
-        <a class="tr27__btn" href="{{LINK_MEMBER}}" target="_blank" rel="noopener">Зарегистрироваться</a>
+        <a class="tr27__btn" href="#tr27-pay-member" data-tr-pay="member">Зарегистрироваться</a>
       </article>
     </section>
     <p class="tr27__note">Участникам клуба участие включено в&nbsp;подписку.</p>
@@ -142,4 +155,54 @@
       <a href="{{LINK_OFFER}}" target="_blank" rel="noopener">Оферта</a> · <a href="{{LINK_PRIVACY}}" target="_blank" rel="noopener">Политика конфиденциальности</a> · Вопросы: <a href="https://t.me/regina_pro_pr" target="_blank" rel="noopener">@regina_pro_pr</a>
     </footer>
   </div>
+  <!-- Формы GetCourse: код виджетов вставлен целиком. Загружаются вместе со страницей за пределами экрана
+       и по кнопке переносятся в окно -->
+  <div class="tr27__forms" aria-hidden="true">
+    <div id="tr27-pay-guest" data-tr-form="guest" data-title="Билет гостя — 5&nbsp;000&nbsp;₽"><div class="tr27__box">
+      <script id="426e3d99b3fc3eb3c6eac023e27e7e64cd002e91" src="https://reginapr.ru/pl/lite/widget/script?id=1667570"></script>
+    </div></div>
+    <div id="tr27-pay-club" data-tr-form="club" data-title="Вступить в&nbsp;клуб — 5&nbsp;490&nbsp;₽ / мес"><div class="tr27__box">
+      <script id="3336c810c03adcc9d0f8c6559a4d1a15b8b77570" src="https://reginapr.ru/pl/lite/widget/script?id=1667569"></script>
+    </div></div>
+    <div id="tr27-pay-member" data-tr-form="member" data-title="Регистрация участника клуба"><div class="tr27__box">
+      <script id="0ad98c00b7d16580da1cee553dc82c965e8af7ad" src="https://reginapr.ru/pl/lite/widget/script?id=1667571"></script>
+    </div></div>
+  </div>
+
+  <dialog class="tr27__dlg" data-tr-dlg aria-labelledby="tr27-dlg-title">
+    <div class="tr27__dlg-head">
+      <p id="tr27-dlg-title" data-tr-dlg-title>Оплата</p>
+      <button type="button" data-tr-close aria-label="Закрыть"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="tr27__dlg-body" data-tr-dlg-body></div>
+    <p class="tr27__dlg-note" data-tr-fallback hidden>Форма не загрузилась? Напишите нам в&nbsp;Telegram: <a href="https://t.me/regina_pro_pr" target="_blank" rel="noopener">@regina_pro_pr</a></p>
+  </dialog>
 </div>
+
+<script>
+(function () {
+  var root = document.querySelector('.tr27');
+  var dlg = root && root.querySelector('[data-tr-dlg]');
+  if (!dlg) return;
+  var body = dlg.querySelector('[data-tr-dlg-body]');
+  var note = dlg.querySelector('[data-tr-fallback]');
+  var ready = function (f) { return f.querySelector('iframe, form'); };
+  root.querySelectorAll('[data-tr-pay]').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      var form = root.querySelector('[data-tr-form="' + btn.dataset.trPay + '"]');
+      if (!form || typeof dlg.showModal !== 'function') return; // старый браузер — обычный переход по ссылке
+      e.preventDefault();
+      var box = form.firstElementChild;
+      dlg.querySelector('[data-tr-dlg-title]').innerHTML = form.dataset.title;
+      body.appendChild(box);
+      note.hidden = !!ready(box);
+      dlg.addEventListener('close', function () { form.appendChild(box); }, { once: true });
+      dlg.showModal();
+      if (!ready(box)) setTimeout(function () { note.hidden = !!ready(box); }, 6000);
+      if (window.ym && window.CLUB_METRIKA_ID) window.ym(window.CLUB_METRIKA_ID, 'reachGoal', 'tr27_' + btn.dataset.trPay);
+    });
+  });
+  dlg.querySelector('[data-tr-close]').addEventListener('click', function () { dlg.close(); });
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+})();
+</script>
