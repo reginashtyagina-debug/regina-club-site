@@ -436,11 +436,20 @@ body:has(> .zv-root) { margin: 0; background: #F8F7F4; }
 .zv-apply__steps b { font: 900 22px/1 var(--display); color: var(--accent); }
 .zv-apply__steps span { font: 600 17px/1.35 var(--display); }
 .zv-apply__steps small { display: block; margin-top: 4px; font: 400 14px/1.4 var(--text); color: var(--grey); }
-.zv-apply__form { min-width: 0; padding: clamp(22px, 4vw, 44px); background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--accent); }
-.zv-apply__widget { margin-top: 12px; min-height: 120px; }
-.zv-apply__fallback { margin-top: 16px; font-size: 15px; color: var(--grey); }
-.zv-apply__stub { margin-top: 16px; padding: 28px; border: 1.5px dashed #C9C6C0; color: var(--grey); font-size: 15px; }
-@media (min-width: 900px) { .zv-apply { grid-template-columns: 5fr 7fr; gap: 64px; } }
+.zv-apply__cta { margin-top: 14px; }
+
+/* Окно с анкетой */
+.zv-forms { position: absolute; left: -10000px; top: 0; width: 560px; }
+.zv-dlg { width: min(600px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); padding: 0; border: 0; border-top: 3px solid var(--accent); background: var(--paper); color: var(--black); overflow: auto; }
+.zv-dlg::backdrop { background: rgba(11, 11, 11, .55); }
+.zv-dlg__head { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 24px 0; }
+.zv-dlg__head p { font: 900 clamp(20px, 3vw, 26px)/1.1 var(--display); text-transform: uppercase; }
+.zv-dlg__close { flex: none; width: 40px; height: 40px; display: grid; place-items: center; padding: 0; border: 0; background: none; color: var(--black); cursor: pointer; }
+.zv-dlg__close svg { width: 22px; height: 22px; }
+.zv-dlg__lead { padding: 8px 24px 0; font-size: 15px; color: var(--grey); }
+.zv-dlg__body { padding: 12px 24px 8px; min-height: 160px; }
+.zv-dlg__note { padding: 0 24px 22px; font-size: 15px; color: var(--grey); }
+@media (min-width: 900px) { .zv-apply { grid-template-columns: 5fr 7fr; gap: 64px; align-items: start; } }
 html:has(.zv-root) { scroll-behavior: smooth; }
 
 /* Строка доверия под кнопками первого экрана */
