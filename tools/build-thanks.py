@@ -12,7 +12,7 @@ import base64, pathlib, re
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
 LINKS = {
-    "MAX_LINK": "",    # чат MAX по номеру +7 916 044 7419 — уточнить у Регины
+    "MAX_LINK": "https://max.ru/u/f9LHodD0cOKMJb_S2fQPg_xSzds-I7sOWH6ZJV-sJWBOIfm4oShBdvusUJY",  # чат MAX Юлии Соло
     "TEST_LINK": "",   # тест «На какой вы стадии» — уточнить у Регины
 }
 LIMIT = 100_000  # символов в одном блоке T123
