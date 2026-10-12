@@ -12,9 +12,8 @@ import base64, pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
 LINKS = {
-    "LINK_GUEST": "",                                              # оплата билета гостя 5 000 ₽ (GetCourse)
-    "LINK_CLUB": "https://reginapr.getcourse.ru/regina_club_06",   # вступление в клуб
-    "LINK_MEMBER": "",                                             # регистрация участника клуба (GetCourse)
+    # Оплата билета, клуба и регистрация участника — виджеты GetCourse в trends.src.html.
+    "LINK_CLUB": "https://reginapr.getcourse.ru/regina_club_06",   # запасная ссылка «Вступить в клуб» для старых браузеров
     "LINK_OFFER": "",                                              # оферта мероприятия
     "LINK_PRIVACY": "https://reginapr.getcourse.ru/confidetial",   # политика конфиденциальности
 }
