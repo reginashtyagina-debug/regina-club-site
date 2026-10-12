@@ -405,4 +405,6 @@ body:has(> .zv-root) { margin: 0; background: #F8F7F4; }
 .zv-mini__more[open] summary { margin-bottom: 10px; }
 .zv-mini__more li { padding: 8px 0 8px 24px; position: relative; font-size: 15px; color: var(--grey); }
 .zv-mini__more li::before { content: ""; position: absolute; left: 0; top: 1.15em; width: 12px; height: 1.5px; background: currentColor; }
+.zv-case__more { margin-top: 20px; max-width: 34em; }
+.zv-case__more + .zv-mini__handle { margin-top: 14px; }
 .zv-mini__handle { margin-top: auto; font: 600 13px/1 var(--display); color: var(--grey); }
