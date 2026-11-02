@@ -29,7 +29,7 @@ VALUES = {
         "Я&nbsp;выбираю участников лично. Рада, что в&nbsp;этом году вы&nbsp;среди них.",
     ]),
     "SIGN": "",
-    "FORM_NOTE": "Расскажите о&nbsp;себе и&nbsp;своих целях на&nbsp;год. К&nbsp;первой встрече я&nbsp;изучу ваши ответы.",
+    "FORM_NOTE": "Расскажите о&nbsp;себе и&nbsp;своих целях на&nbsp;год.",
     "NEXT": "После анкеты мы&nbsp;свяжемся с&nbsp;вами и&nbsp;согласуем дату первой встречи.",
     # Только в окне, если форма не загрузилась
     "CONTACT": '<a href="https://t.me/yulya_solo_pr" target="_blank" rel="noopener">@yulya_solo_pr</a>',
