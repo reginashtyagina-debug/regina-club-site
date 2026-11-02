@@ -1,0 +1,147 @@
+<!-- Страница «Вход в годовое сопровождение» (после оплаты). Собирается tools/build-annual.py -->
+<style>
+{{FONTS}}
+.gs { --ink: #0B0B0B; --milk: #F8F7F4; --lime: #D8FF1F; --grey: #A7A7A7; --line: rgba(248, 247, 244, .35); --soft: rgba(248, 247, 244, .16);
+  --d: "GS Montserrat", "Montserrat", "Helvetica Neue", Arial, sans-serif; --s: "GS Serif", "PT Serif", Georgia, serif;
+  box-sizing: border-box; min-height: 100vh; min-height: 100dvh; padding: 12px; background: var(--ink); color: var(--milk);
+  font: 600 16px/1.5 var(--d); -webkit-font-smoothing: antialiased; text-align: left; }
+.gs *, .gs *::before, .gs *::after { box-sizing: border-box; }
+.gs :where(h1, h2, p, ol) { margin: 0; padding: 0; }
+.gs ol { list-style: none; }
+.gs img { display: block; max-width: 100%; height: auto; }
+.gs a { color: inherit; }
+.gs :focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; }
+
+.gs__frame { min-height: calc(100dvh - 24px); border: 1px solid var(--line); padding: 22px 20px 32px; display: flex; flex-direction: column; }
+.gs__head { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 18px; border-bottom: 1px solid var(--soft); }
+.gs__head img { width: 112px; }
+.gs__academy { font: 600 10px/1.3 var(--d); text-transform: uppercase; letter-spacing: .24em; color: var(--grey); text-align: right; }
+
+.gs__hero { display: grid; gap: 32px; padding-top: 36px; }
+.gs__label { font: 600 11px/1 var(--d); text-transform: uppercase; letter-spacing: .34em; color: var(--lime); }
+.gs__label::after { content: ""; display: block; width: 48px; height: 2px; margin-top: 16px; background: var(--lime); }
+.gs__title { margin-top: 26px; }
+.gs__title span { display: block; }
+.gs__title .gs__serif { font: italic 400 clamp(40px, 11vw, 76px)/1.05 var(--s); letter-spacing: -.01em; }
+.gs__title .gs__caps { margin-top: 14px; font: 900 clamp(26px, 7vw, 44px)/1.05 var(--d); text-transform: uppercase; letter-spacing: .01em; }
+
+.gs__photo { position: relative; margin: 0; padding: 8px; border: 2px solid var(--lime); }
+.gs__photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 18%; }
+.gs__photo figcaption { position: absolute; left: 10px; right: 10px; bottom: 10px; padding: 56px 12px 16px; text-align: center;
+  background: linear-gradient(to top, rgba(11, 11, 11, .78), rgba(11, 11, 11, 0)); }
+.gs__photo b { display: block; font: 900 12px/1.2 var(--d); text-transform: uppercase; letter-spacing: .26em; }
+.gs__photo i { display: block; margin-top: 4px; font: italic 400 16px/1.3 var(--s); color: #D9D7D2; }
+
+.gs__list { border-top: 1px solid var(--soft); }
+.gs__list li { display: grid; grid-template-columns: 44px 1fr; align-items: baseline; padding: 15px 0; border-bottom: 1px solid var(--soft); font-size: 16px; line-height: 1.4; }
+.gs__list b { font: italic 400 19px/1 var(--s); color: var(--lime); }
+
+.gs__form { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--line); display: grid; gap: 14px; }
+.gs__form h2 { font: 900 22px/1.1 var(--d); text-transform: uppercase; letter-spacing: .02em; }
+.gs__form p { color: #D9D7D2; font-weight: 500; }
+.gs__btn { display: flex; align-items: center; justify-content: center; min-height: 56px; margin-top: 6px; padding: 0 32px; border: 2px solid var(--lime); border-radius: 2px;
+  background: var(--lime); color: var(--ink) !important; font: 900 14px/1 var(--d); text-transform: uppercase; letter-spacing: .14em; text-decoration: none; cursor: pointer;
+  transition: background .2s, color .2s; }
+.gs__btn:hover { background: var(--ink); color: var(--lime) !important; }
+.gs__contact { font-size: 13px; color: var(--grey) !important; }
+.gs__contact a { color: var(--milk); text-underline-offset: 3px; }
+
+/* Мягкое появление текста */
+@media (prefers-reduced-motion: no-preference) {
+  .gs [data-gs-in] { animation: gs-in .5s ease-out both; }
+  .gs [data-gs-in="2"] { animation-delay: .08s; } .gs [data-gs-in="3"] { animation-delay: .16s; } .gs [data-gs-in="4"] { animation-delay: .24s; }
+  @keyframes gs-in { from { opacity: 0; } to { opacity: 1; } }
+}
+
+/* Окно с анкетой */
+.gs__forms { position: absolute; left: -10000px; top: 0; width: 560px; }
+.gs__dlg { width: min(600px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); padding: 0; border: 0; border-top: 3px solid var(--lime); background: var(--milk); color: var(--ink); overflow: auto; }
+.gs__dlg::backdrop { background: rgba(11, 11, 11, .7); }
+.gs__dlg-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 24px 0; }
+.gs__dlg-head p { margin: 0; font: 900 22px/1.1 var(--d); text-transform: uppercase; }
+.gs__dlg-close { flex: none; width: 40px; height: 40px; display: grid; place-items: center; padding: 0; border: 0; background: none; color: var(--ink); cursor: pointer; }
+.gs__dlg-close svg { width: 22px; height: 22px; }
+.gs__dlg-body { padding: 12px 24px 8px; min-height: 160px; }
+.gs__dlg-note { margin: 0; padding: 0 24px 22px; font: 500 14px/1.5 var(--d); color: #4A4A4A; }
+.gs__dlg-note a { color: inherit; }
+
+@media (min-width: 900px) {
+  .gs { padding: 24px; }
+  .gs__frame { min-height: calc(100vh - 48px); padding: 28px 56px 32px; }
+  .gs__head img { width: 124px; }
+  .gs__academy { font-size: 11px; }
+  .gs__hero { flex: 1; grid-template-columns: minmax(0, 1fr) minmax(280px, 360px); grid-template-rows: auto auto; grid-template-areas: "text photo" "list photo";
+    column-gap: clamp(48px, 6vw, 96px); row-gap: clamp(32px, 6vh, 64px); align-content: center; padding-top: 32px; }
+  .gs__hero-text { grid-area: text; align-self: end; }
+  .gs__photo { grid-area: photo; align-self: center; }
+  .gs__list { grid-area: list; align-self: start; max-width: 640px; }
+  .gs__list li { font-size: 17px; padding: 14px 0; }
+  .gs__form { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "h btn" "p btn" "c btn"; column-gap: 48px; row-gap: 6px; align-items: center; margin-top: 32px; padding-top: 24px; }
+  .gs__form h2 { grid-area: h; } .gs__form > p:not(.gs__contact) { grid-area: p; } .gs__contact { grid-area: c; } .gs__btn { grid-area: btn; margin: 0; min-width: 300px; }
+}
+</style>
+
+<div class="gs">
+  <div class="gs__frame">
+    <header class="gs__head">
+      <img src="{{LOGO}}" width="300" height="64" alt="shtyagina">
+      <p class="gs__academy">Академия PR и&nbsp;личного бренда</p>
+    </header>
+
+    <main class="gs__hero">
+      <div class="gs__hero-text">
+        <p class="gs__label" data-gs-in="1">Годовое сопровождение</p>
+        <h1 class="gs__title" data-gs-in="2"><span class="gs__serif">Добро пожаловать</span><span class="gs__caps">в&nbsp;ближний круг</span></h1>
+      </div>
+      <figure class="gs__photo">
+        <img src="{{PHOTO}}" width="640" height="800" alt="Регина Штягина">
+        <figcaption><b>Регина Штягина</b><i>основатель Академии</i></figcaption>
+      </figure>
+      <ol class="gs__list" data-gs-in="3">
+        <li><b>01</b>Группа из&nbsp;10 предпринимателей, отобранных лично</li>
+        <li><b>02</b>Еженедельная работа над стратегией лично с&nbsp;Региной</li>
+        <li><b>03</b>Куратор на&nbsp;связи каждый день</li>
+      </ol>
+    </main>
+
+    <section class="gs__form" data-gs-in="4">
+      <h2>Анкета участника</h2>
+      <p>{{FORM_NOTE}}</p>
+      <a class="gs__btn" href="{{FORM_LINK}}" target="_blank" rel="noopener" data-gs-open>Заполнить анкету</a>
+      <p class="gs__contact">Вопросы: {{CONTACT}}</p>
+    </section>
+  </div>
+
+  <!--IF WIDGET--><div class="gs__forms" aria-hidden="true"><div data-gs-form>{{WIDGET}}</div></div>
+  <dialog class="gs__dlg" data-gs-dlg aria-labelledby="gs-dlg-title">
+    <div class="gs__dlg-head">
+      <p id="gs-dlg-title">Анкета участника</p>
+      <button type="button" class="gs__dlg-close" data-gs-close aria-label="Закрыть"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" fill="none"/></svg></button>
+    </div>
+    <div class="gs__dlg-body" data-gs-body></div>
+    <p class="gs__dlg-note" data-gs-note hidden>Форма не&nbsp;загрузилась? Напишите куратору: {{CONTACT}}</p>
+  </dialog>
+  <script>
+  (function () {
+    // Анкета GetCourse грузится заранее за краем экрана и по кнопке переносится в окно.
+    // Без поддержки <dialog> кнопка работает как обычная ссылка.
+    var root = document.querySelector('.gs');
+    var dlg = root && root.querySelector('[data-gs-dlg]');
+    var box = root && root.querySelector('[data-gs-form]');
+    if (!dlg || !box || typeof dlg.showModal !== 'function') return;
+    var home = box.parentNode, body = dlg.querySelector('[data-gs-body]'), note = dlg.querySelector('[data-gs-note]');
+    var ready = function () { return !!box.querySelector('iframe, form'); };
+    root.querySelectorAll('[data-gs-open]').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        body.appendChild(box); note.hidden = true; dlg.showModal();
+        if (!ready()) setTimeout(function () { note.hidden = ready(); }, 6000);
+        if (window.ym && window.GS_METRIKA_ID) window.ym(window.GS_METRIKA_ID, 'reachGoal', 'annual_form');
+      });
+    });
+    dlg.addEventListener('close', function () { home.appendChild(box); });
+    dlg.querySelector('[data-gs-close]').addEventListener('click', function () { dlg.close(); });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+  })();
+  </script><!--END-->
+</div>
