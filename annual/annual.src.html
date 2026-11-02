@@ -47,12 +47,13 @@
 .gs__word h2 + p { margin-top: 20px; }
 .gs__word p { font: italic 400 20px/1.5 var(--s); color: #E9E7E2; max-width: 32em; }
 .gs__word p + p { margin-top: 14px; }
-.gs__sign { margin-top: 18px; }
-.gs__sign img { width: 180px; }
-.gs__sign span { display: block; margin-top: 4px; font: 600 11px/1.2 var(--d); text-transform: uppercase; letter-spacing: .26em; color: var(--grey); }
+/* Подпись: имя слева, рукописная подпись справа, чуть меньше и с меньшим подъёмом */
+.gs__sign { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; max-width: 32em; margin-top: 22px; }
+.gs__sign span { font: 600 11px/1.2 var(--d); text-transform: uppercase; letter-spacing: .26em; color: var(--grey); padding-bottom: 6px; }
+.gs__sign img { width: 132px; transform: rotate(11deg); transform-origin: 50% 60%; }
 .gs__form { display: grid; gap: 12px; align-content: start; padding: 28px 24px; border: 1px solid var(--line); }
 .gs__form h2 { font: 900 22px/1.1 var(--d); text-transform: uppercase; letter-spacing: .02em; }
-.gs__form p { color: #D9D7D2; font-weight: 500; }
+.gs__form p { color: #D9D7D2; font-weight: 500; text-wrap: balance; }
 .gs__foot { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--soft); display: grid; gap: 8px; font: 500 12px/1.5 var(--d); color: var(--grey); }
 .gs__foot ul { display: flex; flex-wrap: wrap; gap: 4px 20px; margin: 0; padding: 0; list-style: none; }
 .gs__foot a { color: var(--grey); text-underline-offset: 3px; }
@@ -93,8 +94,9 @@
   .gs__list { grid-area: list; align-self: start; max-width: 720px; grid-template-columns: 1fr 1fr; column-gap: 40px; }
   .gs__list li { font-size: 17px; padding: 20px 0; }
   .gs__hero { min-height: calc(100vh - 48px - 140px); }
-  .gs__letter { grid-template-columns: minmax(0, 1fr) minmax(300px, 380px); column-gap: clamp(48px, 6vw, 96px); align-items: start; margin-top: 56px; padding-top: 56px; }
+  .gs__letter { grid-template-columns: minmax(0, 1fr) minmax(320px, 400px); column-gap: clamp(48px, 6vw, 96px); align-items: start; margin-top: 56px; padding-top: 56px; }
   .gs__form { position: sticky; top: 24px; padding: 32px 28px; }
+  .gs__form > p:first-of-type { white-space: nowrap; font-size: 14px; }
   .gs__foot { grid-template-columns: 1fr auto; align-items: center; }
 }
 </style>
@@ -125,7 +127,7 @@
       <div class="gs__word">
         <h2>Письмо Регины</h2>
 {{LETTER}}
-        <div class="gs__sign"><img src="{{SIGNATURE}}" width="360" height="212" alt="Подпись Регины Штягиной"><span>Регина Штягина</span></div>
+        <div class="gs__sign"><span>Регина Штягина</span><img src="{{SIGNATURE}}" width="360" height="212" alt="Подпись Регины Штягиной"></div>
       </div>
       <section class="gs__form">
         <h2>Анкета участника</h2>
