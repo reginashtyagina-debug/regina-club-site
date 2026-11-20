@@ -1,0 +1,125 @@
+<!-- «Разбор: как сделать, чтобы ваш бренд покупали» — reginashtyagina.ru/razbor. Собирается tools/build-razbor.py -->
+<style>
+{{FONTS}}
+.rz { --bg: #0d1730; --bg2: #13254a; --panel: rgba(10,20,45,.72); --gold: #ffee96; --gold2: #d9b65c; --red: #ff1d3d;
+  --text: #ffffff; --muted: #c9cfdc; --milk: #f8f7f4; --navy: #0b1630;
+  --d: "Montserrat", "Helvetica Neue", Arial, sans-serif; --s: "RZ Serif", "PT Serif", Georgia, serif;
+  font-family: var(--d); line-height: 1.5; color: var(--text); width: 100%; overflow: hidden;
+  background: radial-gradient(1200px 800px at 85% 0%, var(--bg2), transparent 70%) no-repeat, var(--bg);
+  -webkit-font-smoothing: antialiased; }
+.rz, .rz *, .rz *::before, .rz *::after { box-sizing: border-box; }
+.rz :where(h1, h2, h3, p, ol, ul, li) { margin: 0; padding: 0; }
+.rz img { display: block; max-width: 100%; }
+.rz__wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.rz__head { display: flex; justify-content: space-between; align-items: center; padding: 28px 0; }
+.rz__head .l { height: 56px; width: auto; }
+.rz__head .m { height: 26px; width: auto; opacity: .9; }
+.rz__hero { display: grid; grid-template-columns: 1.25fr .75fr; gap: 24px; align-items: end; padding: 24px 0 0; }
+.rz h1 { font-weight: 900; font-size: clamp(38px, 6vw, 72px); line-height: 1.02; text-transform: uppercase; color: var(--gold); letter-spacing: -.01em; }
+.rz h1 .k { color: var(--red); }
+.rz__sub { font-family: var(--s); font-style: italic; font-size: clamp(20px, 2.4vw, 28px); margin: 18px 0 22px; color: var(--text); }
+.rz__chips { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
+.rz__chip { border: 2px solid var(--gold2); background: var(--panel); border-radius: 40px; padding: 12px 22px; font-weight: 800; font-size: 15px; letter-spacing: .04em; }
+.rz__chip.w { background: var(--milk); color: var(--navy); border-color: var(--milk); }
+.rz__chip.w b { color: var(--red); }
+.rz__btn { display: inline-flex; align-items: center; gap: 14px; background: var(--gold2); color: var(--navy); font-weight: 900; font-size: 18px;
+  letter-spacing: .03em; text-transform: uppercase; padding: 20px 34px; border-radius: 44px; text-decoration: none; border: 0; cursor: pointer; }
+.rz__btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.rz__photo { align-self: end; }
+.rz__photo img { width: 100%; height: auto; -webkit-mask-image: linear-gradient(#000 78%, transparent); mask-image: linear-gradient(#000 78%, transparent); }
+.rz__sec { padding: 56px 0; border-top: 1px solid rgba(248,247,244,.14); }
+.rz h2 { font-weight: 900; font-size: clamp(26px, 3.4vw, 38px); text-transform: uppercase; color: var(--gold); margin-bottom: 24px; line-height: 1.1; }
+.rz__get { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.rz__get div { background: var(--panel); border: 1px solid rgba(217,182,92,.55); border-radius: 22px; padding: 24px; }
+.rz__get h3 { font-size: 19px; font-weight: 800; margin-bottom: 8px; }
+.rz__get p { color: var(--muted); font-size: 16px; }
+.rz__steps { list-style: none; display: grid; gap: 14px; counter-reset: s; }
+.rz__steps li { counter-increment: s; display: grid; grid-template-columns: 56px 1fr; gap: 16px; align-items: start; font-size: 18px; }
+.rz__steps li::before { content: counter(s); font-weight: 900; font-size: 36px; color: var(--red); line-height: 1; }
+.rz__steps b { display: block; }
+.rz__steps span { color: var(--muted); font-size: 16px; }
+.rz__gifts { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.rz__gift { background: var(--milk); color: var(--navy); border-radius: 22px; padding: 26px; }
+.rz__gift .t { font-weight: 900; font-size: 20px; margin: 6px 0; }
+.rz__gift .who { font-weight: 800; font-size: 14px; letter-spacing: .06em; color: var(--red); }
+.rz__cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.rz__case { display: grid; grid-template-columns: 64px 1fr; gap: 14px; align-items: start; background: var(--panel); border-radius: 22px; padding: 20px; border: 1px solid rgba(248,247,244,.12); }
+.rz__case img { width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--gold2); object-fit: cover; }
+.rz__case .n { font-weight: 900; font-size: 26px; color: var(--red); line-height: 1.1; }
+.rz__case b { display: block; font-size: 15px; }
+.rz__case span { color: var(--muted); font-size: 14px; }
+.rz__about { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.rz__about ul { list-style: none; }
+.rz__about li { padding: 10px 0; border-bottom: 1px solid rgba(248,247,244,.12); font-size: 17px; }
+.rz__about .rz__sub { margin-top: 0; }
+#form { scroll-margin-top: 16px; }
+.rz__card { background: var(--milk); color: var(--navy); border-radius: 28px; padding: 34px; max-width: 640px; margin: 0 auto; }
+.rz__card h2 { color: var(--navy); margin-bottom: 8px; }
+.rz__widget { min-height: 120px; }
+.rz__widget iframe { width: 100% !important; max-width: 100%; border: 0; }
+.rz__fallback { font-size: 15px; font-weight: 600; margin-top: 12px; }
+.rz__fallback a { color: var(--navy); }
+.rz__stub { border: 2px dashed #b9b3a5; border-radius: 14px; padding: 40px 16px; text-align: center; color: #5b6170; font-weight: 700; }
+.rz__faq details { border-bottom: 1px solid rgba(248,247,244,.14); padding: 16px 0; }
+.rz__faq summary { cursor: pointer; font-weight: 800; font-size: 18px; }
+.rz__faq p { color: var(--muted); margin-top: 8px; }
+.rz__foot { padding: 36px 0 48px; color: var(--muted); font-size: 13px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+@media (max-width: 760px) {
+  .rz__head .l { height: 44px; }
+  .rz__hero { grid-template-columns: 1fr; }
+  .rz__photo { max-width: 360px; margin: 0 auto; }
+  .rz__get, .rz__cases, .rz__gifts, .rz__about { grid-template-columns: 1fr; }
+  .rz__card { padding: 24px 18px; }
+  .rz__btn { font-size: 16px; padding: 18px 28px; }
+}
+</style>
+
+<div class="rz">
+<div class="rz__wrap">
+<div class="rz__head"><img class="l" src="{{LOGO_FORUM}}" width="340" height="112" alt="Блогер города"><img class="m" src="{{LOGO_SHTYAGINA}}" width="200" height="42" alt="shtyagina"></div>
+<div class="rz__hero"><div>
+<h1>Как сделать, чтобы ваш бренд <span class="k">покупали?</span></h1>
+<p class="rz__sub">Разбор вашей ситуации на онлайн-эфире с Региной Штягиной</p>
+<div class="rz__chips"><span class="rz__chip">Вторник, 24 ноября, 18:00 по Москве</span><span class="rz__chip w">Места <b>ограничены</b></span></div>
+<a class="rz__btn" href="#form">Записаться на разбор</a>
+</div><div class="rz__photo"><img src="{{PORTRAIT}}" width="560" height="712" alt="Регина Штягина"></div></div>
+</div>
+<div class="rz__wrap">
+<section class="rz__sec"><h2>Что вы получите</h2><div class="rz__get">
+<div><h3>Где сейчас ваш бренд</h3><p>Что о вас знает нейросеть и что видит клиент до первого сообщения.</p></div>
+<div><h3>Что мешает покупать</h3><p>Главный барьер в вашей подаче, из-за которого выбирают других.</p></div>
+<div><h3>Шаги на месяц</h3><p>Что сделать в первую очередь, чтобы вас начали выбирать.</p></div></div></section>
+<section class="rz__sec"><h2>Как проходит разбор</h2><ol class="rz__steps">
+<li><div><b>Записываетесь и присылаете ответ нейросети</b><span>Спросите: «Кто лучший [профессия] в [ваш город]?» и вставьте ответ в форму. С ответом — приоритет на разбор.</span></div></li>
+<li><div><b>Во вторник, 24 ноября, в 18:00 по Москве — онлайн-эфир</b><span>Ссылка придёт на почту и в Telegram после записи.</span></div></li>
+<li><div><b>Регина разбирает 10 ситуаций вживую</b><span>Остальные участники смотрят и применяют к своему делу.</span></div></li></ol></section>
+<section class="rz__sec"><h2>Подарки</h2><div class="rz__gifts">
+<div class="rz__gift"><div class="who">УЧАСТНИКАМ ЭФИРА ОНЛАЙН</div><div class="t">Книга «Личный бренд за 21 день»</div><p>Книга-практикум Регины Штягиной. Отправим после эфира тем, кто был на нём вживую.</p></div>
+<div class="rz__gift"><div class="who">КАЖДОМУ, КТО ЗАПИСАЛСЯ</div><div class="t">10 инструментов продвижения 2027</div><p>Для блогера, бизнеса и города, с методикой «От Анонима до Звезды» и кейсами участников.</p></div></div></section>
+<section class="rz__sec"><h2>Как это работает у участников</h2><div class="rz__cases">
+<div class="rz__case"><img src="{{ALBINA}}" width="64" height="64" alt=""><div><div class="n">×2</div><b>Альбина Караберова</b><span>косметология, Уфа: выручка в ноябре после смены стратегии соцсетей</span></div></div>
+<div class="rz__case"><img src="{{LILIYA}}" width="64" height="64" alt=""><div><div class="n">×4</div><b>Лилия Асфандиярова</b><span>дизайн интерьера, Уфа: доход; ChatGPT называет её первой в городе</span></div></div>
+<div class="rz__case"><img src="{{DILYARA}}" width="64" height="64" alt=""><div><div class="n">61 000 €</div><b>Диляра Хафизова</b><span>круизы, США: продажи с начала октября, блог — основной источник клиентов</span></div></div></div></section>
+<section class="rz__sec rz__about"><div><h2>Кто ведёт разбор</h2><p class="rz__sub">Регина Штягина</p></div><ul>
+<li>Основатель Академии PR и личного бренда</li><li>Автор методики «От Анонима до Звезды» — 25 000+ учеников в разных странах</li><li>15 лет в PR. Среди клиентов — Сбербанк, МегаФон, Heineken</li></ul></section>
+<section class="rz__sec" id="form">
+<div class="rz__card">
+<h2>Запись на разбор</h2>
+<div class="rz__widget" id="rz-widget">{{WIDGET}}</div>
+<p class="rz__fallback" id="rz-fallback" hidden>Если форма не появилась, обновите страницу или напишите нам в&nbsp;Telegram: <a href="{{FALLBACK_LINK}}" target="_blank" rel="noopener">{{FALLBACK_TEXT}}</a></p>
+</div>
+</section>
+<section class="rz__sec rz__faq"><h2>Вопросы</h2>
+<details><summary>Сколько стоит?</summary><p>Бесплатно для участников форума «Блогер города».</p></details>
+<details><summary>Нужно ли включать камеру?</summary><p>По возможности лучше включить камеру. Вопросы можно задавать голосом или в чате.</p></details>
+<details><summary>Будет ли запись?</summary><p>Да, 24 часа для записавшихся. Книга — тем, кто был на эфире вживую.</p></details>
+<details><summary>Сколько длится эфир?</summary><p>Около часа.</p></details></section>
+<footer class="rz__foot"><span>Академия PR и личного бренда · Превратите репутацию в доход</span><span>ИП Штягина Регина Андреевна</span></footer>
+</div></div>
+<script>
+/* Если форма GetCourse не загрузилась за 10 секунд — показать запасную ссылку */
+setTimeout(function () {
+  var w = document.getElementById("rz-widget");
+  if (w && !w.querySelector("iframe")) document.getElementById("rz-fallback").hidden = false;
+}, 10000);
+</script>
