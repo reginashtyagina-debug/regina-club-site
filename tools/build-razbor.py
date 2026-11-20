@@ -13,7 +13,7 @@ from fontTools import subset
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 VALUES = {
     # Код виджета формы GetCourse целиком: <script id="…" src="https://…/pl/lite/widget/script?id=…"></script>
-    "WIDGET": "",
+    "WIDGET": '<script id="fdfc19dc6278297a0be16f2f67f5eacfd7734c10" src="https://reginapr.ru/pl/lite/widget/script?id=1687556"></script>',
     # Запасная связь, если форма не загрузилась
     "FALLBACK_LINK": "https://t.me/yulya_solo_pr",
     "FALLBACK_TEXT": "@yulya_solo_pr",
