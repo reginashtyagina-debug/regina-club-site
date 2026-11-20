@@ -32,8 +32,9 @@ def b64(data):
     return base64.b64encode(data).decode()
 
 
-def subset_font(path, text):
-    opts = subset.Options(); opts.flavor = "woff2"; opts.layout_features = ["kern", "liga"]
+def subset_font(path, text, features=("kern", "liga")):
+    opts = subset.Options(); opts.flavor = "woff2"; opts.layout_features = list(features)
+    opts.name_IDs = []; opts.hinting = False
     font = subset.load_font(str(path), opts)
     sub = subset.Subsetter(opts); sub.populate(text=text); sub.subset(font)
     buf = io.BytesIO(); subset.save_font(font, buf, opts)
@@ -50,6 +51,23 @@ faces = "\n".join(
     'src: url(data:font/woff2;base64,%s) format("woff2"); unicode-range: %s; }'
     % (b64(subset_font(ROOT / "assets/fonts" / ("pt-serif-%s-400-italic.woff2" % part), serif)), rng)
     for part, rng in (("cyrillic", CYR), ("latin", LAT)))
+
+# Montserrat встроен двумя начертаниями: 500 — обычный текст (до 650), 900 — жирный и заголовки (651–950).
+# Тильда подгружает не все начертания своего Montserrat, поэтому без встраивания жирный текст выходит тонким.
+def page_chars(text):
+    text = re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", text, flags=re.S)
+    text = html.unescape(re.sub(r"<[^>]+>", " ", text))
+    return text + text.upper() + "0123456789«»—–-.,:;?!()@_/×€ "
+
+
+def montserrat(text):
+    chars = page_chars(text)
+    return "\n".join(
+        '@font-face { font-family: "RZ Montserrat"; font-style: normal; font-weight: %s; font-display: swap; '
+        'src: url(data:font/woff2;base64,%s) format("woff2"); unicode-range: %s; }'
+        % (rng_w, b64(subset_font(ROOT / "assets/fonts" / ("montserrat-%s-%d-normal.woff2" % (part, w)), chars, ("kern",))), rng)
+        for w, rng_w in ((500, "100 650"), (900, "651 1000")) for part, rng in (("cyrillic", CYR), ("latin", LAT)))
+
 
 font_css = "".join("@font-face{font-family:Montserrat;font-weight:%s;src:url(../assets/fonts/montserrat-%s-%s-normal.woff2)%s}"
                    % (w, sub, w, ";unicode-range:U+0400-045F" if sub == "cyrillic" else "")
@@ -77,7 +95,7 @@ def block(name, out):
 def common(text):
     for key, name in IMAGES.items():
         text = text.replace("{{%s}}" % key, "data:image/webp;base64," + b64((ROOT / "razbor/assets" / name).read_bytes()))
-    return text.replace("{{FONTS}}", faces)
+    return text.replace("{{FONTS}}", faces + "\n" + montserrat(text))
 
 
 # Страница разбора
