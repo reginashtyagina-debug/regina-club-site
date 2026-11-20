@@ -17,6 +17,9 @@ VALUES = {
     # Запасная связь, если форма не загрузилась
     "FALLBACK_LINK": "https://t.me/yulya_solo_pr",
     "FALLBACK_TEXT": "@yulya_solo_pr",
+    # Страница «Вы записаны» (razbor-spasibo): закрытый чат участников и PDF подарка
+    "CHAT_LINK": "https://t.me/+rPaQKl6ykcI1NTE6",
+    "GIFT_LINK": "",
 }
 IMAGES = {"LOGO_FORUM": "logo-forum.webp", "LOGO_SHTYAGINA": "logo-shtyagina.webp", "PORTRAIT": "portrait.webp",
           "ALBINA": "albina.webp", "LILIYA": "liliya.webp", "DILYARA": "dilyara.webp"}
@@ -38,38 +41,64 @@ def subset_font(path, text):
 
 
 src = (ROOT / "razbor" / "razbor.src.html").read_text(encoding="utf-8")
-for key, name in IMAGES.items():
-    src = src.replace("{{%s}}" % key, "data:image/webp;base64," + b64((ROOT / "razbor/assets" / name).read_bytes()))
 for key in ("FALLBACK_LINK", "FALLBACK_TEXT"):
     src = src.replace("{{%s}}" % key, VALUES[key])
 # Курсивом набраны только эти строки — шрифт урезается до них
-serif = "Разбор вашей ситуации на онлайн-эфире с Региной Штягиной Регина Штягина"
+serif = "Разбор вашей ситуации на онлайн-эфире с Региной Штягиной Регина Штягина Онлайн-эфир в Zoom"
 faces = "\n".join(
     '@font-face { font-family: "RZ Serif"; font-style: italic; font-weight: 400; font-display: swap; '
     'src: url(data:font/woff2;base64,%s) format("woff2"); unicode-range: %s; }'
     % (b64(subset_font(ROOT / "assets/fonts" / ("pt-serif-%s-400-italic.woff2" % part), serif)), rng)
     for part, rng in (("cyrillic", CYR), ("latin", LAT)))
-src = src.replace("{{FONTS}}", faces)
 
-stub = '<div class="rz__stub">Здесь будет форма GetCourse</div>'
-preview_body = src.replace("{{WIDGET}}", VALUES["WIDGET"] or stub)
 font_css = "".join("@font-face{font-family:Montserrat;font-weight:%s;src:url(../assets/fonts/montserrat-%s-%s-normal.woff2)%s}"
                    % (w, sub, w, ";unicode-range:U+0400-045F" if sub == "cyrillic" else "")
                    for w in ("600", "900") for sub in ("latin", "cyrillic"))
-(ROOT / "razbor" / "preview.html").write_text(
-    '<!doctype html><html lang="ru"><head><meta charset="utf-8">'
-    '<meta name="viewport" content="width=device-width, initial-scale=1">'
-    '<meta name="robots" content="noindex, nofollow"><title>Разбор — просмотр</title>'
-    '<style>body{margin:0;background:#0d1730}' + font_css + '</style></head><body>' + preview_body + '</body></html>',
-    encoding="utf-8")
 
-if not VALUES["WIDGET"]:
-    print("razbor/preview.html собран. Код формы GetCourse (WIDGET) пустой — код для Тильды не собирается.")
-    raise SystemExit
-out = src.replace("{{WIDGET}}", VALUES["WIDGET"])
-assert "{{" not in out, "остались незаполненные места в шаблоне"
-(ROOT / "tilda").mkdir(exist_ok=True)
-(ROOT / "tilda" / "razbor-block.html").write_text(out, encoding="utf-8")
-print("tilda/razbor-block.html:", len(out), "символов (предел Тильды ~%d)" % LIMIT)
-if len(out) > LIMIT:
-    raise SystemExit("Блок длиннее предела Тильды")
+
+def preview(name, title, body):
+    (ROOT / "razbor" / name).write_text(
+        '<!doctype html><html lang="ru"><head><meta charset="utf-8">'
+        '<meta name="viewport" content="width=device-width, initial-scale=1">'
+        '<meta name="robots" content="noindex, nofollow"><title>' + title + ' — просмотр</title>'
+        '<style>body{margin:0;background:#0d1730}' + font_css + '</style></head><body>' + body + '</body></html>',
+        encoding="utf-8")
+
+
+def block(name, out):
+    assert "{{" not in out, "остались незаполненные места в шаблоне"
+    (ROOT / "tilda").mkdir(exist_ok=True)
+    (ROOT / "tilda" / name).write_text(out, encoding="utf-8")
+    print("tilda/%s:" % name, len(out), "символов (предел Тильды ~%d)" % LIMIT)
+    if len(out) > LIMIT:
+        raise SystemExit("Блок длиннее предела Тильды")
+
+
+def common(text):
+    for key, name in IMAGES.items():
+        text = text.replace("{{%s}}" % key, "data:image/webp;base64," + b64((ROOT / "razbor/assets" / name).read_bytes()))
+    return text.replace("{{FONTS}}", faces)
+
+
+# Страница разбора
+src = common(src)
+stub = '<div class="rz__stub">Здесь будет форма GetCourse</div>'
+preview("preview.html", "Разбор", src.replace("{{WIDGET}}", VALUES["WIDGET"] or stub))
+if VALUES["WIDGET"]:
+    block("razbor-block.html", src.replace("{{WIDGET}}", VALUES["WIDGET"]))
+else:
+    print("Код формы GetCourse (WIDGET) пустой — код разбора для Тильды не собран.")
+
+# Страница «Вы записаны»
+thanks = common((ROOT / "razbor" / "spasibo.src.html").read_text(encoding="utf-8"))
+# Без ссылки на PDF строка «Скачать подарок здесь» не выводится: подарок — в чате и в письме
+thanks = re.sub(r"<!--IF GIFT_LINK-->(.*?)<!--END-->",
+                lambda m: m.group(1).replace("{{GIFT_LINK}}", VALUES["GIFT_LINK"]) if VALUES["GIFT_LINK"] else "", thanks, flags=re.S)
+thanks = thanks.replace("{{CHAT_LINK}}", VALUES["CHAT_LINK"] or "#")
+preview("spasibo-preview.html", "Вы записаны", thanks)
+if not VALUES["GIFT_LINK"]:
+    print("Нет ссылки на PDF (GIFT_LINK): строка «Скачать подарок здесь» скрыта.")
+if not VALUES["CHAT_LINK"]:
+    print("Нет ссылки на чат (CHAT_LINK) — код «Вы записаны» для Тильды не собран.")
+else:
+    block("razbor-spasibo-block.html", thanks)

@@ -1,0 +1,75 @@
+<!-- «Вы записаны» — reginashtyagina.ru/razbor-spasibo (после формы на странице разбора). Собирается tools/build-razbor.py -->
+<style>
+{{FONTS}}
+.rs { --bg: #0d1730; --bg2: #13254a; --panel: rgba(10,20,45,.72); --gold: #ffee96; --gold2: #d9b65c; --red: #ff1d3d; --green: #7fae7d;
+  --text: #ffffff; --muted: #c9cfdc; --milk: #f8f7f4; --navy: #0b1630;
+  --d: "Montserrat", "Helvetica Neue", Arial, sans-serif; --s: "RZ Serif", "PT Serif", Georgia, serif;
+  font-family: var(--d); line-height: 1.5; color: var(--text); width: 100%; min-height: 100vh; overflow: hidden;
+  background: radial-gradient(1200px 800px at 85% 0%, var(--bg2), transparent 70%) no-repeat, var(--bg);
+  -webkit-font-smoothing: antialiased; }
+.rs, .rs *, .rs *::before, .rs *::after { box-sizing: border-box; }
+.rs :where(h1, h2, p, ol, li) { margin: 0; padding: 0; }
+.rs img { display: block; max-width: 100%; height: auto; }
+.rs__wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+.rs__head { display: flex; justify-content: space-between; align-items: center; padding: 28px 0; }
+.rs__head .l { height: 56px; width: auto; }
+.rs__head .m { height: 26px; width: auto; opacity: .9; }
+.rs__ok { margin-top: 28px; display: inline-flex; align-items: center; gap: 10px; border: 2px solid var(--green); border-radius: 40px; padding: 8px 18px 8px 10px; }
+.rs__ok i { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--green); }
+.rs__ok i::after { content: ""; width: 10px; height: 5px; margin-top: -3px; border-left: 2.5px solid var(--navy); border-bottom: 2.5px solid var(--navy); transform: rotate(-45deg); }
+.rs__ok span { font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: .12em; }
+.rs h1 { margin-top: 22px; font-weight: 900; font-size: clamp(34px, 5.4vw, 60px); line-height: 1.04; text-transform: uppercase; color: var(--gold); letter-spacing: -.01em; }
+.rs h1 .k { color: var(--red); }
+.rs__sub { margin-top: 16px; font-family: var(--s); font-style: italic; font-size: clamp(20px, 2.4vw, 26px); }
+.rs__card { margin-top: 36px; background: var(--milk); color: var(--navy); border-radius: 28px; padding: 32px; }
+.rs__card .who { font-weight: 800; font-size: 14px; letter-spacing: .06em; color: var(--red); text-transform: uppercase; }
+.rs__card .t { margin-top: 6px; font-weight: 900; font-size: 24px; line-height: 1.2; }
+.rs__card p { margin-top: 10px; font-size: 16px; }
+.rs__btn { margin-top: 22px; display: flex; justify-content: center; align-items: center; gap: 12px; width: 100%; background: var(--gold2); color: var(--navy);
+  font-weight: 900; font-size: 18px; letter-spacing: .03em; text-transform: uppercase; padding: 22px 24px; border-radius: 44px; text-decoration: none; text-align: center; }
+.rs__btn:hover { background: var(--gold); }
+.rs__btn:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
+.rs__mail { margin-top: 16px; font-size: 14px; color: #5b6170; }
+.rs__mail a { color: var(--navy); font-weight: 700; }
+.rs__h { margin-top: 48px; padding-bottom: 12px; border-bottom: 1px solid rgba(248,247,244,.2); font-weight: 900; font-size: clamp(22px, 3vw, 30px); text-transform: uppercase; color: var(--gold); }
+.rs__steps { list-style: none; counter-reset: s; }
+.rs__steps li { counter-increment: s; display: grid; grid-template-columns: 56px 1fr; gap: 16px; padding: 18px 0; border-bottom: 1px solid rgba(248,247,244,.14); font-size: 18px; }
+.rs__steps li::before { content: counter(s); font-weight: 900; font-size: 36px; color: var(--red); line-height: 1; }
+.rs__steps b { display: block; }
+.rs__steps span { color: var(--muted); font-size: 16px; }
+.rs__foot { padding: 48px 0; color: var(--muted); font-size: 13px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+@media (max-width: 600px) {
+  .rs__wrap { padding: 0 18px; }
+  .rs__head .l { height: 44px; }
+  .rs__card { padding: 24px 20px; }
+  .rs__btn { font-size: 16px; padding: 20px 18px; }
+  .rs__steps li { grid-template-columns: 44px 1fr; font-size: 17px; }
+}
+</style>
+
+<div class="rs">
+<div class="rs__wrap">
+<div class="rs__head"><img class="l" src="{{LOGO_FORUM}}" width="340" height="112" alt="Блогер города"><img class="m" src="{{LOGO_SHTYAGINA}}" width="200" height="42" alt="shtyagina"></div>
+
+<p class="rs__ok"><i aria-hidden="true"></i><span>Вы записаны</span></p>
+<h1>Ждём вас на разборе <span class="k">24 ноября</span> в&nbsp;18:00 по&nbsp;Москве</h1>
+<p class="rs__sub">Онлайн-эфир в Zoom с Региной Штягиной</p>
+
+<div class="rs__card">
+  <div class="who">Ваш подарок</div>
+  <div class="t">10 инструментов продвижения 2027</div>
+  <p>Подарок ждёт вас в&nbsp;закрытом чате участников разбора. Там&nbsp;же 24&nbsp;ноября появится ссылка на&nbsp;эфир.</p>
+  <a class="rs__btn" href="{{CHAT_LINK}}" target="_blank" rel="noopener">Забрать подарок в&nbsp;Telegram-чате</a>
+  <p class="rs__mail">Подарок и&nbsp;ссылка на&nbsp;эфир придут и&nbsp;на&nbsp;почту&nbsp;— проверьте папки «Промоакции» и&nbsp;«Спам».<!--IF GIFT_LINK--> Нет Telegram? <a href="{{GIFT_LINK}}" target="_blank" rel="noopener">Скачать подарок здесь</a><!--END--></p>
+</div>
+
+<p class="rs__h">Что дальше</p>
+<ol class="rs__steps">
+  <li><div><b>Вступите в&nbsp;чат и&nbsp;заберите подарок</b><span>Одно нажатие на&nbsp;кнопку выше.</span></div></li>
+  <li><div><b>Подготовьте ответ нейросети</b><span>Спросите: «Кто лучший [профессия] в&nbsp;[ваш город]?» Если ещё не&nbsp;прислали ответ в&nbsp;форме&nbsp;— пришлите его в&nbsp;чат. С&nbsp;ответом&nbsp;— приоритет на&nbsp;разбор.</span></div></li>
+  <li><div><b>24 ноября в&nbsp;17:45&nbsp;— ссылка на&nbsp;Zoom</b><span>Придёт в&nbsp;чат и&nbsp;на&nbsp;почту. Эфир длится около часа.</span></div></li>
+</ol>
+
+<footer class="rs__foot"><span>Академия PR и личного бренда · Превратите репутацию в доход</span><span>ИП Штягина Регина Андреевна</span></footer>
+</div>
+</div>
